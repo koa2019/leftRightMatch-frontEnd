@@ -4,6 +4,8 @@
   --dark-white: rgba(192,192,192,1.0);
   --dark-white-transparent: rgba(192,192,192,0.5);
 
+  --blue-grey-slight: rgba(96, 125, 139, 0.1);
+  --stylish-slight-grey:rgba(62, 69, 81, 0.1); 
   --lightest-gray: rgba(136,136,136,1.0);
   --lighter-gray-transparent: rgba(72,72,72,0.2);
   --lighter-gray: rgba(72,72,72,1.0);
@@ -40,7 +42,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: var(--lightest-gray);
+  background: var(--stylish-slight-grey);
   color: var(--dark-gray);
   
 }
@@ -59,6 +61,7 @@ body {
 
 nav {
   float: right;
+  border-block-color: var(--medium-red);
 }
 
 .navbar-brand {
@@ -68,8 +71,8 @@ nav {
   background-position: center; */
 }
 
-.navbar-items {
-  text-align: right;
+.navbar-item {
+  margin-right: 10px;
 }
 .logo {
   background-image: url('./images/leftRightMatch3.png');
