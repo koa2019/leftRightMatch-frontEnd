@@ -1,28 +1,32 @@
 import axios from 'axios';
 
-// export an object with a "search" method that searches the google API for the passed query
-// exported different methods requesting & posting new data to mongo database
+// exporting different methods requesting & posting new data to sql database
+
 export default {
 
-    // The getGoogle method retrieves books from google API
-    // It accepts a query str from frontend to search google book api for
-    getGoogle: function (query) {
-        return axios.get(`/api/googleBooks/${query}`);
+    // retrieves all questions from database
+    getQuestions: function () {
+        return axios.get("/api/questions/");
     },
-    // Gets all books
-    getBooks: function () {
-        return axios.get("/api/books");
+    // gets all candidates from database
+    getAllCandidates: function () {
+        return axios.get("/api/candidates");
     },
-    // Gets the book with the given id
-    getBook: function (id) {
-        return axios.get("/api/books/" + id);
+    // gets candidates with the given id
+    getCandidatesProfile: function (id) {
+        return axios.get("/api/candidates/" + id);
     },
-    // Deletes the book with the given id
-    deleteBook: function (id) {
-        return axios.delete("/api/books/" + id);
+    // gets user profile with given id
+    getUserProfile: function(id) {
+        return axios.get("/api/userprofile/" + id)
     },
-    // Saves a book to the database
-    saveBook: function (bookData) {
-        return axios.post("/api/books", bookData);
+    // deletes user profile with the given id
+    deleteUserProfile: function (id) {
+        return axios.delete("/api/userprofile/" + id);
+    },
+    // Not sure what's the correct path?
+    // saves a user's quiz results to their profile id database
+    saveUserResults: function (id, resultsData) {
+        return axios.post("/api/userprofile/#", id, resultsData);
     }
 };
