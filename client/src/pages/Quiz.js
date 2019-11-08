@@ -51,8 +51,9 @@ class Quiz extends Component {
 
   handleChange(answerValue) {
     this.setState({ test: answerValue })
-    // Need to set & save the value of radio input from QuizForm for each question
-    // push all answers values to array with userId
+    // Need to setState userId from req.params 
+    // Need to setState isYes to the value of radio input from QuizForm for each question answered
+    // push all answers values into userAnswers array with userId
     // save userAnswers to database
   }
 

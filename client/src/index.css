@@ -62,14 +62,17 @@ nav {
 }
 
 .navbar-brand {
-  background-image: url('./css/leftRightMatch3.png');
+  background-image: url('./images/leftRightMatch3.png');
   background-repeat: no-repeat;
   /* background-attachment: fixed;
   background-position: center; */
 }
 
+.navbar-items {
+  text-align: right;
+}
 .logo {
-  background-image: url('./css/leftRightMatch3.png');
+  background-image: url('./images/leftRightMatch3.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
