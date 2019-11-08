@@ -1,5 +1,67 @@
+:root {
+  --light-white: rgba(248,248,248,1.0);
+  --medium-white: rgba(232,232,232,1.0);
+  --dark-white: rgba(192,192,192,1.0);
+  --dark-white-transparent: rgba(192,192,192,0.5);
+
+  --lightest-gray: rgba(136,136,136,1.0);
+  --lighter-gray-transparent: rgba(72,72,72,0.2);
+  --lighter-gray: rgba(72,72,72,1.0);
+  --light-gray: rgba(48,48,48,1.0);
+  --medium-gray: rgba(32,32,32,1.0);
+  --dark-gray: rgba(18,18,18,1.0);
+  --black: rgba(0,0,0,1.0);
+
+  --light-blue: rgba(147, 189, 249, 1);
+  --medium-blue: rgba(30,145,255,1.0);
+  --bright-blue: rgba(0, 170, 255, 1);
+  --blue: rgba(58, 98, 217, 1);
+  --medium-rare-blue: rgba(20, 76, 135, 1);
+  --dark-blue: rgba(34, 62, 146, 1);
+
+  --light-red: rgba(251,103,105,1.0);
+  --bright-red: rgba(209, 51, 52, 1);
+  --medium-red: rgba(170, 42, 43, 1);
+  --dark-red: rgba(170, 42, 43, 1);
+
+  
+}
+
+* {
+  user-select: none;
+  text-align: center;
+}
+
+html {
+  height: 100%;
+  cursor: default;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  background: var(--light-white);
+  color: var(--dark-gray);
+  
 }
+
+.jumbotron {
+  background-image: url('./css/leftRightMatch3.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.logo {
+  background-image: url('./css/leftRightMatch3.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 750px;
+  min-height: "50vh";
+  
+}
+
+a {
+  color: white;
+  }

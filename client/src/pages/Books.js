@@ -62,7 +62,7 @@ class Books extends Component {
                 <Row>
                     <Col size="md-12">
                         <h4>Book Search</h4>
-                        <Form onSubmit={this.handleSubmit} name1={'hello'} />
+                        <Form onSubmit={this.handleSubmit} />
                     </Col>
                 </Row>
                 <Row>

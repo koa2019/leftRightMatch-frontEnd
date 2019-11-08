@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+// import './styles.css';
 
 // passing any children inherited from parent 
 function Jumbotron({ children }) {
