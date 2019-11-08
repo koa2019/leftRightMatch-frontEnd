@@ -3,20 +3,24 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 import questions from "../utils/questions.json";
-import QuizFormItem from '../components/QuizForm';
-import '../css/Quiz.css';
-// import API from '../utils/API';
+import QuizFormItem from "../components/QuizForm";
+import SubmitBtn from "../components/SubmitBtn";
+// import API from "../utils/API";
 
 class Quiz extends Component {
 
   state = {
+    loading: false,
+    isProblem: false,
     //questions:[],
     questions,
-    qqId: '',
-    name: '',
-    test: '',
-    loading: false,
-    isProblem: false
+    qqId: "",
+    name: "",
+    test: "",
+    isYes: 0,
+    userId: "",
+    userAnswers: []
+    
   };
 
   // a method to reference this from element functions called on?
@@ -47,10 +51,13 @@ class Quiz extends Component {
 
   handleChange(answerValue) {
     this.setState({ test: answerValue })
+    // Need to set & save the value of radio input from QuizForm for each question
+    // push all answers values to array with userId
+    // save userAnswers to database
   }
 
   handleSubmit() {
-    console.log('handleSubmit', this.state)
+    console.log("handleSubmit", this.state)
 
   }
 
@@ -65,8 +72,7 @@ class Quiz extends Component {
           <Row>
             <Col size="sm-12">
 
-
-              {/* if/then/else conditional for questions array. if questions isn't empty, then loop through each index in array */}
+              {/* if/then/else conditional for questions array. if questions isn"t empty, then loop through each index in array */}
               {!this.state.questions.length ? (
                 <h3>Uh-Oh Error Loading Questions</h3>
               ) : (
@@ -82,7 +88,7 @@ class Quiz extends Component {
                         />
                       );
                     })}
-                    <input type="submit" />
+                    <SubmitBtn />
                   </form>
                 )}
             </Col>

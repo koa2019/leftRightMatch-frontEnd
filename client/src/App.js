@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from './components/Nav';
 import NoMatch from './pages/NoMatch';
-import Books from './pages/Books';
-import Saved from './pages/Saved';
 import Quiz from './pages/Quiz';
 import FrontPage from "./pages/FrontPage";
 import UserProfile from "./pages/UserProfile";
 import CandidateProfile from "./pages/CandidateProfile";
-import "./App.css";
+import LoginSignUp from "./pages/LoginSignup";
+
+// Needs sessions for Login/Signup
 
 class App extends Component {
   render() {
@@ -17,14 +17,11 @@ class App extends Component {
         <div className="App">
           <Nav />
           <Switch>
-            <Route exact path='/' component={Books} />
-            <Route exact path='/books' component={Books} />
-            <Route exact path='/saved' component={Saved} />
-            {/* change /home to / after file is merged with backend */}
-            <Route exact path="/home" component={FrontPage} />
+            <Route exact path="/" component={FrontPage} />
             <Route exact path='/quiz' component={Quiz} />
-            <Route exact path="/userprofile"  component={UserProfile} />
-          <Route exact path="/candidateprofile"  component={CandidateProfile} />
+            <Route exact path="/userprofile" component={UserProfile} />
+            <Route exact path="/candidateprofile" component={CandidateProfile} />
+            <Route exact path="/login" component={LoginSignUp} />
             <Route component={NoMatch} />
           </Switch>
         </div>

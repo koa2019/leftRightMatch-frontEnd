@@ -40,16 +40,32 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: var(--light-white);
+  background: var(--lightest-gray);
   color: var(--dark-gray);
   
 }
 
+.container {
+  background: var(--light-white);
+  padding: 20px;
+}
+
 .jumbotron {
+  clear: both;
+  min-height: 30vh;
+  text-align: justify;
+  padding-top: 120px;
+}
+
+nav {
+  float: right;
+}
+
+.navbar-brand {
   background-image: url('./css/leftRightMatch3.png');
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+  /* background-attachment: fixed;
+  background-position: center; */
 }
 
 .logo {
@@ -64,4 +80,9 @@ body {
 
 a {
   color: white;
-  }
+}
+
+.radio {
+    margin: 10px;
+}
+ 

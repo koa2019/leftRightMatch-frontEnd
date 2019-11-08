@@ -6,6 +6,7 @@ function Nav() {
             <a className='navbar-brand nav-link' href='/'>Left Right Match</a>
             <a className='navbar-item nav-link' href='/'>Quiz</a>
             <a className='navbar-item nav-link' href='/candidates'>Candidates</a>
+            <a className='navbar-item nav-link' href='/login'>Login</a>
         </nav>
     );
 }
