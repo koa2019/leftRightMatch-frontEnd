@@ -1,8 +1,12 @@
 import React from "react";
 
-function Logo(props) {
+function Logo(props, { children }) {
     return (
-        <img src={props.logo} width={props.width} height={props.height} className="logo" alt="logo-large" />
+        <div className="logo">
+            <img src={props.logo} width={props.width} height={props.height} alt="logo" />
+            {children}
+        </div>
+
     );
 }
 

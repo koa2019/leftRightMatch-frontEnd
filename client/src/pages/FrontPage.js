@@ -10,13 +10,14 @@ class FrontPage extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col size="mx-auto">                
-                       <Logo 
-                       logo={image}
-                       width={"1000"}
-                       height={"600"}
-                       >Which Politican Are you Most Like?
-                           </Logo> 
+                    <Col size="mx-auto">
+                        <Logo
+                            logo={image}
+                            width={"1000"}
+                            height={"600"}
+                        >
+                            <h5>Which Politican Are you Most Like?</h5>
+                        </Logo>
                     </Col>
                 </Row>
             </Container>

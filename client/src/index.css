@@ -77,8 +77,12 @@ nav {
   margin-right: 10px;
 }
 
-.logo {
+img {
   object-fit: scale-down;
+}
+
+.logo {
+  color: var(--dark-gray)
 }
 
 a {

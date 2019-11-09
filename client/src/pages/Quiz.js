@@ -72,7 +72,7 @@ class Quiz extends Component {
 
         <Container>
           <Row>
-            <Col size="sm-12">
+            <Col size="col-sm-12">
 
               {/* if/then/else conditional for questions array. if questions isn"t empty, then loop through each index in array */}
               {!this.state.questions.length ? (
