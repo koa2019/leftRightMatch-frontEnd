@@ -4,6 +4,7 @@ import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import ProfileCard from "../components/ProfileCard";
 import candidate from "../utils/questions.json";
+import candidateImages from "../utils/images.json";
 
 class CandidateProfile extends Component {
 
@@ -13,6 +14,7 @@ class CandidateProfile extends Component {
         candidate,
         name: "",
         image: "",
+        candidateImages,
         profileData: []
     }
 
@@ -34,7 +36,8 @@ class CandidateProfile extends Component {
                     <Row>
                         <Col size="col-sm-12">
                             <ProfileCard 
-                            image={this.state.candidate.image} 
+                            image={candidateImages[2]}
+                            // image={this.state.candidate.image} 
                             name={this.state.candidate.name}
                             />
                         </Col>

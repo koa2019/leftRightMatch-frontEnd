@@ -1,0 +1,32 @@
+[
+    {
+        "id": "0",
+        "name": "warren-profile1",
+        "image": "/images/elizabeth-warren_red_profile.png"
+    },
+    {
+        "id": "1",
+        "name": "bernie-profile1",
+        "image": "/images/Bernie-Sanders-circle-16.png"
+    },
+    {
+        "id": "2",
+        "name": "biden-profile1",
+        "image": "/images/biden_blue_profile.png"
+    },
+    {
+        "id": "3",
+        "name": "trump-profile1",
+        "image": "/images/trump-flag-profile.jpg"
+    },
+    {
+        "id": "4",
+        "name": "unknownProfilethumb",
+        "image": "/images/UnknownProfile.png"
+    },
+    {
+        "id": "5",
+        "name": "stars-background",
+        "image": "/images/red-blue-stars.jpg"
+    }
+]
