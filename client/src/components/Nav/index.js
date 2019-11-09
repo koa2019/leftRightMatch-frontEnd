@@ -10,8 +10,8 @@ function Nav() {
                 <span className="ml-2">Left Right Match</span>
             </a>
             <div className="navbar-nav p-2">
-                <a className="navbar-item nav-link" href="/">Quiz</a>
-                <a className="navbar-item nav-link" href="/candidates">Candidates</a>
+                <a className="navbar-item nav-link" href="/quiz">Quiz</a>
+                <a className="navbar-item nav-link" href="/candidateprofile">Candidates</a>
                 <a className="navbar-item nav-link" href="/login">Login</a>
                 <div className="navbar-items dropdown">
                 <form className="form-inline my-2 my-lg-0">
