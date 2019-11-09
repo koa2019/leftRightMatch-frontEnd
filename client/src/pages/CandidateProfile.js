@@ -5,7 +5,7 @@ import Jumbotron from "../components/Jumbotron";
 import ProfileCard from "../components/ProfileCard";
 // import candidate from "../utils/questions.json";
 import candidateImages from "../utils/images.json";
-
+import Bernie from '../images/bernie_blue_profile1.jpg'
 class CandidateProfile extends Component {
 
     state = {
@@ -41,7 +41,7 @@ class CandidateProfile extends Component {
                         <Col size="col-sm-12">
                             <ProfileCard 
                             id={this.state.id}
-                            image={this.state.image}
+                            image={Bernie}
                             name={this.state.name}
                             />
                         </Col>

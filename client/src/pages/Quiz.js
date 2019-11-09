@@ -63,6 +63,22 @@ class Quiz extends Component {
 
   }
 
+  renderQuestion() {
+
+    if (this.state.questions.length === 0) {
+
+        return (
+
+            //return whatever
+        );
+    }
+
+    return (
+
+        // case 2
+    );
+  }
+
   render() {
     return (
       <div>
@@ -73,7 +89,7 @@ class Quiz extends Component {
         <Container>
           <Row>
             <Col size="col-sm-12">
-
+              {this.renderQuestion()}
               {/* if/then/else conditional for questions array. if questions isn"t empty, then loop through each index in array */}
               {!this.state.questions.length ? (
                 <h3>Uh-Oh Error Loading Questions</h3>
