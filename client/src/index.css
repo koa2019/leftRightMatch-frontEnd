@@ -43,7 +43,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: var(--stylish-slight-grey);
+  background: white;
   color: var(--dark-gray);
   
 }
@@ -61,10 +61,13 @@ body {
   text-align: justify;
   /* padding-top: 120px; */
   margin-top: 100px;
-  background-color: var(--lighter-gray);
-  color: white;
-  background-image: url("./images/red-blue-stars.jpg");
+  background-color: var(--blue-grey-slight);
+  color: var(--dark-gray);
+  /* background-image: url("./images/red-blue-stars.jpg"); */
+  background-size: 15%;
+  position: relative;
 }
+
 nav {
   max-height: 15%;
 }
@@ -99,4 +102,24 @@ footer {
   max-height: 30%;
   color: var(--dark-white);
   font-size: small;
+}
+
+#overlay {
+  /* Sit on top of the page content */
+  position: fixed; 
+  background-size: 30%;
+  /* background with opacity */
+  background-color: var(--dark-white-transparent);
+  z-index: 4; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  /* Full width (cover the whole page) */
+  width: 100%; 
+  /* Hidden by default */
+  /* display: none;  */
+  /*Full height (cover the whole page) */
+  /* height: 100%;  */
+  /* top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; */
 }
