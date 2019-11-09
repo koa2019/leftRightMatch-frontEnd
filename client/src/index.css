@@ -32,6 +32,7 @@
 * {
   user-select: none;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
@@ -49,6 +50,8 @@ body {
 
 .container {
   background: var(--light-white);
+  border-width: 30px;
+  border-color: var(--dark-red);
   padding: 20px;
 }
 
@@ -56,32 +59,26 @@ body {
   clear: both;
   min-height: 30vh;
   text-align: justify;
-  padding-top: 120px;
+  /* padding-top: 120px; */
+  margin-top: 100px;
+  background-color: var(--lighter-gray);
+  color: white
 }
-
 nav {
-  float: right;
-  border-block-color: var(--medium-red);
+  max-height: 15%;
 }
 
 .navbar-brand {
   background-image: url('./images/leftRightMatch3.png');
   background-repeat: no-repeat;
-  /* background-attachment: fixed;
-  background-position: center; */
 }
 
 .navbar-item {
   margin-right: 10px;
 }
+
 .logo {
-  background-image: url('./images/leftRightMatch3.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  height: 750px;
-  min-height: "50vh";
-  
+  object-fit: scale-down;
 }
 
 a {
@@ -91,4 +88,10 @@ a {
 .radio {
     margin: 10px;
 }
- 
+
+footer {
+  background-color: var(--medium-gray);
+  max-height: 30%;
+  color: var(--dark-white);
+  font-size: small;
+}

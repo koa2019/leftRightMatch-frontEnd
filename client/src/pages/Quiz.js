@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 import questions from "../utils/questions.json";
-import QuizFormItem from "../components/QuizForm";
+import QuizFormItem from "../components/QuizForm/";
 import SubmitBtn from "../components/SubmitBtn";
 // import API from "../utils/API";
 
@@ -12,14 +12,15 @@ class Quiz extends Component {
   state = {
     loading: false,
     isProblem: false,
+    isLoggedIn: "",
+    userId: "",
+    userAnswers: [],
     //questions:[],
     questions,
     qqId: "",
     name: "",
     test: "",
-    isYes: 0,
-    userId: "",
-    userAnswers: []
+    isYes: 0    
     
   };
 
@@ -58,7 +59,7 @@ class Quiz extends Component {
   }
 
   handleSubmit() {
-    console.log("handleSubmit", this.state)
+    console.log("handleSubmit ", this.state)
 
   }
 

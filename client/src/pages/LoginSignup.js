@@ -1,29 +1,31 @@
 // dependencies
-import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
-import { Col, Row, Container } from "../components/Grid";
+import React, { Component } from "react"
+import Jumbotron from "../components/Jumbotron"
+import { Col, Row, Container } from "../components/Grid"
+import Login from "../components/Login/index"
+import Signup from "../components/Signup/index"
 
 class LoginSignUp extends Component {
+  render () {
+    return (
+      <div>
+        <Jumbotron>
+          <h1>Which Political Candidate Are You Most Like?</h1>
+        </Jumbotron>
 
-    render() {
-        return (
-            <Container>
-                <Row>
-                    <Col size="">
-                        <Jumbotron>
-                            {/* renders message depending on  user's isLoggedIn state */}
-                        </Jumbotron>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col size="sm-12">
-                        {/* renders login or signup form component depending on user's isLoggedIn state */}
-                    </Col>
-                </Row>
-            </Container>
-
-        );
-    }
+        <Container>
+          <Row>
+            <Col size="col-sm-6">
+              <Login />
+            </Col>
+            <Col size="col-sm-6">
+              <Signup />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  }
 }
 
 export default LoginSignUp;

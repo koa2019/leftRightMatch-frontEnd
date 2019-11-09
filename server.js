@@ -1,5 +1,5 @@
 // dependencies
-require('dotenv').config()
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
 const mongoose = require('mongoose');
@@ -19,7 +19,7 @@ app.use(express.json());
 // connect mongoose to Mongo db
 // If deployed, use the deployed database, connect mongoose to remote mongolab database.
 // Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/googlebooks';
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/leftRightDB';
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 .then(() => {
     console.log("Connection worked")

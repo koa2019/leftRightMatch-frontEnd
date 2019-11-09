@@ -1,7 +1,8 @@
 // dependencies
 import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
-// import Jumbotron from "../components/Jumbotron";
+import Logo from "../components/Logo";
+import image from "../images/leftRightMatch3.png";
 
 class FrontPage extends Component {
 
@@ -9,11 +10,13 @@ class FrontPage extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col size="sm-12">
-                        <div className="logo" />
-                        <h1>
-                            Which Politican Are You Most Like?
-                        </h1>
+                    <Col size="mx-auto">                
+                       <Logo 
+                       logo={image}
+                       width={"1000"}
+                       height={"600"}
+                       >Which Politican Are you Most Like?
+                           </Logo> 
                     </Col>
                 </Row>
             </Container>

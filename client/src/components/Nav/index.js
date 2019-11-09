@@ -1,10 +1,12 @@
+// dependencies
 import React from "react";
-import logo from "../../images/leftRightMatch3.png";
+import image from "../../images/leftRightMatch3.png";
+
 function Nav() {
     return (
-        <nav className="navbar d-flex navbar-expand-sm fixed-top bg-primary">
+        <nav className="navbar d-flex navbar-expand-sm fixed-top bg-primary clearfix">
             <a className="navbar-brand mr-auto my-0" href="/">
-                <img src={logo} width="120" height="140" className="d-inline-block " alt="logo" />
+                <img src={image} width="120" height="140" className="d-inline-block " alt="logo" />
                 <span className="ml-2">Left Right Match</span>
             </a>
             <div className="navbar-nav p-2">
@@ -15,6 +17,8 @@ function Nav() {
                 <form className="form-inline my-2 my-lg-0">
                     <input className="form-control mr-sm-2" type="search" placeholder="Search" />
                     <button className="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
+                    {/* <button className="btn btn-danger my-2 my-sm-0" type="submit" onSubmit={handleSubmitNavSearch}>Search</button> */}
+
                 </form>
                 </div>
                 

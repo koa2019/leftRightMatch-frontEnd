@@ -13,7 +13,7 @@ class UserProfile extends Component {
                     <h1>Left Right Match</h1>
                 </Jumbotron>
                 <Row>
-                    <Col size="sm-12">
+                    <Col size="col-sm-12">
                         <div className="card">
                             <div className="card-header"><h1>User Name</h1></div>
                             <div className="card-body">

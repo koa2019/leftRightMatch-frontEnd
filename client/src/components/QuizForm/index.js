@@ -4,8 +4,10 @@ import React from "react";
 
 export default function QuizFormItem(props) {
     return (
+        
         <div className="form-group" onSubmit={props.handleSubmit}>
         {/* <div className="form-group" onSubmit={props.handleSubmit({value})}> */}
+
             <h4>{props.name}</h4>
             <div className="label">{props.question}</div>
             <div className="form-control">
