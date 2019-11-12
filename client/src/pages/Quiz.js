@@ -12,8 +12,6 @@ class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
-      isProblem: false,
       isLoggedIn: "",
       userId: "",
       userAnswers: [],
@@ -21,8 +19,6 @@ class Quiz extends Component {
       questions,
       qqId: "",
       name: "",
-      test: "",
-      isYes: 0
 
     };
     // a method to reference this from element functions called on?
@@ -63,12 +59,12 @@ loadQuestions(){
         return (
           <QuizFormItem
             key={question.qqId}
-            onChange={this.handleInputChange}
-            id={question.qqId}
             name={question.name}
             question={question.qq}
           >
-            <RadioInput />
+            <RadioInput 
+            name={question.qqId} key={question.qqId}
+            onChange={this.handleInputChange} />
           </QuizFormItem>
         );
       })
@@ -78,16 +74,15 @@ loadQuestions(){
   handleInputChange = event => {
     // Need to setState userId from req.params 
     // Need to capture value of radio input from QuizForm for each question answered
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    console.log(target)
-    console.log(value)
-    console.log(name)
+    // const value = target.value;
+    // const name = target.name;
+   const {name, value} = event.target;
+  console.log('[name]: value = ', name, value)
 
     this.setState({
       [name]: value
     });
+    console.log(this.state)
     // push all answers values into userAnswers array with userId
     // $(.chosen).map( (index, element)=> {
     //   let answer = $(this).val();

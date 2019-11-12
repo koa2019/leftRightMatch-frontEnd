@@ -6,7 +6,7 @@ export function QuizFormItem(props) {
     return (
 
         <div className="form-group">
-            <div className="label" question-id={props.id}>
+            <div className="label" >
                 {props.name}
                 <h4>{props.question}</h4>
             </div>
@@ -21,21 +21,18 @@ export function RadioInput(props) {
             <label className="radio">
                 <input
                     type="radio"
-                    name="test"
+                    name={props.name}
                     onChange={props.handleInputChange}
                     value="1"
-                    // checked={props.test === 1}
                 />
                 Yes
                 </label>
             <label className="radio">
                 <input
                     type="radio"
-                    name="test"
+                    name={props.name}
                     onChange={props.handleInputChange}
                     value="0"
-                    // checked={props.test === 0}
-
                 />
                 No
                 </label>

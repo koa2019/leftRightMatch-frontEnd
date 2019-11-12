@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
+import ProfileCard from "../components/ProfileCard";
 
 class UserProfile extends Component {
 
@@ -13,15 +14,8 @@ class UserProfile extends Component {
                     <h1>Left Right Match</h1>
                 </Jumbotron>
                 <Row>
-                    <Col size="col-sm-12">
-                        <div className="card">
-                            <div className="card-header"><h1>User Name</h1></div>
-                            <div className="card-body">
-                                <p>insert profile image here</p>
-                                <p>* User details</p>
-                                <p>* Match Results</p>
-                            </div>
-                        </div>
+                    <Col size="col-md-12">
+                       <ProfileCard />
                     </Col>
                 </Row>
             </Container>
