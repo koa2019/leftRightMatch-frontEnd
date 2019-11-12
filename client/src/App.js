@@ -1,11 +1,10 @@
 // dependencies
 // import {useAuth} from './utils/customHooks'
 // import React, { useEffect } from 'react'
+// import axios from 'axios'
+// import Nav from './components/Nav'
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-// import axios from 'axios'
-import Nav from './components/Nav'
-// import Footer from './components/Footer'
 import NoMatch from './pages/NoMatch'
 import Quiz from './pages/Quiz'
 import FrontPage from "./pages/FrontPage"
@@ -20,7 +19,7 @@ function App() {
     return (
       <Router>
         <div>
-          <Nav />
+          {/* <Nav /> */}
           <Switch>
             <Route exact path="/" component={FrontPage} />
             <Route exact path="/quiz" component={Quiz} />

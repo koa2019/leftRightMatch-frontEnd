@@ -123,3 +123,12 @@ footer {
   right: 0;
   bottom: 0; */
 }
+.candidate-thumbnail {
+  max-width: 250px;
+  max-height: 250px;
+}
+form {
+  border-style:solid;
+border-width: thick;
+border-color: purple;
+}

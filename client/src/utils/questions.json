@@ -2,20 +2,20 @@
     {
     "qqId": "234",
     "name": "Question 1",
-    "qq": "?",
+    "qq": "Would you consider yourself a morning person?",
     "image": "https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png"
 
   },
   {
     "qqId": "444",
     "name": "Question 2",
-    "qq": "??",
+    "qq": "Do you prefer the beach over the mountains?",
     "image": "https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png"
   },
   {
     "qqId": "888",
     "name": "Question 3",
-    "qq": "???",     
+    "qq": "Are Dogs abetter than cats?",     
     "image": "https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png"
 
   }
