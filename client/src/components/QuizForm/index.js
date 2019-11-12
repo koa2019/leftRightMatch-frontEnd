@@ -5,8 +5,8 @@ import React from "react";
 export function QuizFormItem(props) {
     return (
 
-        <div className="form-group" {...props}>
-            <div className="label">
+        <div className="form-group">
+            <div className="label" question-id={props.id}>
                 {props.name}
                 <h4>{props.question}</h4>
             </div>
@@ -22,8 +22,9 @@ export function RadioInput(props) {
                 <input
                     type="radio"
                     name="test"
-                    onChange={props.handleChange}
+                    onChange={props.handleInputChange}
                     value="1"
+                    // checked={props.test === 1}
                 />
                 Yes
                 </label>
@@ -31,8 +32,10 @@ export function RadioInput(props) {
                 <input
                     type="radio"
                     name="test"
-                    onChange={props.handleChange}
+                    onChange={props.handleInputChange}
                     value="0"
+                    // checked={props.test === 0}
+
                 />
                 No
                 </label>

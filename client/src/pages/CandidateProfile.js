@@ -19,15 +19,14 @@ class CandidateProfile extends Component {
         candidateImages,
         profileData: []
     }
-    componentDidMount() {
+    
+    loadCandidateData() {
         this.setState({
             id: candidateImages[1].id,
             name: candidateImages[1].name,
             image: candidateImages[1].image
         })
         console.log(this.state)
-
-
     }
 
 
