@@ -44,7 +44,6 @@ body {
   margin: 0;
   padding: 0;
   background: white;
-  color: var(--dark-gray);
   
 }
 
@@ -81,18 +80,18 @@ nav {
   margin-right: 10px;
 }
 
-.logo {
-  color: var(--dark-gray);
-  /* object-fit: scale-down; */
-}
-
 .navbar-item, .navbar-brand {
   color: white;
 }
-
-.nav-tabs {
- background-color: var(--lighter-gray);
-
+.navTabItems {
+  background-color: var(--stylish-slight-grey);
+  border-style: solid;
+  border-color: var(--light-gray);
+  border-width: thin;
+}
+.logo {
+  color: var(--dark-gray);
+  /* object-fit: scale-down; */
 }
 
 .radio {
@@ -100,7 +99,7 @@ nav {
 }
 
 footer {
-  background-color: var(--medium-gray);
+  /* background-color: var(--medium-gray); */
   max-height: 30%;
   color: var(--dark-white);
   font-size: small;

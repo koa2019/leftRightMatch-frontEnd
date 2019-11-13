@@ -4,33 +4,36 @@
         "name": "Elizabeth Warren",
         "img-name": "warren-profile1",
         "image": "/images/elizabeth-warren_red_profile.png",
-        "banner": "/images/ElizabethWarren-banner4.png"
+        "banner-img": "/images/ElizabethWarren-banner-img4.png"
     },
     {
         "id": "1",
         "name": "Bernie Sanders",
         "img-name": "bernie-profile1",
         "image": "/images/Bernie-Sanders-circle-16.png",
-        "banner": "/images/bernie-banner1.png"
+        "banner-img": "/images/bernie-banner-img1.png"
     },
     {
         "id": "2",
         "name": "Joe Biden",
         "img-name": "biden-profile1",
         "image": "/images/biden_blue_profile.png",
-        "banner": "joe-biden-banner.png"
+        "banner-img": "joe-biden-banner-img.png"
     },
     {
         "id": "3",
         "name": "Donald Trump",
         "img-name": "trump-profile1",
-        "image": "/images/trump-flag-profile.jpg"
+        "image": "/images/trump-flag-profile.jpg",
+        "banner-img": "../images/trump-banner-img1.png"
     },
     {
         "id": "4",
         "name": "Unknown Candidate",
         "img-name": "Unknown-profile",
-        "image": "/images/UnknownProfile.png"
+        "image": "/images/UnknownProfile.png",
+        "banner-img": "/images/2020-democrats-illustration.jpg"
+        
     }
     
 ]

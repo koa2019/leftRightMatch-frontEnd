@@ -16,14 +16,20 @@ class LoginSignUp extends Component {
         </Jumbotron>
         <Container>
           <Row>
-            <ul className="nav nav-tabs navTabItem">
-              <li className="nav-item navTabItem">
-                <button className="nav-link" onClick={Signup}>SignUp</button>
-              </li>
-              <li className="nav-item navTabItem">
-                <button className="nav-link" onClick={Login}>Login</button>
-              </li>
-            </ul>
+            <Col size="col-12">
+              <ul className="nav nav-tabs nav-justified navTab" id="myTab" role="tablist" tabIndex="0">
+                <li className="nav-item navTabItems">
+                  <h3>
+                    <span role="button" onClick={Signup}>SignUp</span>
+                  </h3>
+                </li>
+                <li className="nav-item navTabItems">
+                  <h3>
+                  <span role="button" onClick={Login}>Login</span>
+                  </h3>
+                </li>
+              </ul>
+            </Col>
           </Row>
 
           <Row>
