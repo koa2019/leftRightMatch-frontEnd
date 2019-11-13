@@ -7,7 +7,7 @@ import Login from "../components/Login/index"
 import Signup from "../components/Signup/index"
 
 class LoginSignUp extends Component {
-  render () {
+  render() {
     return (
       <div>
         <Nav />
@@ -16,13 +16,32 @@ class LoginSignUp extends Component {
         </Jumbotron>
         <Container>
           <Row>
-            <Col size="col-sm-6">
+            <ul className="nav nav-tabs navTabItem">
+              <li className="nav-item navTabItem">
+                <button className="nav-link" onClick={Signup}>SignUp</button>
+              </li>
+              <li className="nav-item navTabItem">
+                <button className="nav-link" onClick={Login}>Login</button>
+              </li>
+            </ul>
+          </Row>
+
+          <Row>
+            <Col size="col-md-6 mx-auto">
+              <Signup />
               <Login />
             </Col>
-            <Col size="col-sm-6">
+          </Row>
+
+          {/* <Row>
+              <Col size="col-md-6 mx-auto">
               <Signup />
             </Col>
-          </Row>
+            <Col size="col-md-6 mx-auto">
+              <Login />
+            </Col>
+          </Row> */}
+
         </Container>
       </div>
     );

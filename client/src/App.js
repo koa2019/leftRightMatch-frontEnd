@@ -27,7 +27,7 @@ function App() {
             <Route exact path="/candidatesprofile" component={CandidateProfile} />
             <Route exact path="/login" component={LoginSignUp} />
             <Route path="/logout" component={Logout} />
-            <Route exact path="/userprofile/" component={UserProfile} />
+            <Route exact path="/userprofile" component={UserProfile} />
             {/* <Route exact path="/userprofile/:id" component={UserProfile} /> */}
             <Route component={NoMatch} />
           </Switch>

@@ -31,12 +31,25 @@ class Candidates extends Component {
 
     }
 
+    // function needs to capture candidate's id onClick, setState? & 
+    // pass id to Router & redirect to "/candidates/:id" 
+    // ? do I add onClick={this.handleOnClick} to definition of ListItem?
+    handleOnClick= event => {
+        const { name, value } = event.target;
+
+        // expected id: value equal to candidates id in database
+        this.setState({
+            [name]: value
+          });
+    }
+
+
     render() {
         return (
             <div>
                 <Nav />
                 <Jumbotron>
-                All Candidates
+                    All Candidates
                 </Jumbotron>
                 <Container>
                     <Row>
@@ -48,15 +61,15 @@ class Candidates extends Component {
                                             key={candidate.name}
                                             id={candidate.id}
                                         >
-                                            
+
                                             <ul className="list-unstyled">
-                                            <img className="img-thumbnail img-fluid float-left" src={thumbnail} width="100px" alt={candidate.name} />
-                                            {/* <img src={candidate.image} height="100px" alt={candidate.name} /> */}
-                                            <li>{candidate.name}</li>
-                                            <li>Political Party: Democrat</li>
+                                                <img className="img-thumbnail img-fluid float-left" src={thumbnail} width="100px" alt={candidate.name} />
+                                                {/* <img src={candidate.image} height="100px" alt={candidate.name} /> */}
+                                                <li>{candidate.name}</li>
+                                                <li>Political Party: Democrat</li>
                                             </ul>
-                                            
-                                           
+
+
                                         </ListItem>
                                     )
                                 })}

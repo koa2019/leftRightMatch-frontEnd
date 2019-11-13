@@ -4,16 +4,24 @@ import React from 'react';
 
 function Signup(props) {
 
-    // Define the form submission handler, to be used in the `onSubmit` event
-    const handleLoginFormSubmit = (evt) => {
-        evt.preventDefault();
-        console.log("signup.js handleSubmit")
-    }
+  // Define the form submission handler, to be used in the `onSubmit` event
+  const handleLoginFormSubmit = (evt) => {
+    evt.preventDefault();
+    console.log("signup.js handleSubmit")
+  }
 
-    return (
-        <form onSubmit={handleLoginFormSubmit}>
-            <div className="row">
-            <div className="col-6">
+  return (
+    <div className="signUpForm">
+
+      <div className="row">
+        <div className="col-md-6 mx-auto">
+          <h1>Sign Up</h1>
+        </div>
+      </div>
+
+      <form onSubmit={handleLoginFormSubmit}>
+        <div className="row ">
+          <div className="col-md-6 mx-auto">
             <div className="form-group">
               <label htmlFor="firstNameInput">
                 First Name
@@ -23,14 +31,14 @@ function Signup(props) {
                 id="firstNameInput"
                 name="firstName"
                 className="form-control"
-                // onChange={evt => setFirstName(evt.target.value)}
+              // onChange={evt => setFirstName(evt.target.value)}
               />
             </div>
           </div>
         </div>
 
         <div className="row">
-          <div className="col-6">
+          <div className="col-md-6 mx-auto">
             <div className="form-group">
               <label htmlFor="lastNameInput">
                 Last Name
@@ -40,14 +48,14 @@ function Signup(props) {
                 id="lastNameInput"
                 name="lastName"
                 className="form-control"
-                // onChange={evt => setLastName(evt.target.value)}
+              // onChange={evt => setLastName(evt.target.value)}
               />
             </div>
           </div>
         </div>
 
         <div className="row">
-          <div className="col-6">
+          <div className="col-md-6 mx-auto">
             <div className="form-group">
               <label htmlFor="emailInput">
                 Email
@@ -57,13 +65,14 @@ function Signup(props) {
                 id="emailInput"
                 name="email"
                 className="form-control"
-                // onChange={evt => setEmail(evt.target.value)}
+              // onChange={evt => setEmail(evt.target.value)}
               />
             </div>
           </div>
         </div>
+
         <div className="row">
-          <div className="col-6">
+          <div className="col-md-6 mx-auto">
             <div className="form-group">
               <label htmlFor="passwordInput">
                 Password
@@ -73,7 +82,7 @@ function Signup(props) {
                 id="passwordInput"
                 className="form-control"
                 name="password"
-                // onChange={evt => setPassword(evt.target.value)}
+              // onChange={evt => setPassword(evt.target.value)}
               />
             </div>
           </div>
@@ -85,7 +94,8 @@ function Signup(props) {
           </div>
         </div>
       </form>
-    );
+    </div>
+  );
 }
 
 export default Signup;

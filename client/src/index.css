@@ -64,10 +64,11 @@ body {
   /* margin-top: 100px; */
   background-color: white;
   color: var(--dark-gray);
-  /* position: relative; */
+  position: relative;
 }
 
 nav {
+  clear: both;
   max-height: 15%;
 }
 
@@ -85,8 +86,13 @@ nav {
   /* object-fit: scale-down; */
 }
 
-a {
+.navbar-item, .navbar-brand {
   color: white;
+}
+
+.nav-tabs {
+ background-color: var(--lighter-gray);
+
 }
 
 .radio {
