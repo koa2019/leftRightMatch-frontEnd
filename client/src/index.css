@@ -86,7 +86,7 @@ nav {
 .navTabItems {
   background-color: var(--stylish-slight-grey);
   border-style: solid;
-  border-color: var(--light-gray);
+  border-color: var(--blue-grey-slight);
   border-width: thin;
 }
 .logo {
@@ -99,7 +99,7 @@ nav {
 }
 
 footer {
-  /* background-color: var(--medium-gray); */
+  background-color: var(--medium-gray);
   max-height: 30%;
   color: var(--dark-white);
   font-size: small;
@@ -117,4 +117,10 @@ footer {
 .banner {
   height: 400px;
   max-height: 40vh;
+}
+.signUpForm, .loginForm {
+  border-style: solid;
+  border-color: var(--blue-grey-slight);
+  border-width: medium;
+  margin-top: 20px;
 }

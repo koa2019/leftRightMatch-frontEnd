@@ -23,12 +23,12 @@ function Login(props) {
         <div className="row">
           <div className="col-md-6 mx-auto">
             <div className="form-group">
-              <label htmlFor="emailInput">
+              <label htmlFor="emailLoginInput">
                 Email
                 </label>
               <input
                 type="email"
-                id="emailInput"
+                id="emailLoginInput"
                 name="email"
                 className="form-control"
               // onChange={evt => setEmail(evt.target.value)}
@@ -39,12 +39,12 @@ function Login(props) {
         <div className="row">
           <div className="col-md-6 mx-auto">
             <div className="form-group">
-              <label htmlFor="passwordInput">
+              <label htmlFor="passwordLoginInput">
                 Password
                 </label>
               <input
-                type="password"
-                id="passwordInput"
+                type="current-password"
+                id="passwordLoginInput"
                 className="form-control"
                 name="password"
               // onChange={evt => setPassword(evt.target.value)}

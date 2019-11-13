@@ -1,7 +1,7 @@
 // dependencies
 import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "../components/Jumbotron";
+// import Jumbotron from "../components/Jumbotron";
 import ProfileCard from "../components/ProfileCard";
 import Nav from '../components/Nav'
 

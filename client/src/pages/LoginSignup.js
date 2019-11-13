@@ -16,11 +16,12 @@ class LoginSignUp extends Component {
         </Jumbotron>
         <Container>
           <Row>
-            <Col size="col-12">
-              <ul className="nav nav-tabs nav-justified navTab" id="myTab" role="tablist" tabIndex="0">
+            <Col size="col-sm-12 mx-auto">
+              <ul className="nav nav-tabs nav-justified navTab" id="myTab" role="tablist" >
                 <li className="nav-item navTabItems">
                   <h3>
-                    <span role="button" onClick={Signup}>SignUp</span>
+                    {/* google tabIndex="0" does for this <span> */}
+                    <span role="button" onClick={Signup} >SignUp</span>
                   </h3>
                 </li>
                 <li className="nav-item navTabItems">

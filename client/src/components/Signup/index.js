@@ -78,7 +78,7 @@ function Signup(props) {
                 Password
               </label>
               <input
-                type="password"
+                type="current-password"
                 id="passwordInput"
                 className="form-control"
                 name="password"
