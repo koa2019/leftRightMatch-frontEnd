@@ -22,11 +22,12 @@ function App() {
           <Switch>
             <Route exact path="/" component={FrontPage} />
             <Route exact path="/quiz" component={Quiz} />
-            <Route exact path="/userprofile/:id" component={UserProfile} />
-            <Route exact path="/candidates/" component={Candidates} />
-            <Route exact path="/candidateprofile/:id" component={CandidateProfile} />
+            <Route exact path="/candidates" component={Candidates} />
+            <Route exact path="/candidates/:id" component={CandidateProfile} />
+            <Route exact path="/candidatesprofile" component={CandidateProfile} />
             <Route exact path="/login" component={LoginSignUp} />
             <Route path="/logout" component={Logout} />
+            <Route exact path="/userprofile/:id" component={UserProfile} />
             <Route component={NoMatch} />
           </Switch>
         </div>

@@ -13,7 +13,7 @@ export default {
         return axios.get("/api/candidates");
     },
     // gets candidates with the given id
-    getCandidateProfile: function (id) {
+    getCandidate: function (id) {
         return axios.get("/api/candidates/" + id);
     },
     // gets user profile with given id

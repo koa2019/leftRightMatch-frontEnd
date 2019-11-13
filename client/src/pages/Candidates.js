@@ -1,11 +1,11 @@
 // dependencies
-import React, { Component } from "react";
-import { Col, Row, Container } from "../components/Grid";
-import Nav from '../components/Nav';
-import Jumbotron from "../components/Jumbotron";
-import candidatesDetails from "../utils/images.json";
+import React, { Component } from "react"
+import { Col, Row, Container } from "../components/Grid"
+import Nav from '../components/Nav'
+import Jumbotron from "../components/Jumbotron"
+import candidatesDetails from "../utils/images.json"
 import thumbnail from "../images/UnknownProfile.png"
-import { List, ListItem } from "../components/List";
+import { List, ListItem } from "../components/List"
 
 // can this be function instead of a class?
 class Candidates extends Component {
@@ -37,7 +37,6 @@ class Candidates extends Component {
                 <Nav />
                 <Jumbotron>
                 All Candidates
-                    {/* <span className="bg-light p-3"> All Candidates</span> */}
                 </Jumbotron>
                 <Container>
                     <Row>
