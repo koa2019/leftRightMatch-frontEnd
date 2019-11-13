@@ -12,6 +12,8 @@ class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: false,
+      isProblem: false,
       isLoggedIn: "",
       userId: "",
       userAnswers: [],
@@ -27,17 +29,6 @@ class Quiz extends Component {
   }
 
   // uncomment this function when backend is ready to use
-
-loadQuestions(){ 
-      if (this.state.questions.length === 0) {
-      return (
-        alert("Uh-Oh Error Loading Questions")
-      )
-    }
-    return (
-      this.setState({ loading: true, isProblem: false })
-    )
-  }
   // loadQuestions() {
   //   this.setState({ loading: true, isProblem: false }, () => {
   //     API.getQuestions(this.state.questionsData)
@@ -62,9 +53,9 @@ loadQuestions(){
             name={question.name}
             question={question.qq}
           >
-            <RadioInput 
-            name={question.qqId} key={question.qqId}
-            onChange={this.handleInputChange} />
+            <RadioInput
+              name={question.qqId} key={question.qqId}
+              onChange={this.handleInputChange} />
           </QuizFormItem>
         );
       })
@@ -76,8 +67,8 @@ loadQuestions(){
     // Need to capture value of radio input from QuizForm for each question answered
     // const value = target.value;
     // const name = target.name;
-   const {name, value} = event.target;
-  console.log('[name]: value = ', name, value)
+    const { name, value } = event.target;
+    console.log('[name]: value = ', name, value)
 
     this.setState({
       [name]: value
@@ -96,7 +87,12 @@ loadQuestions(){
 
   handleQuizSubmit = event => {
     event.preventDefault();
+    const { name, value } = event.target;
+    console.log('[name]: value = ', name, value)
 
+    this.setState({
+      [name]: value
+    });
     console.log("handleSubmit this.state: ", this.state)
 
   }
@@ -112,9 +108,9 @@ loadQuestions(){
         <Container>
           <Row>
             <Col size="col-md-12">
-              <form>
+              <form onSubmit={this.handleQuizSubmit}>
                 {this.renderQuestions()}
-                < FormBtn onSubmit={this.handleQuizSubmit}
+                < FormBtn
                 >Submit
                 </FormBtn>
               </form>

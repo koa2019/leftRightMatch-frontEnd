@@ -50,18 +50,20 @@ body {
 
 .container {
   background: var(--light-white);
-  border-width: 30px;
-  border-color: var(--dark-red);
+  border-style:solid;
+  border-width: thin;
+  /* border-width: 30px; */
+  border-color: var(--light-gray);
   padding: 20px;
 }
 
 .jumbotron {
   clear: both;
   min-height: 30vh;
-  text-align: justify;
-  /* padding-top: 120px; */
+  font-size: xx-large;
+  font-weight: bolder;
   margin-top: 100px;
-  background-color: var(--blue-grey-slight);
+  background-color: white;
   color: var(--dark-gray);
   /* background-image: url("./images/red-blue-stars.jpg"); */
   background-size: 15%;
@@ -83,6 +85,7 @@ nav {
 
 img {
   object-fit: scale-down;
+  /* margin: 10px; */
 }
 
 .logo {
@@ -104,31 +107,12 @@ footer {
   font-size: small;
 }
 
-#overlay {
-  /* Sit on top of the page content */
-  position: fixed; 
-  background-size: 30%;
-  /* background with opacity */
-  background-color: var(--dark-white-transparent);
-  z-index: 4; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
-  /* Full width (cover the whole page) */
-  width: 100%; 
-  /* Hidden by default */
-  /* display: none;  */
-  /*Full height (cover the whole page) */
-  /* height: 100%;  */
-  /* top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; */
-}
 .candidate-thumbnail {
   max-width: 250px;
   max-height: 250px;
 }
-form {
-  border-style:solid;
-border-width: thick;
-border-color: purple;
+
+.candidates li{
+  text-align: left;
+
 }
