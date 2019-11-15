@@ -28,7 +28,7 @@ class LoginSignUp extends Component {
 
               <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist" >
 
-                {/* <li className="nav-item navTabItems selected" style={'background-color:{this.state.color}'}> */}
+                {/* <li className="nav-item navTabItems selected" style={{ background-color:"{this.state.selected}" }}> */}
                 <li className="nav-item navTabItems selected">
                   <h3 onClick={() => this.setState({selectedTab: 'login'})}>
                   <span role="button">Login</span>

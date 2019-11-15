@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"
+import "./QuizForm.css"
 
 // Need to pass the radio input value back to Quiz.js
 
@@ -8,7 +9,7 @@ export function QuizFormItem(props) {
         <div className="form-group">
             <div className="label" >
                 {props.name}
-                <h4>{props.question}</h4>
+                <h3>{props.question}</h3>
             </div>
             {props.children}
         </div>
@@ -23,19 +24,19 @@ export function RadioInput(props) {
                     type="radio"
                     name={props.name}
                     onChange={props.handleInputChange}
-                    value="1"
+                    value="pro-choice"
                 />
-                Yes
-                </label>
+                <h5 className="radioLabel">{props.value1}</h5>
+            </label>
             <label className="radio">
                 <input
                     type="radio"
                     name={props.name}
                     onChange={props.handleInputChange}
-                    value="0"
+                    value="pro-life"
                 />
-                No
-                </label>
+                <h5 className="radioLabel">{props.value2}</h5>
+            </label>
         </div>
     );
 }

@@ -91,10 +91,6 @@ nav {
   object-fit: cover;
 }
 
-.radio {
-    margin: 10px;
-}
-
 footer {
   background-color: var(--medium-gray);
   max-height: 30%;

@@ -1,10 +1,11 @@
 // dependencies
-import React, { Component } from "react";
-import Nav from '../components/Nav';
-import Jumbotron from "../components/Jumbotron";
-import { Col, Row, Container } from "../components/Grid";
-import questions from "../utils/questions.json";
-import { QuizFormItem, RadioInput, FormBtn } from "../components/QuizForm/";
+import React, { Component } from "react"
+import Nav from '../components/Nav'
+import Jumbotron from "../components/Jumbotron"
+import { Col, Row, Container } from "../components/Grid"
+import questions from "../utils/questions.json"
+import { QuizFormItem, RadioInput, FormBtn } from "../components/QuizForm/QuizForm"
+import "./pageStyles/Quiz.css"
 // import API from "../utils/API";
 
 class Quiz extends Component {
@@ -21,16 +22,18 @@ class Quiz extends Component {
       questions,
       qqId: "",
       name: "",
+      stance1: "Pro-Choice",
+      stance2: "Pro-Life"
 
     };
     // a method to reference this from element functions called on?
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleQuizSubmit = this.handleQuizSubmit.bind(this);
+    // this.handleInputChange = this.handleInputChange.bind(this);
+    // this.handleQuizSubmit = this.handleQuizSubmit.bind(this);
   }
 
  
   
-  
+
   // uncomment this function when backend is ready to use
   // loadQuestions() {
   //   this.setState({ loading: true, isProblem: false }, () => {
@@ -47,7 +50,7 @@ class Quiz extends Component {
   // }
 
   // if/then/else conditional for questions array. if questions isn"t empty, then loop through each index in array
-  renderQuestions() {
+  renderQuestions = () => {
     return (
       this.state.questions.map(question => {
         return (
@@ -57,8 +60,12 @@ class Quiz extends Component {
             question={question.qq}
           >
             <RadioInput
-              name={question.qqId} key={question.qqId}
-              onChange={this.handleInputChange} />
+              key={question.qqId}
+              name={question.qqId} 
+              onChange={this.handleInputChange} 
+              value1={this.state.stance1}
+              value2={this.state.stance2}
+              />       
           </QuizFormItem>
         );
       })
@@ -74,7 +81,8 @@ class Quiz extends Component {
     console.log('[name]: value = ', name, value)
 
     this.setState({
-      [name]: value
+      userAnswers: value
+      // [name]: value
     });
     console.log(this.state)
     // push all answers values into userAnswers array with userId
@@ -90,12 +98,12 @@ class Quiz extends Component {
 
   handleQuizSubmit = event => {
     event.preventDefault();
-    const { name, value } = event.target;
-    console.log('[name]: value = ', name, value)
+    // const { name, value } = event.target;
+    // console.log('[name]: value = ', name, value)
 
-    this.setState({
-      [name]: value
-    });
+    // this.setState({
+    //   [name]: value
+    // });
     console.log("handleSubmit this.state: ", this.state)
 
   }
