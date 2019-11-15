@@ -28,6 +28,9 @@ class Quiz extends Component {
     this.handleQuizSubmit = this.handleQuizSubmit.bind(this);
   }
 
+ 
+  
+  
   // uncomment this function when backend is ready to use
   // loadQuestions() {
   //   this.setState({ loading: true, isProblem: false }, () => {

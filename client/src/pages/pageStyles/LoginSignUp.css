@@ -1,0 +1,17 @@
+.selected {
+    background-color: var(--bright-red)
+}
+
+.nav-tabs {
+    background-color: var(--stylish-slight-grey);
+    border-style: solid;
+    border-color: var(--blue-grey-slight);
+    border-width: thin;
+}
+
+.signUpForm, .loginForm {
+    border: medium solid var(--blue-grey-slight);
+    background-color: var(--light-white);
+    margin: 30px 0;
+    padding: 15px 0;
+}

@@ -33,7 +33,7 @@ class CandidateProfile extends Component {
                 <Nav />
                 <Jumbotron>
                     {/* <img src={this.state.candidate[0].banner} alt={this.state.candidate[0].name} /> */}
-                    <img className="banner" src={EWBanner} alt={this.state.candidate[0].name} />
+                    <img style={{width: '90%'}} className="banner" src={EWBanner} alt={this.state.candidate[0].name} />
                 </Jumbotron>
                 <Container>
                     <Row>

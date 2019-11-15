@@ -6,7 +6,7 @@
 
   --blue-grey-slight: rgba(96, 125, 139, 0.1);
   --stylish-slight-grey:rgba(62, 69, 81, 0.1); 
-  --lightest-gray: rgba(136,136,136,1.0);
+  --lightest-gray:  rgb(240, 235, 235);
   --lighter-gray-transparent: rgba(72,72,72,0.2);
   --lighter-gray: rgba(72,72,72,1.0);
   --light-gray: rgba(48,48,48,1.0);
@@ -56,11 +56,12 @@ body {
 }
 
 .jumbotron {
+  border: thin solid rgb(157, 255, 0);
   clear: both;
   width: 100%;
   font-size: xx-large;
   font-weight: bolder;
-  /* margin-top: 100px; */
+  margin: 150px 0 75px;
   background-color: white;
   color: var(--dark-gray);
   position: relative;
@@ -83,15 +84,11 @@ nav {
 .navbar-item, .navbar-brand {
   color: white;
 }
-.navTabItems {
-  background-color: var(--stylish-slight-grey);
-  border-style: solid;
-  border-color: var(--blue-grey-slight);
-  border-width: thin;
-}
+
 .logo {
   color: var(--dark-gray);
   /* object-fit: scale-down; */
+  object-fit: cover;
 }
 
 .radio {
@@ -117,10 +114,4 @@ footer {
 .banner {
   height: 400px;
   max-height: 40vh;
-}
-.signUpForm, .loginForm {
-  border-style: solid;
-  border-color: var(--blue-grey-slight);
-  border-width: medium;
-  margin-top: 20px;
 }

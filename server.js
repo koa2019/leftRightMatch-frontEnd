@@ -19,13 +19,13 @@ app.use(express.json());
 // connect mongoose to Mongo db
 // If deployed, use the deployed database, connect mongoose to remote mongolab database.
 // Otherwise use the local mongoHeadlines database
-// var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/leftRightDB';
-// mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
-// .then(() => {
-//     console.log("Connection worked")
-// }).catch ((err)=> {
-//     console.log("there is an err", err)
-// });
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/leftRightDB';
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
+.then(() => {
+    console.log("Connection worked")
+}).catch ((err)=> {
+    console.log("there is an err", err)
+});
 
 // all routes - API and view
 app.use("/", routes);

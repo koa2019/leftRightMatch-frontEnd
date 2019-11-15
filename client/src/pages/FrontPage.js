@@ -8,6 +8,10 @@ import Nav from "../components/Nav";
 
 class FrontPage extends Component {
 
+    handleThisClick = () => {
+
+    }
+
     render() {
         return (
             <Container fluid>
@@ -17,9 +21,9 @@ class FrontPage extends Component {
                         <Jumbotron>
                             <Image
                                 image={logo}
-                                width={"1000px"}
-                                // height={"600px"}
+                                width={"600px"}
                                 name={logo.name}
+                                // onClick={()=>handleThisClick()}
                             />
                             {/* Need to position text closer to logo */}
                             <h1>Which Political Candidate Are You Most Like?</h1>

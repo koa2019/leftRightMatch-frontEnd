@@ -1,13 +1,14 @@
 // dependencies
-import React from 'react';
-// import axios from 'axios';
+import React from 'react'
+// import axios from 'axios'
+import "./style.css"
 
-function Signup(props) {
+function SignUp(props) {
 
   // Define the form submission handler, to be used in the `onSubmit` event
   const handleLoginFormSubmit = (evt) => {
     evt.preventDefault();
-    console.log("signup.js handleSubmit")
+    console.log("signup.js handleSubmit evt ", evt)
   }
 
   return (
@@ -98,4 +99,4 @@ function Signup(props) {
   );
 }
 
-export default Signup;
+export default SignUp;

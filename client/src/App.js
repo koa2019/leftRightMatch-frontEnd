@@ -9,8 +9,8 @@ import FrontPage from "./pages/FrontPage"
 import UserProfile from "./pages/UserProfile"
 import Candidates from "./pages/Candidates"
 import CandidateProfile from "./pages/CandidateProfile"
-import LoginSignUp from "./pages/LoginSignup"
-import Logout from "./pages/Logout"
+import LoginSignUp from "./pages/LoginSignUp"
+import LogOut from "./pages/LogOut"
 
 // Needs sessions for Login/Signup
 
@@ -26,7 +26,7 @@ function App() {
             <Route exact path="/candidates/:id" component={CandidateProfile} />
             <Route exact path="/candidatesprofile" component={CandidateProfile} />
             <Route exact path="/login" component={LoginSignUp} />
-            <Route path="/logout" component={Logout} />
+            <Route path="/logout" component={LogOut} />
             <Route exact path="/userprofile" component={UserProfile} />
             {/* <Route exact path="/userprofile/:id" component={UserProfile} /> */}
             <Route component={NoMatch} />
