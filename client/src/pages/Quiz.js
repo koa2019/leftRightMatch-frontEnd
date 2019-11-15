@@ -15,26 +15,25 @@ class Quiz extends Component {
     this.state = {
       loading: false,
       isProblem: false,
+      stance1: "Pro-Choice",
+      stance2: "Pro-Life",
+      questions,
+      userAnswers: [],
+      answers: [],
+      count: 30,
+      value: "",
+      ////////////////////
+      // keys for res.data
       isLoggedIn: "",
       userId: "",
-      userAnswers: [],
       questionsData: [],
-      questions,
       qqId: "",
-      name: "",
-      stance1: "Pro-Choice",
-      stance2: "Pro-Life"
-
+      name: ""
     };
-    // a method to reference this from element functions called on?
-    // this.handleInputChange = this.handleInputChange.bind(this);
-    // this.handleQuizSubmit = this.handleQuizSubmit.bind(this);
   }
 
- 
-  
-
   // uncomment this function when backend is ready to use
+
   // loadQuestions() {
   //   this.setState({ loading: true, isProblem: false }, () => {
   //     API.getQuestions(this.state.questionsData)
@@ -49,6 +48,7 @@ class Quiz extends Component {
   //   });
   // }
 
+
   // if/then/else conditional for questions array. if questions isn"t empty, then loop through each index in array
   renderQuestions = () => {
     return (
@@ -61,54 +61,73 @@ class Quiz extends Component {
           >
             <RadioInput
               key={question.qqId}
-              name={question.qqId} 
-              onChange={this.handleInputChange} 
+              name={question.qqId}
+              onChange={this.handleInputChange}
               value1={this.state.stance1}
               value2={this.state.stance2}
-              />       
+            />
           </QuizFormItem>
         );
       })
     )
   }
 
+  // function when a radio input is clicked
   handleInputChange = event => {
     // Need to setState userId from req.params 
     // Need to capture value of radio input from QuizForm for each question answered
-    // const value = target.value;
-    // const name = target.name;
     const { name, value } = event.target;
-    console.log('[name]: value = ', name, value)
+    // console.log('[name]: value = ', name, value)
 
     this.setState({
-      userAnswers: value
-      // [name]: value
+      // answer: value
+      [name]: value,
     });
-    console.log(this.state)
-    // push all answers values into userAnswers array with userId
-    // $(.chosen).map( (index, element)=> {
-    //   let answer = $(this).val();
-    //   userAnswers.push(answer)
+
+    this.setState(state => {
+        const answers = state.answers.concat( {[name]: value} );
+        return {
+          answers, 
+          value: ""
+        };
+    });
+
+
+    // tried updating [name]:value] & then cancat the array
+    // this.setState(state => {
+    //   const answers = state.answers
+    //   console.log('answers ', answers)
+    //     .map((answer, j) => {
+    //       if (j === name) {
+    //         return this.setState({ [name]: value })
+    //       }
+    //       else {
+    //         return answer
+    //       }
+    //     })
+    //   return { answers }
     // })
-    // console.log(userAnswers)
 
-    // save userAnswers to database
-
+    console.log('Change() state ', this.state)
   }
 
   handleQuizSubmit = event => {
     event.preventDefault();
-    // const { name, value } = event.target;
-    // console.log('[name]: value = ', name, value)
+    // console.log('handleSubmit hit')
+    console.log("Submit() state: ", this.state)
+    // console.log('handleSubmit q0:', this.state.q0)
 
-    // this.setState({
-    //   [name]: value
-    // });
-    console.log("handleSubmit this.state: ", this.state)
+    // this.state.map(state => {
+    //   return (
+    //     console.log(state)
+    //   )
+    // })
+    // axios post() userAnswers to database
 
   }
 
   render() {
+    console.log('render() state ', this.state)
     return (
       <div>
         <Nav />
