@@ -9,10 +9,11 @@
     },
     {
         "id": "1",
+        "candidateId": "1234",
         "name": "Bernie Sanders",
-        "img-name": "bernie-profile1",
+        "imgName": "bernie-profile1",
         "image": "/images/Bernie-Sanders-circle-16.png",
-        "banner-img": "/images/bernie-banner-img1.png",
+        "bannerImg": "/images/bernie-banner-img1.png",
         "politicalParty": "Democratic Party, Independent Politician, Liberty Union Party",
         "experience": "United States Senator",
         "iSideLink": "https://www.isidewith.com/candidates/bernie-sanders",
@@ -25,7 +26,7 @@
             "facebook": [ "https://www.facebook.com/berniesanders", "https://www.facebook.com/senatorsanders"],
             "instagram": "https://www.instagram.com/berniesanders"
         }],
-        "video-embed": "<iframe width='560' height='315' src='https://www.youtube.com/embed/ZgJagAiHimk' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+        "videoEmbed": "<iframe width='560' height='315' src='https://www.youtube.com/embed/ZgJagAiHimk' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
 
     },
     {

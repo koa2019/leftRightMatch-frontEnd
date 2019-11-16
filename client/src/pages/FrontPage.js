@@ -9,8 +9,8 @@ class FrontPage extends Component {
 
     handleThisClick = () => {
         console.log('handleClick')
+        this.props.history.push("/quiz")
     }
-
     render() {
         return (
             <div>
@@ -18,16 +18,15 @@ class FrontPage extends Component {
                 <Container fluid>
                     <Row fluid>
                         <Col size="mx-auto">
-                            {/* <div > */}
-                            <Image
-                                image={logoImg}
-                                name={logoImg.name}
-                            // onClick={()=>handleThisClick()}
-                            >
-                                {/* Need to position text closer to logo */}
-                                <h1>Which Political Candidate Are You Most Like?</h1>
-                            </Image>
-                            {/* </div> */}
+                            <div onClick={this.handleThisClick}>
+                                <Image
+                                    image={logoImg}
+                                    name={logoImg.name}
+                                >
+                                    {/* Need to position text closer to logo */}
+                                    <h1>Which Political Candidate Are You Most Like?</h1>
+                                </Image>
+                            </div>
                         </Col>
                     </Row>
                 </Container >

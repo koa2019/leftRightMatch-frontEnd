@@ -19,7 +19,7 @@ class Quiz extends Component {
       stance2: "Pro-Life",
       questions,
       userAnswers: [],
-      answers: [],
+      answers: {},
       count: 30,
       value: "",
       ////////////////////
@@ -74,23 +74,27 @@ class Quiz extends Component {
 
   // function when a radio input is clicked
   handleInputChange = event => {
+    console.log('handleChange hit')
     // Need to setState userId from req.params 
     // Need to capture value of radio input from QuizForm for each question answered
     const { name, value } = event.target;
-    // console.log('[name]: value = ', name, value)
+    console.log('[name]: value = ', name, value)
 
-    this.setState({
-      // answer: value
-      [name]: value,
-    });
+    this.state.answers[name] = value;
+    delete this.state.answers[name];
+    this.setState({ answers: this.state.answers });
 
-    this.setState(state => {
-      const answers = state.answers.concat({ [name]: value });
-      return {
-        answers,
-        value: ""
-      };
-    });
+    // this.setState({
+    //   [name]: value,
+    // });
+
+    // this.setState(state => {
+    //   const answers = state.answers.concat({ [name]: value });
+    //   return {
+    //     answers,
+    //     value: ""
+    //   };
+    // });
 
 
     // tried updating [name]:value] & then cancat the array
@@ -114,8 +118,24 @@ class Quiz extends Component {
   handleQuizSubmit = event => {
     event.preventDefault();
 
-    // console.log('handleSubmit hit')
-    console.log("Submit() state: ", this.state)
+    console.log('handleSubmit hit')
+    // console.log("Submit() state: ", this.state)
+
+let tempArr = {
+  q0: this.state.q0,
+  q1: this.state.q1,
+  q2: this.state.q2
+}
+console.log('temp ', tempArr)
+
+    // this.setState(state => {
+    //   const answers = state.answers.concat({ [name]: value });
+    //   return {
+    //     answers,
+    //     value: ""
+    //   };
+    // });
+
 
     // this.setState(state => {
     //   const answers = state.answers.map(answer => {
@@ -142,14 +162,15 @@ class Quiz extends Component {
     return (
       <div>
         <Nav />
-        <Jumbotron>
+        <Jumbotron specs="hello">
           <h1>Which Political Candidate Are You Most Like?</h1>
         </Jumbotron>
 
-        <Container>
+<Container>
           <Row>
             <Col size="col-md-12">
               <form onSubmit={this.handleQuizSubmit}>
+
                 {this.renderQuestions()}
                 < FormBtn
                 >Submit
