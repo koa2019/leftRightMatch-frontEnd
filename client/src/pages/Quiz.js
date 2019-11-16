@@ -27,7 +27,7 @@ class Quiz extends Component {
       isLoggedIn: "",
       userId: "",
       questionsData: [],
-      qqId: "",
+      key: "",
       name: ""
     };
   }
@@ -55,16 +55,16 @@ class Quiz extends Component {
       this.state.questions.map(question => {
         return (
           <QuizFormItem
-            key={question.qqId}
-            name={question.name}
-            question={question.qq}
+            key={question.key}
+            // name={question.name}
+            question={question.question}
           >
             <RadioInput
-              key={question.qqId}
-              name={question.qqId}
+              key={question.key}
+              // name={question.key}
               onChange={this.handleInputChange}
-              value1={this.state.stance1}
-              value2={this.state.stance2}
+              value0={question.stances[0]}
+              value1={question.stances[1]}
             />
           </QuizFormItem>
         );

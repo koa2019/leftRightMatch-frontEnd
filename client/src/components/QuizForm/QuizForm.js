@@ -24,18 +24,18 @@ export function RadioInput(props) {
                     type="radio"
                     name={props.name}
                     onChange={props.handleInputChange}
-                    value="pro-choice"
+                    value={props.value0}
                 />
-                <h5 className="radioLabel">{props.value1}</h5>
+                <h5 className="radioLabel">{props.value0}</h5>
             </label>
             <label className="radio">
                 <input
                     type="radio"
                     name={props.name}
                     onChange={props.handleInputChange}
-                    value="pro-life"
+                    value={props.value1}
                 />
-                <h5 className="radioLabel">{props.value2}</h5>
+                <h5 className="radioLabel">{props.value1}</h5>
             </label>
         </div>
     );
