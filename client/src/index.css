@@ -49,9 +49,7 @@ body {
 
 .container {
   background: var(--light-white);
-  border-style:solid;
-  border-width: thin;
-  border-color: var(--light-gray);
+  border: thin solid var(--light-gray);
   padding: 20px;
 }
 
@@ -70,6 +68,9 @@ body {
 nav {
   clear: both;
   max-height: 15%;
+  min-height: 150px;
+  vertical-align: middle;
+  font-size: 20px;
 }
 
 .navbar-brand {
@@ -81,33 +82,17 @@ nav {
   margin-right: 10px;
 }
 
+.brand-font {
+  font-size: 30px;
+}
+
 .navbar-item, .navbar-brand {
   color: white;
 }
 
-.logo {
-  color: var(--dark-gray);
-  /* object-fit: scale-down; */
-  object-fit: cover;
+.nav-img {
+  width:120px;
+  height: 140px;
+  
 }
 
-footer {
-  background-color: var(--medium-gray);
-  max-height: 30%;
-  color: var(--dark-white);
-  font-size: small;
-}
-
-.candidate-thumbnail {
-  max-width: 250px;
-  max-height: 250px;
-}
-
-.candidates li{
-  text-align: left;
-
-}
-.banner {
-  height: 400px;
-  max-height: 40vh;
-}

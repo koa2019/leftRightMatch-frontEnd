@@ -1,0 +1,54 @@
+[
+    {
+        "id": "0",
+        "name": "Elizabeth Warren",
+        "img-name": "warren-profile1",
+        "image": "/images/elizabeth-warren_red_profile.png",
+        "banner-img": "/images/ElizabethWarren-banner-img4.png"
+
+    },
+    {
+        "id": "1",
+        "name": "Bernie Sanders",
+        "img-name": "bernie-profile1",
+        "image": "/images/Bernie-Sanders-circle-16.png",
+        "banner-img": "/images/bernie-banner-img1.png",
+        "political-party": "Democratic Party, Independent Politician, Liberty Union Party",
+        "political-experience": "United States senator",
+        "iside-link": "https://www.isidewith.com/candidates/bernie-sanders",
+        "policy-link": "https://www.isidewith.com/candidates/bernie-sanders/policies",
+        "top-themes": "Big Government, Left Wing, Progressive, Collectivism, Environmentalism, Multiculturalism, Tender, Democratic Socialism, Secular, Keynesian, Politically Correct",
+        "top qualities": "Honesty, Leadership, Charisma (from 239,446 votes)",
+        "contact-info": [{
+            "website": "https://www.berniesanders.com/",
+            "twitter": ["https://twitter.com/BernieSanders", "https://twitter.com/SenSanders"],
+            "facebook": [ "https://www.facebook.com/berniesanders", "https://www.facebook.com/senatorsanders"],
+            "instagram": "https://www.instagram.com/berniesanders"
+        }],
+        "video-embed": "<iframe width='560' height='315' src='https://www.youtube.com/embed/ZgJagAiHimk' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+
+    },
+    {
+        "id": "2",
+        "name": "Joe Biden",
+        "img-name": "biden-profile1",
+        "image": "/images/biden_blue_profile.png",
+        "banner-img": "joe-biden-banner-img.png"
+    },
+    {
+        "id": "3",
+        "name": "Donald Trump",
+        "img-name": "trump-profile1",
+        "image": "/images/trump-flag-profile.jpg",
+        "banner-img": "../images/trump-banner-img1.png"
+    },
+    {
+        "id": "4",
+        "name": "Unknown Candidate",
+        "img-name": "Unknown-profile",
+        "image": "/images/UnknownProfile.png",
+        "banner-img": "/images/2020-democrats-illustration.jpg"
+        
+    }
+    
+]

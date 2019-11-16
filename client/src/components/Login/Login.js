@@ -1,7 +1,7 @@
 // dependencies
 import React from 'react'
 // import axios from 'axios'
-import "./style.css"
+import "./Login.css"
 
 function Login(props) {
 

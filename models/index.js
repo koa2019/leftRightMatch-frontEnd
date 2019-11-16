@@ -1,4 +1,5 @@
 module.exports = {
-  QuizResult: require("./quizResult")
+  QuizResult: require("./quizResult"),
+  Candidate: require("./candidate")
   };
   

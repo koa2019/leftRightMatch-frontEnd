@@ -1,8 +1,8 @@
 // dependencies
 import React, { Component } from "react"
-import Nav from '../components/Nav'
-import Jumbotron from "../components/Jumbotron"
-import { Col, Row, Container } from "../components/Grid"
+import Nav from "../components/Nav/Nav"
+import Jumbotron from "../components/Jumbotron/Jumbotron"
+import { Col, Row, Container } from "../components/Grid/Grid"
 import questions from "../utils/questions.json"
 import { QuizFormItem, RadioInput, FormBtn } from "../components/QuizForm/QuizForm"
 import "./pageStyles/Quiz.css"
@@ -85,11 +85,11 @@ class Quiz extends Component {
     });
 
     this.setState(state => {
-        const answers = state.answers.concat( {[name]: value} );
-        return {
-          answers, 
-          value: ""
-        };
+      const answers = state.answers.concat({ [name]: value });
+      return {
+        answers,
+        value: ""
+      };
     });
 
 
@@ -113,15 +113,26 @@ class Quiz extends Component {
 
   handleQuizSubmit = event => {
     event.preventDefault();
+
     // console.log('handleSubmit hit')
     console.log("Submit() state: ", this.state)
-    // console.log('handleSubmit q0:', this.state.q0)
 
-    // this.state.map(state => {
-    //   return (
-    //     console.log(state)
-    //   )
+    // this.setState(state => {
+    //   const answers = state.answers.map(answer => {
+    //     console.log('answer ', answer)
+    //     return (
+    //       console.log('answer ', answer)
+    //       //   state.answers.concat({ [answer] : value })
+    //       // return (
+    //       // {
+    //       //   answers,
+    //       //   value: ""
+    //       // };
+    //       // )
+    //     )
+    //   })
     // })
+
     // axios post() userAnswers to database
 
   }

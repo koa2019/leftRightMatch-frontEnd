@@ -1,0 +1,20 @@
+.banner {
+    margin: 100px 0 50px;
+    /* background-image: url("../../images/democrat_primary_Pals_Characters.jpg"); */
+    object-fit: scale-down;
+    /* line-height: 300px; */
+    width: 100%;
+    max-height: 300px;
+    font-size: 70px;
+    border: thin solid var(--light-blue);
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: 3px 2px var(--light-red);
+    /* height: 400px;
+    max-height: 40vh; */
+}
+
+.banner-img {
+    height: 30%;
+    max-height: 300px;
+}

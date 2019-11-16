@@ -1,0 +1,31 @@
+.allCandidates {
+    margin: 100px 0 50px;
+    /* background-image: url("../../images/democrat_primary_Pals_Characters.jpg"); */
+    object-fit: scale-down;
+    line-height: 300px;
+    font-size: 70px;
+    border: thin solid var(--light-blue);
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: 3px 2px var(--light-red);
+}
+
+.thumbnail-text {
+    font-size: x-large;
+}
+
+.list-group-item {
+    border: thin solid var(--light-red);
+    padding: 30px;
+}
+.candidates li {
+    text-align: left;
+}
+
+.hello {
+    border-radius: 25px;
+    border: thin solid;
+    background-image: linear-gradient(to bottom right, var(--light-red),var(--light-blue));
+    padding: 10px;
+    background-color: var(--bright-red);
+}

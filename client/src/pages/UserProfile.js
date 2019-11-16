@@ -1,9 +1,9 @@
 // dependencies
-import React, { Component } from "react";
-import { Col, Row, Container } from "../components/Grid";
+import React, { Component } from "react"
+import { Col, Row, Container } from "../components/Grid/Grid"
 // import Jumbotron from "../components/Jumbotron";
-import ProfileCard from "../components/ProfileCard";
-import Nav from '../components/Nav'
+import ProfileCard from "../components/ProfileCard/ProfileCard"
+import Nav from "../components/Nav/Nav"
 
 class UserProfile extends Component {
 

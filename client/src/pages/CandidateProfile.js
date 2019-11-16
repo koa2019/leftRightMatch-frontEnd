@@ -1,12 +1,12 @@
 // dependencies
 import React, { Component } from "react"
-import { Col, Row, Container } from "../components/Grid"
-import Nav from '../components/Nav'
-import Jumbotron from "../components/Jumbotron"
-import ProfileCard from "../components/ProfileCard"
-import candidateData from "../components/candidates.json"
-import Bernie from "../images/elizabeth-warren_red_profile.png"
+import { Col, Row, Container } from "../components/Grid/Grid"
+import Nav from "../components/Nav/Nav"
+import ProfileCard from "../components/ProfileCard/ProfileCard"
+import candidateData from "../utils/candidates.json"
+import EWImg from "../images/elizabeth-warren_red_profile.png"
 import EWBanner from "../images/ElizabethWarren-banner4.png"
+import "./pageStyles/CandidateProfile.css"
 // import { List, ListItem } from "../components/List"
 // import API from "../utils/API"
 
@@ -31,16 +31,17 @@ class CandidateProfile extends Component {
         return (
             <div>
                 <Nav />
-                <Jumbotron>
-                    {/* <img src={this.state.candidate[0].banner} alt={this.state.candidate[0].name} /> */}
-                    <img style={{width: '90%'}} className="banner" src={EWBanner} alt={this.state.candidate[0].name} />
-                </Jumbotron>
+                <div className="banner">
+                    {/* <img  src={this.state.candidate[0].banner} alt={this.state.candidate[0].name} /> */}
+                    <img className="banner-img" src={EWBanner} style={{ width: '100%' }} alt={this.state.candidate[0].name} />
+
+                </div>
                 <Container>
                     <Row>
                         <Col size="col-md-auto mx-auto">
                             <ProfileCard
                                 id={this.state.candidate[0].id}
-                                image={Bernie}
+                                image={EWImg}
                                 name={this.state.candidate[0].name}
                             />
                         </Col>

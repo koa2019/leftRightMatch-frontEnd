@@ -1,10 +1,11 @@
-import React from "react";
+import React from "react"
+import "./ProfileCard.css"
 
 function ProfileCard(props) {
     return (
         <div className="card candidate-card p-0">
             <div>
-            <img className="card-img-top candidate-thumbnail" src={props.image} alt={props.name} />
+            <img className="card-img-top candidate-img" src={props.image} alt={props.name} />
             </div>
             <div className="card-body">
                 <h5 className="card-title">{props.name}</h5>

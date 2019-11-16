@@ -1,0 +1,6 @@
+
+.logo {
+    color: var(--dark-gray);
+    object-fit: scale-down;
+    /* object-fit: cover; */
+  }

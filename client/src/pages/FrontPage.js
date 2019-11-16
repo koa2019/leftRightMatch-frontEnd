@@ -1,15 +1,14 @@
 // dependencies
-import React, { Component } from "react";
-import { Col, Row, Container } from "../components/Grid";
-import Image from "../components/Image";
-import logo from "../images/leftRightMatch3.png";
-import Jumbotron from "../components/Jumbotron";
-import Nav from "../components/Nav";
+import React, { Component } from "react"
+import { Col, Row, Container } from "../components/Grid/Grid"
+import Image from "../components/Image/Image"
+import logoImg from "../images/leftRightMatch3.png"
+import Nav from "../components/Nav/Nav"
 
 class FrontPage extends Component {
 
     handleThisClick = () => {
-
+        console.log('handleClick')
     }
 
     render() {
@@ -18,29 +17,18 @@ class FrontPage extends Component {
                 <Nav />
                 <Row fluid>
                     <Col size="mx-auto">
-                        <Jumbotron>
+                        {/* <div > */}
                             <Image
-                                image={logo}
-                                width={"600px"}
-                                name={logo.name}
-                                // onClick={()=>handleThisClick()}
-                            />
+                                image={logoImg}
+                                name={logoImg.name}
+                            // onClick={()=>handleThisClick()}
+                            >
                             {/* Need to position text closer to logo */}
                             <h1>Which Political Candidate Are You Most Like?</h1>
-                        </Jumbotron>
+                            </Image>
+                        {/* </div> */}
                     </Col>
-                </Row>
-                {/* <Row fluid>
-                    <Col size="mx-auto">
-                        <Logo
-                            image={logo}
-                            width={"1000px"}
-                            // height={"600px"}
-                            name={logo.name}
-                        />
-                        <h5>Which Political Candidate Are You Most Like?</h5>
-                    </Col>
-                </Row> */}
+                </Row>               
             </Container >
         );
     }

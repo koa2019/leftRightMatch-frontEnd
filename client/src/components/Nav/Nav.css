@@ -1,0 +1,21 @@
+nav {
+    clear: both;
+    max-height: 15%;
+}
+  
+  .navbar-brand {
+    background-image: url('./images/leftRightMatch3.png');
+    background-repeat: no-repeat;
+}
+  
+  .navbar-item {
+    margin-right: 10px;
+}
+  
+  .navbar-item, .navbar-brand {
+    color: white;
+}
+.nav-img {
+  width:120px;
+  height: 140px;
+}
