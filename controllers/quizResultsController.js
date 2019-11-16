@@ -17,7 +17,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log('books controller>create>reqbody ', req.body)
+  
+    console.log('results controller>create>reqbody ',req.body)
     db.QuizResult
       .create(req.body)
       .then(dbModel => res.json(dbModel))

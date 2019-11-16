@@ -8,9 +8,10 @@ import Nav from "../components/Nav/Nav"
 class FrontPage extends Component {
 
     handleThisClick = () => {
-        console.log('handleClick')
+        console.log('handleClick hit')
         this.props.history.push("/quiz")
     }
+
     render() {
         return (
             <div>

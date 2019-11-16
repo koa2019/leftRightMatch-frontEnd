@@ -6,9 +6,9 @@ import ProfileCard from "../components/ProfileCard/ProfileCard"
 import candidateData from "../utils/candidates.json"
 import Img from "../images/bernie_blue_profile1.jpg"
 import EWBanner from "../images/bernie-banner1.png"
-// import SocialMedia from "../components/SocialMedia/SocialMedia"
 import "./pageStyles/CandidateProfile.css"
 // import { List, ListItem } from "../components/List"
+// import SocialMedia from "../components/SocialMedia/SocialMedia"
 // import API from "../utils/API"
 
 
@@ -30,6 +30,7 @@ class CandidateProfile extends Component {
             policies: ""
         }
     }
+    
     componentDidMount() {
         this.setState({
             candidate: candidateData[1],

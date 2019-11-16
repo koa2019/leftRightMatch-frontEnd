@@ -6,7 +6,7 @@ import { Col, Row, Container } from "../components/Grid/Grid"
 import questions from "../utils/questions.json"
 import { QuizFormItem, RadioInput, FormBtn } from "../components/QuizForm/QuizForm"
 import "./pageStyles/Quiz.css"
-// import API from "../utils/API";
+import API from "../utils/API";
 
 class Quiz extends Component {
 
@@ -35,6 +35,7 @@ class Quiz extends Component {
   // uncomment this function when backend is ready to use
 
   // loadQuestions() {
+  //    console.log(this.state.questionsData)
   //   this.setState({ loading: true, isProblem: false }, () => {
   //     API.getQuestions(this.state.questionsData)
   //       .then(res => {
@@ -56,12 +57,12 @@ class Quiz extends Component {
         return (
           <QuizFormItem
             key={question.key}
-            // name={question.name}
+            name={question.key}
             question={question.question}
           >
             <RadioInput
               key={question.key}
-              // name={question.key}
+              name={question.key}
               onChange={this.handleInputChange}
               value0={question.stances[0]}
               value1={question.stances[1]}
@@ -75,90 +76,34 @@ class Quiz extends Component {
   // function when a radio input is clicked
   handleInputChange = event => {
     console.log('handleChange hit')
-    // Need to setState userId from req.params 
-    // Need to capture value of radio input from QuizForm for each question answered
+
     const { name, value } = event.target;
     console.log('[name]: value = ', name, value)
 
     this.state.answers[name] = value;
-    delete this.state.answers[name];
     this.setState({ answers: this.state.answers });
+    // delete this.state.answers[name];
 
-    // this.setState({
-    //   [name]: value,
-    // });
-
-    // this.setState(state => {
-    //   const answers = state.answers.concat({ [name]: value });
-    //   return {
-    //     answers,
-    //     value: ""
-    //   };
-    // });
-
-
-    // tried updating [name]:value] & then cancat the array
-    // this.setState(state => {
-    //   const answers = state.answers
-    //   console.log('answers ', answers)
-    //     .map((answer, j) => {
-    //       if (j === name) {
-    //         return this.setState({ [name]: value })
-    //       }
-    //       else {
-    //         return answer
-    //       }
-    //     })
-    //   return { answers }
-    // })
-
-    console.log('Change() state ', this.state)
   }
 
   handleQuizSubmit = event => {
     event.preventDefault();
 
     console.log('handleSubmit hit')
-    // console.log("Submit() state: ", this.state)
 
-let tempArr = {
-  q0: this.state.q0,
-  q1: this.state.q1,
-  q2: this.state.q2
-}
-console.log('temp ', tempArr)
-
-    // this.setState(state => {
-    //   const answers = state.answers.concat({ [name]: value });
-    //   return {
-    //     answers,
-    //     value: ""
-    //   };
-    // });
-
-
-    // this.setState(state => {
-    //   const answers = state.answers.map(answer => {
-    //     console.log('answer ', answer)
-    //     return (
-    //       console.log('answer ', answer)
-    //       //   state.answers.concat({ [answer] : value })
-    //       // return (
-    //       // {
-    //       //   answers,
-    //       //   value: ""
-    //       // };
-    //       // )
-    //     )
-    //   })
+    // send this.state.answers to axios.post() to database
+    API.saveUserResults(this.state.answers)
+    // .then(res => {
+    //     console.log('API.saveUserResults>promise> res', res)
     // })
-
-    // axios post() userAnswers to database
+    // .catch(err => {
+    //     console.log(err)
+    // })
 
   }
 
   render() {
-    console.log('render() state ', this.state)
+    console.log('render() state========= ', this.state)
     return (
       <div>
         <Nav />
@@ -166,7 +111,7 @@ console.log('temp ', tempArr)
           <h1>Which Political Candidate Are You Most Like?</h1>
         </Jumbotron>
 
-<Container>
+        <Container>
           <Row>
             <Col size="col-md-12">
               <form onSubmit={this.handleQuizSubmit}>

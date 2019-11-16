@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const bookRoutes = require('./bookRoutes');
-const googleRoutes = require('./googleRoutes');
+const quizResultsRoutes = require('./quizResultsRoutes')
 
 // Book database routes. Matches /api/books
-router.use('/books', candidatesRoutes);
+// router.use('/candidates', candidatesRoutes);
+
+router.use('/results', quizResultsRoutes)
 
 module.exports = router;

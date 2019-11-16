@@ -1,8 +1,6 @@
 import React from "react"
 import "./QuizForm.css"
 
-// Need to pass the radio input value back to Quiz.js
-
 export function QuizFormItem(props) {
     return (
 

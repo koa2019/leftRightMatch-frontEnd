@@ -1,6 +1,6 @@
 [
     {
-        "id": "0",
+        "id": "123",
         "name": "Elizabeth Warren",
         "img-name": "warren-profile1",
         "image": "/images/elizabeth-warren_red_profile.png",
@@ -8,7 +8,7 @@
 
     },
     {
-        "id": "1",
+        "id": "456",
         "candidateId": "1234",
         "name": "Bernie Sanders",
         "imgName": "bernie-profile1",
@@ -30,21 +30,21 @@
 
     },
     {
-        "id": "2",
+        "id": "789",
         "name": "Joe Biden",
         "img-name": "biden-profile1",
         "image": "/images/biden_blue_profile.png",
         "banner-img": "joe-biden-banner-img.png"
     },
     {
-        "id": "3",
+        "id": "1011",
         "name": "Donald Trump",
         "img-name": "trump-profile1",
         "image": "/images/trump-flag-profile.jpg",
         "banner-img": "../images/trump-banner-img1.png"
     },
     {
-        "id": "4",
+        "id": "1213",
         "name": "Unknown Candidate",
         "img-name": "Unknown-profile",
         "image": "/images/UnknownProfile.png",

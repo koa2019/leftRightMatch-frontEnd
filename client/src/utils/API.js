@@ -12,7 +12,7 @@ export default {
     getAllCandidates: function () {
         return axios.get("/api/candidates");
     },
-    // gets candidates with the given id
+    // gets 1 candidate by given id
     getCandidate: function (id) {
         return axios.get("/api/candidates/" + id);
     },
@@ -26,7 +26,8 @@ export default {
     },
     // Not sure what's the correct path?
     // saves a user's quiz results to their profile id database
-    saveUserResults: function (id, resultsData) {
-        return axios.post("/api/userprofile/#", id, resultsData);
+    saveUserResults: function (resultsData) {
+        console.log(resultsData)
+        return axios.post("/api/results", resultsData);
     }
 };

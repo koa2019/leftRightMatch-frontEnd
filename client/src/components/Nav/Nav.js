@@ -1,6 +1,6 @@
 // dependencies
 import React from "react"
-// import "Nav.css"
+import "./Nav.css"
 import image from "../../images/leftRightMatch3.png"
 
 function Nav() {

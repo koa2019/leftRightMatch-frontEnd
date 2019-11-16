@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const quizResultsController = require("../../controllers/quizResultsController");
 
-// Matches with "/api/candidates/"
+// Matches with "/api/results/"
 router.route("/")
   .get(quizResultsController.findAll)
   .post(quizResultsController.create);

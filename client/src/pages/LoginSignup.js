@@ -5,21 +5,27 @@ import Jumbotron from "../components/Jumbotron/Jumbotron"
 import { Col, Row, Container } from "../components/Grid/Grid"
 import Login from "../components/Login/Login"
 import SignUp from "../components/Signup/SignUp"
+import "./pageStyles/LoginSignUp.css"
 // import SignUpTab from "../components/SignUpTab/SignUpTab"
 // import LoginTab from "../components/LoginTab/LoginTab"
-import "./pageStyles/LoginSignUp.css"
 
 class LoginSignUp extends Component {
-  state = {
+
+  constructor(props) {
+    super(props);
+    this.state = {
     selectedTab: "login",
-    color: "var(--stylish-slight-grey)",
-    selected: "(157, 255, 0)"
+    defaultColor: "var(--stylish-slight-grey)",
+    red: "(157, 255, 0)",
+    selected: ""
   }
+}
+
   render() {
     return (
       <div>
         <Nav />
-        <Jumbotron specs="">
+        <Jumbotron>
           <h1>Which Political Candidate Are You Most Like?</h1>
         </Jumbotron>
         <Container>

@@ -1,3 +1,13 @@
+.jumbotron {
+  clear: both;
+  width: 100%;
+  font-size: xx-large;
+  font-weight: bolder;
+  margin: 150px 0 75px;
+  background-color: white;
+  color: var(--dark-gray);
+  position: relative;
+}
 
 .logo {
     color: var(--dark-gray);

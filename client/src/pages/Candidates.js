@@ -34,16 +34,19 @@ class Candidates extends Component {
         })
     }
 
-    // function needs to capture candidate's id onClick, setState? & 
-    // pass id to Router & redirect to "/candidates/:id" 
-    // ? do I add onClick={this.handleOnClick} to definition of ListItem?
-    handleOnClick = event => {
-        const { name, value } = event.target;
+    // function captures onClick prop name & value dynamically & setStates
+    // if prop doesn't exist in state then it will create it in state 
+    handleThisClick = event => {
+        console.log('handleClick hit')
 
+        const { name, value } = event.target;
+        console.log('[name]: value = ', name, value)
+
+        // getNamedItem('data-value').value
         // expected id: value equal to candidates id in database
-        this.setState({
-            [name]: value
-        });
+        // this.setState({
+        //     [name]: value
+        // });
     }
 
 
@@ -67,9 +70,10 @@ class Candidates extends Component {
                     </Row>
                     <Row>
                         <Col size="col-md-12 hello">
+                            <div onClick={this.handleThisClick}>
                             <List>
                                 {this.state.candidateData.map(candidate => {
-                                    console.log(candidate)
+                                    // console.log(candidate)
                                     return (
                                         <ListItem
                                             key={candidate.name}
@@ -77,25 +81,26 @@ class Candidates extends Component {
                                         >
                                             <ul className="list-unstyled">
                                                 <img className="img-thumbnail float-left mr-4" src={thumbnail} width="100px" alt={candidate.name} />
-                                                {/* <img src={candidate.image}  alt={candidate.name} /> */}
+                                                {/* <img src={candidateImage}  alt={candidate.name} /> */}
                                                 <h2 className="font-weight-bold">
                                                     <li>{candidate.name}</li>
                                                 </h2>
                                                 <li>
                                                     <span className="font-weight-bold">Political Party: </span>
                                                     Democrat
-                                                {/* {candidate.political-party}*/}
+                                                {/* {candidate.politicalParty}*/}
                                                 </li>
                                                 <li>
                                                     <span className="font-weight-bold">Top Qualities: </span>
                                                     Honesty, Leadership, Charisma
-                                                    {/* {candidate.top-qualities} */}
+                                                    {/* {candidate.topQualities} */}
                                                 </li>
                                             </ul>
                                         </ListItem>
                                     )
                                 })}
                             </List>
+                            </div>
                         </Col>
                     </Row>
                 </Container>
