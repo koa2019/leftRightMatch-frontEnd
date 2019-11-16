@@ -6,6 +6,7 @@ import candidateData from "../utils/candidates.json"
 import thumbnail from "../images/UnknownProfile.png"
 import { List, ListItem } from "../components/List/List"
 import "./pageStyles/Candidates.css"
+import banner from "../images/primaries_DEM_JULY.14.jpg"
 
 // can this be function instead of a class?
 class Candidates extends Component {
@@ -51,13 +52,22 @@ class Candidates extends Component {
         return (
             <div>
                 <Nav />
-                <div className="allCandidates">
-                    <span>All Candidates</span>
-                </div>
-                <Container specs={"hello"}>
+                {/* <div className="candidatesBanner">
+                <img className="banner-img" src={banner} alt={'2020-candidates'} />
+                    <br /><span>All Candidates</span>
+                </div> */}
+                <Container>
                     <Row>
-                        <Col size="col-md-12">
-                            <List>                          
+                        <Col size="col-md-12 mx-auto">
+                            <div className="candidatesBanner">
+                                <img className="banner-image" src={banner} alt={'2020-candidates'} />
+                                <br /><span>All Candidates</span>
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col size="col-md-12 hello">
+                            <List>
                                 {this.state.candidateData.map(candidate => {
                                     console.log(candidate)
                                     return (
@@ -75,12 +85,12 @@ class Candidates extends Component {
                                                     <span className="font-weight-bold">Political Party: </span>
                                                     Democrat
                                                 {/* {candidate.political-party}*/}
-                                                    </li>
+                                                </li>
                                                 <li>
                                                     <span className="font-weight-bold">Top Qualities: </span>
                                                     Honesty, Leadership, Charisma
                                                     {/* {candidate.top-qualities} */}
-                                                    </li>
+                                                </li>
                                             </ul>
                                         </ListItem>
                                     )

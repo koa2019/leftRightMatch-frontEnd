@@ -1,8 +1,11 @@
-.allCandidates {
-    margin: 100px 0 50px;
-    /* background-image: url("../../images/democrat_primary_Pals_Characters.jpg"); */
-    object-fit: scale-down;
-    line-height: 300px;
+.candidatesBanner {
+   
+    /* background-image: url("../../images/primaries_DEM_JULY.14.jpg"); */
+      /* background-image: linear-gradient(to bottom right, var(--bootstrap-primary-blue),var(--light-blue)); */
+    object-fit: contain;
+    width: fit-content;
+    max-height: 675px;
+    line-height: 200px;
     font-size: 70px;
     border: thin solid var(--light-blue);
     text-align: center;
@@ -10,12 +13,18 @@
     text-shadow: 3px 2px var(--light-red);
 }
 
+.banner-image {
+    object-fit: contain;
+    height: 30%;
+    
+} 
+
 .thumbnail-text {
     font-size: x-large;
 }
 
 .list-group-item {
-    border: thin solid var(--light-red);
+    /* border: thin solid var(--light-red); */
     padding: 30px;
 }
 .candidates li {

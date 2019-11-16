@@ -13,23 +13,25 @@ class FrontPage extends Component {
 
     render() {
         return (
-            <Container fluid>
+            <div>
                 <Nav />
-                <Row fluid>
-                    <Col size="mx-auto">
-                        {/* <div > */}
+                <Container fluid>
+                    <Row fluid>
+                        <Col size="mx-auto">
+                            {/* <div > */}
                             <Image
                                 image={logoImg}
                                 name={logoImg.name}
                             // onClick={()=>handleThisClick()}
                             >
-                            {/* Need to position text closer to logo */}
-                            <h1>Which Political Candidate Are You Most Like?</h1>
+                                {/* Need to position text closer to logo */}
+                                <h1>Which Political Candidate Are You Most Like?</h1>
                             </Image>
-                        {/* </div> */}
-                    </Col>
-                </Row>               
-            </Container >
+                            {/* </div> */}
+                        </Col>
+                    </Row>
+                </Container >
+            </div>
         );
     }
 }
