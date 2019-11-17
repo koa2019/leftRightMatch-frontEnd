@@ -2,7 +2,7 @@ import React from "react"
 import "./ProfileCard.css"
 
 function ProfileCard(props) {
-    console.log(props)
+    // console.log(props)
     return (
         <div className="card candidate-card p-0">
             <div>

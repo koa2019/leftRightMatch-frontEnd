@@ -1,12 +1,16 @@
 // dependencies
 import React, { Component } from "react"
+import "./pageStyles/Quiz.css"
 import Nav from "../components/Nav/Nav"
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import { Col, Row, Container } from "../components/Grid/Grid"
 import questions from "../utils/questions.json"
 import { QuizFormItem, RadioInput, FormBtn } from "../components/QuizForm/QuizForm"
-import "./pageStyles/Quiz.css"
+import Modal from "../components/Modal/Modal"
 import API from "../utils/API";
+import {Results, ResultsItems} from "../components/Results/Results"
+import allCandidates from "../utils/candidates.json"
+import headImg from "../images/biden-cutout.png"
 
 class Quiz extends Component {
 
@@ -15,13 +19,13 @@ class Quiz extends Component {
     this.state = {
       loading: false,
       isProblem: false,
-      stance1: "Pro-Choice",
-      stance2: "Pro-Life",
       questions,
       userAnswers: [],
       answers: {},
       count: 30,
       value: "",
+      allCandidates,
+      // headImg,
       ////////////////////
       // keys for res.data
       isLoggedIn: "",
@@ -49,15 +53,14 @@ class Quiz extends Component {
   //   });
   // }
 
-
-  // if/then/else conditional for questions array. if questions isn"t empty, then loop through each index in array
+  // renders questions & stances
   renderQuestions = () => {
     return (
       this.state.questions.map(question => {
         return (
           <QuizFormItem
             key={question.key}
-            name={question.key}
+            // name={question.key}
             question={question.question}
           >
             <RadioInput
@@ -68,6 +71,26 @@ class Quiz extends Component {
               value1={question.stances[1]}
             />
           </QuizFormItem>
+        );
+      })
+    )
+  }
+
+  // fuction maps through results & renders each candidate & percentage of same answers question asked
+  showResults = () => {
+
+    // console.log('showResults hit')
+    // console.log('allCand ', this.state.allCandidates)
+    
+    return (
+      this.state.allCandidates.map(candidate => {
+        return (
+          <ResultsItems
+            key={candidate.name}
+            name={candidate.name}
+            image={headImg}
+          >
+          </ResultsItems>
         );
       })
     )
@@ -87,31 +110,39 @@ class Quiz extends Component {
   }
 
   handleQuizSubmit = event => {
+
     event.preventDefault();
 
     console.log('handleSubmit hit')
 
     // send this.state.answers to axios.post() to database
-    API.saveUserResults(this.state.answers)
-    // .then(res => {
-    //     console.log('API.saveUserResults>promise> res', res)
-    // })
-    // .catch(err => {
-    //     console.log(err)
-    // })
+    API.saveUserAnswers(this.state.answers)
+
+      .then(res => {
+        console.log('saveUserAnswers>promise> res', res)
+        // Show the modal with the best match
+        // $("#results-modal").modal("show");
+      })
+
+      .catch(err => {
+        console.log(err)
+      })
 
   }
 
   render() {
+
     console.log('render() state========= ', this.state)
+
     return (
+
       <div>
         <Nav />
-        <Jumbotron specs="hello">
+        <Jumbotron>
           <h1>Which Political Candidate Are You Most Like?</h1>
         </Jumbotron>
 
-        <Container>
+        <Container specs="qContainer">
           <Row>
             <Col size="col-md-12">
               <form onSubmit={this.handleQuizSubmit}>
@@ -121,6 +152,18 @@ class Quiz extends Component {
                 >Submit
                 </FormBtn>
               </form>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col size="col-12">
+              <div className="card resultsStyles mx-auto">
+                <Modal />
+                <Results>
+                </Results>
+               {this.showResults()}
+              </div>
+
             </Col>
           </Row>
         </Container>

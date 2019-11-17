@@ -3,10 +3,11 @@
   width: 100%;
   font-size: xx-large;
   font-weight: bolder;
-  margin: 150px 0 75px;
+  margin: 0 0 75px;
   background-color: white;
   color: var(--dark-gray);
   position: relative;
+  background-image: linear-gradient(to bottom right, var(--lighter-gray-transparent),var(--blue-grey-slight));
 }
 
 .logo {

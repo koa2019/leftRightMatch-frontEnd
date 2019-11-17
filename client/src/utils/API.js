@@ -20,14 +20,10 @@ export default {
     getUserProfile: function(id) {
         return axios.get("/api/userprofile/" + id)
     },
-    // deletes user profile with the given id
-    deleteUserProfile: function (id) {
-        return axios.delete("/api/userprofile/" + id);
-    },
     // Not sure what's the correct path?
     // saves a user's quiz results to their profile id database
-    saveUserResults: function (resultsData) {
-        console.log(resultsData)
-        return axios.post("/api/results", resultsData);
+    saveUserAnswers: function (answersData) {
+        console.log(answersData)
+        return axios.post("/api/answers", answersData);
     }
 };

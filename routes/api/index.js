@@ -1,9 +1,11 @@
 const router = require("express").Router();
-const quizResultsRoutes = require('./quizResultsRoutes')
+const answersRoutes = require("./answersRoutes")
+const candidatesRoutes = require("./candidatesRoutes")
 
-// Book database routes. Matches /api/books
-// router.use('/candidates', candidatesRoutes);
+// candidates database routes. Matches /api/candidates
+router.use('/candidates', candidatesRoutes);
 
-router.use('/results', quizResultsRoutes)
+//  Matches /api/candidates
+router.use('/answers', answersRoutes)
 
 module.exports = router;

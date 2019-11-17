@@ -71,35 +71,35 @@ class Candidates extends Component {
                     <Row>
                         <Col size="col-md-12 hello">
                             <div onClick={this.handleThisClick}>
-                            <List>
-                                {this.state.candidateData.map(candidate => {
-                                    // console.log(candidate)
-                                    return (
-                                        <ListItem
-                                            key={candidate.name}
-                                            id={candidate.id}
-                                        >
-                                            <ul className="list-unstyled">
-                                                <img className="img-thumbnail float-left mr-4" src={thumbnail} width="100px" alt={candidate.name} />
-                                                {/* <img src={candidateImage}  alt={candidate.name} /> */}
-                                                <h2 className="font-weight-bold">
-                                                    <li>{candidate.name}</li>
-                                                </h2>
-                                                <li>
-                                                    <span className="font-weight-bold">Political Party: </span>
-                                                    Democrat
+                                <List>
+                                    {this.state.candidateData.map(candidate => {
+                                        // console.log(candidate)
+                                        return (
+                                            <ListItem
+                                                key={candidate.name}
+                                                id={candidate.id}
+                                            >
+                                                <ul className="list-unstyled">
+                                                    <img className="img-thumbnail float-left mr-4" src={thumbnail} width="100px" alt={candidate.name} />
+                                                    {/* <img src={candidateImage}  alt={candidate.name} /> */}
+                                                    <h2 className="font-weight-bold">
+                                                        <li>{candidate.name}</li>
+                                                    </h2>
+                                                    <li>
+                                                        <span className="font-weight-bold">Political Party: </span>
+                                                        Democrat
                                                 {/* {candidate.politicalParty}*/}
-                                                </li>
-                                                <li>
-                                                    <span className="font-weight-bold">Top Qualities: </span>
-                                                    Honesty, Leadership, Charisma
+                                                    </li>
+                                                    <li>
+                                                        <span className="font-weight-bold">Top Qualities: </span>
+                                                        Honesty, Leadership, Charisma
                                                     {/* {candidate.topQualities} */}
-                                                </li>
-                                            </ul>
-                                        </ListItem>
-                                    )
-                                })}
-                            </List>
+                                                    </li>
+                                                </ul>
+                                            </ListItem>
+                                        )
+                                    })}
+                                </List>
                             </div>
                         </Col>
                     </Row>
