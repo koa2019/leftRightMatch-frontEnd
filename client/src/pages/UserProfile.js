@@ -1,7 +1,7 @@
 // dependencies
 import React, { Component } from "react"
 import { Col, Row, Container } from "../components/Grid/Grid"
-import ProfileCard from "../components/ProfileCard/ProfileCard"
+import UProfileCard from "../components/UProfileCard/UProfileCard"
 import Nav from "../components/Nav/Nav"
 
 class UserProfile extends Component {
@@ -22,7 +22,7 @@ class UserProfile extends Component {
                 <Container>
                     <Row>
                         <Col size="col-md-12">
-                            <ProfileCard
+                            <UProfileCard
                                 name={this.state.name}
                             />
                         </Col>

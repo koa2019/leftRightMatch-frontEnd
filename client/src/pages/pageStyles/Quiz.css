@@ -2,12 +2,9 @@
     background-image: linear-gradient(to bottom right, var(--lighter-gray-transparent),var(--blue-grey-slight));
 }
 .resultsStyles {
-    background-color: var(--blue-grey-slight); 
-    /* background-image: linear-gradient(to bottom right, var(--lighter-gray-transparent),var(--blue-grey-slight)); */
-    background-image: linear-gradient(to bottom right, var(--lighter-gray),var(--blue-grey-slight));
-    color: white;
-    /* width: 100%; */
+    background-color: white; 
     max-width: 960px;
+    border: medium solid var(--bright-red);
 }
 
 form {

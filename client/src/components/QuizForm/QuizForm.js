@@ -1,6 +1,14 @@
 import React from "react"
 import "./QuizForm.css"
 
+export function QuizForm(props) {
+    return (
+        <form className="quizForm" onSubmit={props.handleQuizSubmit}>
+            {props.children}
+        </form>
+    );
+}
+
 export function QuizFormItem(props) {
     return (
 

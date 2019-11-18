@@ -1,5 +1,5 @@
 import React from "react"
-import "./ProfileCard.css"
+import "./UProfileCard.css"
 
 function ProfileCard(props) {
     // console.log(props)
@@ -14,22 +14,22 @@ function ProfileCard(props) {
             </div>
             <ul className="list-group list-group-flush ul-size">
                 <li className="list-group-item">Political Party:
-                <p className="p-size">{props.parties}</p>
+                {/* <p className="p-size">{props.parties}</p> */}
                 </li>
                 <li className="list-group-item">Themes:
-                <p className="p-size">{props.themes}</p>
+                {/* <p className="p-size">{props.themes}</p> */}
                 </li>
                 <li className="list-group-item">Best Qualities:
-                <p className="p-size">{props.qualities}</p>
-                    <a href={props.policies} className="ul-size">Policies</a>
+                {/* <p className="p-size">{props.qualities}</p>
+                    <a href={props.policies} className="ul-size">Policies</a> */}
                 </li>
                 <li className="list-group-item">Political Experience:
                 <p className="p-size">{props.experiences}</p>
                 </li>
             </ul>
             <div className="card-body">
-                <a href={props.websites} className="card-link">Official Website</a>
-                <a href={props.iSideLink} className="card-link">iSideWith Profile</a>
+                {/* <a href={props.websites} className="card-link">Official Website</a>
+                <a href={props.iSideLink} className="card-link">iSideWith Profile</a> */}
             </div>
         </div>
     );

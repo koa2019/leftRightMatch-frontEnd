@@ -15,13 +15,13 @@ export function Results(props) {
 
 export function ResultsItems(props) {
     return (
-        <div className="card-body">
-            <div className="row">
+        <div className="resultsDiv">
+            <div className="row rRow">
                 <div className="col">
                     <img className="rImg" src={props.image} alt={props.name} />
                 </div>
-                {/* <div className="col rItems">{props.name}</div> */}
-                <div className="col rItems">50%</div>
+                <div className="col rItems">{props.name}</div>
+                <div className="col rItems">{props.percentage}</div>
             </div>
         </div>
 

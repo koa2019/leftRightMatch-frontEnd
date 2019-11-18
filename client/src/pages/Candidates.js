@@ -7,6 +7,7 @@ import thumbnail from "../images/UnknownProfile.png"
 import { List, ListItem } from "../components/List/List"
 import "./pageStyles/Candidates.css"
 import banner from "../images/primaries_DEM_JULY.14.jpg"
+import API from "../utils/API"
 
 // can this be function instead of a class?
 class Candidates extends Component {
@@ -18,17 +19,35 @@ class Candidates extends Component {
             image: "",
             id: "",
             candidateData,
-            profileData: []
+            allCandidates: [],
+            profileData: {}
         }
     }
 
+    // test API call when database is connected
+    getAllCandidates = () => {
+        API.getAllCandidates()
+            .then(res => this.setState({
+
+                // ask about setState id:""...
+                allCandidates: res.data, id: "", name: "", img: ""
+            })
+                .catch(err => {
+                    console.log("Error at getAllCandidates ", err)
+                    res.sendStatus(500)
+                })
+            )
+    }
+
+
+    // function thats working off static json
     loadCandidateData() {
         candidateData.map((candidate, i) => {
             return (
                 this.setState({
-                    id: candidate[i].id,
+                    id: candidate[i]._id,
                     name: candidate[i].name,
-                    image: candidate[i].image
+                    img: candidate[i].img
                 })
             )
         })
@@ -39,15 +58,19 @@ class Candidates extends Component {
     handleThisClick = event => {
         console.log('handleClick hit')
 
-        const { name, value } = event.target;
-        console.log('[name]: value = ', name, value)
-
-        // getNamedItem('data-value').value
+        // Get the data-value of the clicked candidate
         // expected id: value equal to candidates id in database
-        // this.setState({
-        //     [name]: value
-        // });
+        const target = event.target.parentNode.attributes.getNamedItem('data-value').value;
+        console.log('data-value', target)
+
+
+        // grab candidate _id & request their profile data from db
+        // .get returs candidate profile data & renders CandidateProfile.js
+        API.getCandidate(this.props.match.params.id)
+            .then(res => this.setState({ profileData: res.data }))
+            .catch(err => console.log(err));
     }
+
 
 
     render() {
@@ -55,19 +78,17 @@ class Candidates extends Component {
         return (
             <div>
                 <Nav />
-                {/* <div className="candidatesBanner">
-                <img className="banner-img" src={banner} alt={'2020-candidates'} />
-                    <br /><span>All Candidates</span>
-                </div> */}
+                <Row fluid>
+                    <Col size="mx-auto">
+                        <div className="candidatesBanner">
+                            <img className="banner-image" src={banner} alt={'2020-candidates'} />
+                            <br />
+                            <span>All Candidates</span>
+                        </div>
+                    </Col>
+                </Row>
                 <Container>
-                    <Row>
-                        <Col size="col-md-12 mx-auto">
-                            <div className="candidatesBanner">
-                                <img className="banner-image" src={banner} alt={'2020-candidates'} />
-                                <br /><span>All Candidates</span>
-                            </div>
-                        </Col>
-                    </Row>
+
                     <Row>
                         <Col size="col-md-12 hello">
                             <div onClick={this.handleThisClick}>
@@ -77,23 +98,31 @@ class Candidates extends Component {
                                         return (
                                             <ListItem
                                                 key={candidate.name}
-                                                id={candidate.id}
+                                                id={candidate._id}
                                             >
                                                 <ul className="list-unstyled">
-                                                    <img className="img-thumbnail float-left mr-4" src={thumbnail} width="100px" alt={candidate.name} />
-                                                    {/* <img src={candidateImage}  alt={candidate.name} /> */}
+
+                                                    <img src={thumbnail} className="img-thumbnail float-left mr-4" width="100px" alt={candidate.name} />
+                                                    {/* <img src={candidate.img} className="img-thumbnail float-left mr-4"  width="100px" alt={candidate.name} /> */}
+
                                                     <h2 className="font-weight-bold">
                                                         <li>{candidate.name}</li>
                                                     </h2>
+
                                                     <li>
-                                                        <span className="font-weight-bold">Political Party: </span>
-                                                        Democrat
-                                                {/* {candidate.politicalParty}*/}
+                                                        <span className="font-weight-bold">Political parties: </span>
+                                                        {/* {candidate.parties} */}
+                                                        {candidate.parties.map(party => {
+                                                            return party + ", "
+                                                        })}
                                                     </li>
+
                                                     <li>
                                                         <span className="font-weight-bold">Top Qualities: </span>
-                                                        Honesty, Leadership, Charisma
-                                                    {/* {candidate.topQualities} */}
+                                                        {/* {candidate.qualities} */}
+                                                        {candidate.qualities.map(quality => {
+                                                            return quality + ", "
+                                                        })}
                                                     </li>
                                                 </ul>
                                             </ListItem>

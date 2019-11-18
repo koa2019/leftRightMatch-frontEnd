@@ -7,7 +7,7 @@ import candidateData from "../utils/candidates.json"
 import Img from "../images/bernie_blue_profile1.jpg"
 import EWBanner from "../images/bernie-banner1.png"
 import "./pageStyles/CandidateProfile.css"
-// import { List, ListItem } from "../components/List"
+import API from "../utils/API"
 // import SocialMedia from "../components/SocialMedia/SocialMedia"
 // import API from "../utils/API"
 
@@ -17,41 +17,54 @@ class CandidateProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            candidataId: "",
-            candidate: "",
-            party: "",
-            image: "",
+            allCandidates: [],
+            candidate: [],
+            id: "",
+            parties: "",
+            img: "",
             banner: "",
             qualities: "",
-            experience: "",
+            experiences: "",
             themes: "",
-            website:"",
-            iSide: "",
-            policies: ""
+            websites: "",
+            iSideLink: "",
+            policies: "",
+            twitters: "",
+            facebooks: "",
+            instagrams: ""
         }
     }
-    
+
+    // function gets all candidates from database & renders them to html page
+    getCandidate = () => {
+        // grab candidate _id from params & request their profile data from db
+        // .get returs candidate profile data & renders CandidateProfile.js
+        API.getCandidate(this.props.match.params.id)
+            .then(res => this.setState({ profileData: res.data }))
+            .catch(err => console.log(err));
+      
+    }
+
+    // looks horribly ugly. Must be more effiecient way of setting their states
     componentDidMount() {
         this.setState({
             candidate: candidateData[1],
-            candidataId: candidateData[1].id,
-            party: candidateData[1].politicalParty,
+            id: candidateData[1].id,
+            parties: candidateData[1].parties,
+            img: candidateData[1].img,
+            banner: candidateData[1].bannerImg,
             qualities: candidateData[1].qualities,
-            experience: candidateData[1].experience,
-            themes:  candidateData[1].themes,
-            website:candidateData[1].contactInfo[0].website,
-            iSide: candidateData[1].iSideLink,
-            policies: candidateData[1].policyLink
-            
+            experiences: candidateData[1].experiences,
+            themes: candidateData[1].themes,
+            websites: candidateData[1].contactInfo.websites,
+            iSideLink: candidateData[1].iSideLink,
+            policies: candidateData[1].policies,
+            twitters: candidateData[1].twitters,
+            facebooks: candidateData[1].facebooks,
+            instagrams: candidateData[1].instagrams
+
         })
     }
-    // When this component mounts, grab the candidate with the _id of this.props.match.params.id
-    // e.g. localhost:3000/candidate/4123
-    // componentDidMount() {
-    //     API.getCandidate(this.props.match.params.id)
-    //         .then(res => this.setState({ candidate: res.data }))
-    //         .catch(err => console.log(err));
-    // }
 
     render() {
         // console.log('candidataData ', candidateData)
@@ -69,15 +82,18 @@ class CandidateProfile extends Component {
                         <Col size="col-md-auto mx-auto">
                             <ProfileCard
                                 id={this.state.candidate.id}
-                                image={Img}
+                                img={Img}
                                 name={this.state.candidate.name}
-                                party={this.state.party}
+                                parties={this.state.parties}
                                 qualities={this.state.qualities}
-                                experience={this.state.experience}
+                                experiences={this.state.experiences}
                                 themes={this.state.themes}
-                                website={this.state.website}
-                                iSide={this.state.iSide}
+                                websites={this.state.websites}
+                                iSideLink={this.state.iSideLink}
                                 policies={this.state.policies}
+                                twitters={this.state.twitters}
+                                facebooks={this.state.facebooks}
+                                instagrams={this.state.instagrams}
                             />
                         </Col>
                     </Row>

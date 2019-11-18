@@ -5,10 +5,10 @@ import Nav from "../components/Nav/Nav"
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import { Col, Row, Container } from "../components/Grid/Grid"
 import questions from "../utils/questions.json"
-import { QuizFormItem, RadioInput, FormBtn } from "../components/QuizForm/QuizForm"
-import Modal from "../components/Modal/Modal"
+import { QuizForm, QuizFormItem, RadioInput, FormBtn } from "../components/QuizForm/QuizForm"
+// import Modal from "../components/Modal/Modal"
 import API from "../utils/API";
-import {Results, ResultsItems} from "../components/Results/Results"
+import { Results, ResultsItems } from "../components/Results/Results"
 import allCandidates from "../utils/candidates.json"
 import headImg from "../images/biden-cutout.png"
 
@@ -25,7 +25,8 @@ class Quiz extends Component {
       count: 30,
       value: "",
       allCandidates,
-      // headImg,
+      show: "false",
+      headImg,
       ////////////////////
       // keys for res.data
       isLoggedIn: "",
@@ -38,20 +39,19 @@ class Quiz extends Component {
 
   // uncomment this function when backend is ready to use
 
-  // loadQuestions() {
-  //    console.log(this.state.questionsData)
-  //   this.setState({ loading: true, isProblem: false }, () => {
-  //     API.getQuestions(this.state.questionsData)
-  //       .then(res => {
-  //         this.setState({ questionsData: res.data, loading: false });
-  //         console.log(this.state.questionsData)
-  //       })
-  //       .catch(err => {
-  //         console.log(err)
-  //         this.setState({ loading: false, isProblem: true });
-  //       });
-  //   });
-  // }
+  loadQuestions() {
+    //   this.setState({ loading: true, isProblem: false }, () => {
+    API.getQuestions()
+    //       .then(res => {
+    //         this.setState({ questionsData: res.data, loading: false });
+    //         console.log(this.state.questionsData)
+    //       })
+    //       .catch(err => {
+    //         console.log(err)
+    //         this.setState({ loading: false, isProblem: true });
+    //       });
+    //   });
+  }
 
   // renders questions & stances
   renderQuestions = () => {
@@ -60,7 +60,6 @@ class Quiz extends Component {
         return (
           <QuizFormItem
             key={question.key}
-            // name={question.key}
             question={question.question}
           >
             <RadioInput
@@ -80,32 +79,55 @@ class Quiz extends Component {
   showResults = () => {
 
     // console.log('showResults hit')
-    // console.log('allCand ', this.state.allCandidates)
-    
+
     return (
       this.state.allCandidates.map(candidate => {
+        
         return (
+
           <ResultsItems
             key={candidate.name}
             name={candidate.name}
             image={headImg}
-          >
-          </ResultsItems>
+            percentage={"45%"}
+          />
+
+          // <Modal
+          //   key={candidate.name}
+          //   show={this.state.show}
+          //   handleClose={this.hideModal}
+          //   name={candidate.name}
+          //   image={headImg}
+          //   percentage={"45%"}
+          // >
+          //   <img className="rImg" src={headImg} alt={candidate.name} />
+          // </Modal>          
         );
       })
     )
   }
 
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
   // function when a radio input is clicked
   handleInputChange = event => {
-    console.log('handleChange hit')
-
+    
+    // console.log('handleChange hit')
     const { name, value } = event.target;
-    console.log('[name]: value = ', name, value)
+    // console.log('[name]: value = ', name, value)
 
+    // answers[name] assigns this dynamical named property name as answers key/prop name 
+    // & initializes its value from its html attribute equal to value 
+    // will update & reflect its value if a different radio input is selected - elimantes redundancy
     this.state.answers[name] = value;
     this.setState({ answers: this.state.answers });
-    // delete this.state.answers[name];
+    // this.setState.answers[name] = value;
 
   }
 
@@ -114,25 +136,26 @@ class Quiz extends Component {
     event.preventDefault();
 
     console.log('handleSubmit hit')
+    this.showResults()
 
     // send this.state.answers to axios.post() to database
     API.saveUserAnswers(this.state.answers)
-
-      .then(res => {
-        console.log('saveUserAnswers>promise> res', res)
-        // Show the modal with the best match
-        // $("#results-modal").modal("show");
-      })
-
-      .catch(err => {
-        console.log(err)
-      })
-
+    // .then(res => {
+    //   console.log('saveUserAnswers>promise', res)
+    //   call showModal() & render user quiz results
+    // {this.showModal}
+    // })
+    // .catch(err => {
+    //   console.log(err)
+    //   //redirect to NoMatch page
+    //   this.props.history.push("/NoMatch")
+    // })
   }
 
   render() {
 
     console.log('render() state========= ', this.state)
+    console.log('render this.state.show = ', this.state.show)
 
     return (
 
@@ -145,25 +168,30 @@ class Quiz extends Component {
         <Container specs="qContainer">
           <Row>
             <Col size="col-md-12">
-              <form onSubmit={this.handleQuizSubmit}>
+              <form className="quizForm" onSubmit={this.handleQuizSubmit}>
 
                 {this.renderQuestions()}
                 < FormBtn
                 >Submit
                 </FormBtn>
               </form>
+
+              {/* button has onClick listner to reference function to display modal */}
+              {/* <button onClick={this.showModal}>Show Modal</button> */}
+
             </Col>
           </Row>
 
           <Row>
             <Col size="col-12">
-              <div className="card resultsStyles mx-auto">
-                <Modal />
-                <Results>
-                </Results>
-               {this.showResults()}
-              </div>
 
+              {/* if show === true then render this div pass this className, else pass this className to define div modal */}
+              {this.state.show === "true" ? <Results /> : <QuizForm />}
+
+              <div className="resultsStyles mx-auto">
+                <Results />
+                {this.showResults()}
+              </div>
             </Col>
           </Row>
         </Container>

@@ -2,54 +2,122 @@
     {
         "id": "123",
         "name": "Elizabeth Warren",
-        "img-name": "warren-profile1",
-        "image": "/images/elizabeth-warren_red_profile.png",
-        "banner-img": "/images/ElizabethWarren-banner-img4.png"
-
+        "img": "/imgs/elizabeth-warren_red_profile.png",
+        "bannerImg": "/imgs/ElizabethWarren-bannerImg4.png",
+        "parties": [
+            "Democratic Party",
+            "Independent Politician",
+            "Liberty Union Party"
+        ],
+        "qualities": [
+            "Honesty", "Leadership",
+            "Charisma"
+        ]
     },
     {
         "id": "456",
-        "candidateId": "1234",
         "name": "Bernie Sanders",
-        "imgName": "bernie-profile1",
-        "image": "/images/Bernie-Sanders-circle-16.png",
-        "bannerImg": "/images/bernie-banner-img1.png",
-        "politicalParty": "Democratic Party, Independent Politician, Liberty Union Party",
-        "experience": "United States Senator",
+        "img": "/imgs/Bernie-Sanders-circle-16.png",
+        "bannerImg": "/imgs/bernie-bannerImg1.png",
+        "parties": [
+            "Democratic Party",
+            "Independent Politician",
+            "Liberty Union Party"
+        ],
+        "experiences": [
+            "United States Senator"
+        ],
         "iSideLink": "https://www.isidewith.com/candidates/bernie-sanders",
         "policyLink": "https://www.isidewith.com/candidates/bernie-sanders/policies",
-        "themes": "Big Government, Left Wing, Progressive, Collectivism, Environmentalism, Multiculturalism, Tender, Democratic Socialism, Secular, Keynesian, Politically Correct",
-        "qualities": "Honesty, Leadership, Charisma (from 239,446 votes)",
-        "contactInfo": [{
-            "website": "https://www.berniesanders.com/",
-            "twitter": ["https://twitter.com/BernieSanders", "https://twitter.com/SenSanders"],
-            "facebook": [ "https://www.facebook.com/berniesanders", "https://www.facebook.com/senatorsanders"],
-            "instagram": "https://www.instagram.com/berniesanders"
-        }],
-        "videoEmbed": "<iframe width='560' height='315' src='https://www.youtube.com/embed/ZgJagAiHimk' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
-
+        "themes": [
+            "Big Government",
+            "Left Wing, Progressive",
+            "Collectivism",
+            "Environmentalism",
+            "Multiculturalism",
+            "Tender",
+            "Democratic Socialism",
+            "Secular",
+            "Politically Correct"
+        ],
+        "qualities": [
+            "Honesty", "Leadership",
+            "Charisma"
+        ],
+        "contactInfo": {
+            "websites": [
+                "https://www.berniesanders.com/"
+            ],
+            "twitterAccounts": [
+                "https://twitter.com/BernieSanders",
+                "https://twitter.com/SenSanders"
+            ],
+            "facebookAccounts": [
+                "https://www.facebook.com/berniesanders",
+                "https://www.facebook.com/senatorsanders"
+            ],
+            "instagramAccounts": [
+                "https://www.instagram.com/berniesanders"
+            ]
+        },
+        "stances": [
+            {
+                "key": "965550",
+                "stance": "yes"
+            },
+            {
+                "key": "965572",
+                "stance": "yes"
+            },
+            {
+                "key": "965576",
+                "stance": "yes"
+            }
+        ]
     },
     {
         "id": "789",
         "name": "Joe Biden",
-        "img-name": "biden-profile1",
-        "image": "/images/biden_blue_profile.png",
-        "banner-img": "joe-biden-banner-img.png"
+        "img": "/imgs/biden_blue_profile.png",
+        "bannerImg": "joe-biden-bannerImg.png",
+        "parties": [
+            "Democratic Party",
+            "Independent Politician",
+            "Liberty Union Party"
+        ],
+        "qualities": [
+            "Honesty", "Leadership",
+            "Charisma"
+        ]
     },
     {
         "id": "1011",
         "name": "Donald Trump",
-        "img-name": "trump-profile1",
-        "image": "/images/trump-flag-profile.jpg",
-        "banner-img": "../images/trump-banner-img1.png"
+        "img": "/imgs/trump-flag-profile.jpg",
+        "bannerImg": "../imgs/trump-bannerImg1.png",
+        "parties": [
+            "Democratic Party",
+            "Independent Politician",
+            "Liberty Union Party"
+        ],
+        "qualities": [
+            "Honesty", "Leadership",
+            "Charisma"
+        ]
     },
     {
         "id": "1213",
         "name": "Unknown Candidate",
-        "img-name": "Unknown-profile",
-        "image": "/images/UnknownProfile.png",
-        "banner-img": "/images/2020-democrats-illustration.jpg"
-        
+        "img": "/imgs/UnknownProfile.png",
+        "bannerImg": "/imgs/2020-democrats-illustration.jpg",
+        "parties": [
+            "Democratic Party",
+            "Independent Politician",
+            "Liberty Union Party"
+        ],
+        "qualities": [
+            "Honesty", "Leadership",
+            "Charisma"
+        ]
     }
-    
 ]
