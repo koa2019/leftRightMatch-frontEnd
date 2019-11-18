@@ -6,11 +6,11 @@ import Jumbotron from "../components/Jumbotron/Jumbotron"
 import { Col, Row, Container } from "../components/Grid/Grid"
 import questions from "../utils/questions.json"
 import { QuizForm, QuizFormItem, RadioInput, FormBtn } from "../components/QuizForm/QuizForm"
-// import Modal from "../components/Modal/Modal"
 import API from "../utils/API";
 import { Results, ResultsItems } from "../components/Results/Results"
 import allCandidates from "../utils/candidates.json"
-import headImg from "../images/biden-cutout.png"
+import headImg from "../images/joe-biden-cutout.png"
+// import Modal from "../components/Modal/Modal"
 
 class Quiz extends Component {
 
