@@ -6,7 +6,7 @@ import image from "../../images/leftRightMatch3.png"
 function Nav() {
     return (
         // <nav className="navbar d-flex navbar-expand-sm fixed-top bg-primary clearfix">
-        <nav className="navbar d-flex navbar-expand-sm pt-5 ">
+        <nav className="navbar d-flex navbar-expand-md ">
             <a className="navbar-brand mr-auto my-0" href="/">
                 <img src={image} className="d-inline-block nav-img" alt="brand-logo" />
                 <span className="ml-2 brand-font">Left Right Match</span>

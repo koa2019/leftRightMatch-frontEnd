@@ -1,14 +1,14 @@
 .candidatesBanner {
    
     /* background-image: url("../../images/primaries_DEM_JULY.14.jpg"); */
-    object-fit: contain;
     /* width: fit-content; */
+    object-fit: contain;
     max-height: 5%;
     font-size: 70px;
     border: thin solid var(--light-blue);
     text-align: center;
     vertical-align: middle;
-    text-shadow: 3px 2px var(--light-red);
+    text-shadow: 3px 2px var(--bootstrap-red);
 }
 
 .banner-image {
@@ -35,5 +35,5 @@
     /* background-image: linear-gradient(to bottom right, var(--lighter-gray-transparent),var(--blue-grey-slight)); */
     background-image: linear-gradient(to bottom right, var(--light-red),var(--light-blue));
     padding: 10px;
-    background-color: var(--bright-red);
+    background-color: var(--bootstrap-red);
 }

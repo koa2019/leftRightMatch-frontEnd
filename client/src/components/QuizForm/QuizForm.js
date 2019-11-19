@@ -3,15 +3,18 @@ import "./QuizForm.css"
 
 export function QuizForm(props) {
     return (
-        <form className="quizForm" onSubmit={props.handleQuizSubmit}>
-            {props.children}
-        </form>
+        <div className={props.specs}>
+            <form 
+                onSubmit={props.handleQuizSubmit}
+            >
+                {props.children}
+            </form>
+        </div>
     );
 }
 
 export function QuizFormItem(props) {
     return (
-
         <div className="form-group">
             <div className="label" >
                 {props.name}
@@ -50,7 +53,7 @@ export function RadioInput(props) {
 export function FormBtn(props) {
     return (
         <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-secondary">
-            {props.children}
+            Submit
         </button>
     );
 }

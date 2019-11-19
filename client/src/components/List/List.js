@@ -4,10 +4,10 @@ import React from "react";
 
 export function List(props) {
   return (
-    <div
-      className={props.specs}
-    >
-      <ul className="list-group list-unstyled">{props.children}</ul>
+    <div className={props.specs} >
+      <ul className="list-group list-unstyled">
+        {props.children}
+        </ul>
     </div>
   );
 }

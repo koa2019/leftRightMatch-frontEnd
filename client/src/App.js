@@ -9,7 +9,7 @@ import FrontPage from "./pages/FrontPage"
 import UserProfile from "./pages/UserProfile"
 import Candidates from "./pages/Candidates"
 import CandidateProfile from "./pages/CandidateProfile"
-import LoginSignUp from "./pages/LoginSignUp"
+import LoginSignUp from "./pages/LoginSignup"
 import LogOut from "./pages/LogOut"
 
 // Needs sessions for Login/Signup

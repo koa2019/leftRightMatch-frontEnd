@@ -15,3 +15,8 @@
     object-fit: scale-down;
     /* object-fit: cover; */
   }
+
+  .quizHead {
+    text-shadow: 2px 1px var(--bootstrap-primary-blue);
+
+  }

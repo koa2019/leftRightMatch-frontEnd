@@ -4,7 +4,7 @@ import Nav from "../components/Nav/Nav"
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import { Col, Row, Container } from "../components/Grid/Grid"
 import Login from "../components/Login/Login"
-import SignUp from "../components/Signup/SignUp"
+import SignUp from "../components/SignUp/SignUp"
 import "./pageStyles/LoginSignUp.css"
 // import SignUpTab from "../components/SignUpTab/SignUpTab"
 // import LoginTab from "../components/LoginTab/LoginTab"
@@ -25,21 +25,21 @@ class LoginSignUp extends Component {
     }
   }
 
-  showSelected = () => {
-    this.setState({
-      // selectedTab: "",
-      selected: "true",
-      notSelected: "true"
-    })
-  }
+  // showSelected = () => {
+  //   this.setState({
+  //     // selectedTab: "",
+  //     selected: "true",
+  //     notSelected: "true"
+  //   })
+  // }
 
-  showNotSelected = () => {
-    this.setState({
-      // selectedTab: "signup"
-      selected: "false",
-      notSelected: "false"
-    })
-  }
+  // showNotSelected = () => {
+  //   this.setState({
+  //     // selectedTab: "signup"
+  //     selected: "false",
+  //     notSelected: "false"
+  //   })
+  // }
 
   handleChange = event => {
     // console.log(event.target.attributes.getNamedItem('data-value').value)
@@ -77,7 +77,7 @@ class LoginSignUp extends Component {
 
                   <li className={this.state.selectedClass} >
                    
-                    {/* <h3 data-value={"login"} onClick={this.handleChange} > */}
+                    {/* <h3 data-value={"login"} onClick={this.handleChange("login")} > */}
                     <h3 onClick={() => this.setState({ selectedTab: "login", selectedClass: selected , notSelectedClass: notSelected})}>
 
                       <span role="button">Login</span>
@@ -86,7 +86,7 @@ class LoginSignUp extends Component {
 
                   <li className={this.state.notSelectedClass} >
 
-                    {/* <h3 data-value={"signup"} onClick={this.handleChange} > */}
+                    {/* <h3 data-value={"signup"} onClick={this.handleChange("signup")} > */}
                     <h3 onClick={() => this.setState({ selectedTab: "signup", selectedClass: notSelected , notSelectedClass: selected})}>
                       <span role="button">SignUp</span>
                     </h3>

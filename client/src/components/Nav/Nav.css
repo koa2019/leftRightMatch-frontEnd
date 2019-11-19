@@ -1,11 +1,11 @@
 
 nav {
   clear: both;
+  height: 100px;
   line-height: 100%;
   min-height: 10%;
   vertical-align: middle;
   font-size: 20px;
-  /* background-image: linear-gradient(to bottom right, var(--bootstrap-primary-blue),var(--light-blue)); */
   background-color: var(--bootstrap-primary-blue);
 }
 

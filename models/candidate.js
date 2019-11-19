@@ -1,4 +1,4 @@
-const mongoose = require(mongoose);
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CandidateSchema = new Schema({
@@ -22,6 +22,6 @@ const CandidateSchema = new Schema({
     date: { type: Date, default: Date.now }
 });
 
-const Candidate = mongoose.model(Candidate, CandidateSchema);
+const Candidate = mongoose.model("Candidate", CandidateSchema);
 
 module.exports = Candidate;
