@@ -78,14 +78,14 @@ class Candidates extends Component {
         // grab candidate id & request their profile data from db
         // .get returns candidate profile data & renders CandidateProfile.js
         API.getCandidate(this.state.selectedId)
-        // .then(res => this.setState({ profileData: res.data })
-        // this.props.history.push("/candidates/ + res.data._id")
-        //)
-        // .catch(err => {
-        // console.log(err)
-        //redirect to NoMatch page
-        // this.props.history.push("/NoMatch")
-        //   })
+            .then(res => this.setState({ profileData: res.data })
+                // this.props.history.push("/candidates/ + res.data._id")
+            )
+            .catch(err => {
+                console.log(err)
+                // redirect to NoMatch page
+                this.props.history.push("/NoMatch")
+            })
     }
 
 

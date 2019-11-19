@@ -134,7 +134,7 @@ class Quiz extends Component {
       .catch(err => {
         console.log(err)
         //redirect to NoMatch page
-        this.props.history.push("/NoMatch")
+        // this.props.history.push("/NoMatch")
       })
   }
 

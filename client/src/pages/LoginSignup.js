@@ -3,8 +3,8 @@ import React, { Component } from "react"
 import Nav from "../components/Nav/Nav"
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import { Col, Row, Container } from "../components/Grid/Grid"
-import Login from "../components/Login/Login"
-import SignUp from "../components/Signup/SignUp"
+import LoginForm from "../components/LoginForm/LoginForm"
+import SignUpForm from "../components/SignUpForm/SignUpForm"
 import "./pageStyles/LoginSignUp.css"
 // import SignUpTab from "../components/SignUpTab/SignUpTab"
 // import LoginTab from "../components/LoginTab/LoginTab"
@@ -19,43 +19,30 @@ class LoginSignUp extends Component {
     this.state = {
       selectedTab: "login",
       selectedClass: selected,
-      notSelectedClass: notSelected
-      // active: "true",
-      // notActive: "false",
+      notSelectedClass: notSelected,
+      isSelected: "true"
     }
   }
 
-  // showSelected = () => {
-  //   this.setState({
-  //     // selectedTab: "",
-  //     selected: "true",
-  //     notSelected: "true"
-  //   })
-  // }
-
-  // showNotSelected = () => {
-  //   this.setState({
-  //     // selectedTab: "signup"
-  //     selected: "false",
-  //     notSelected: "false"
-  //   })
-  // }
-
   handleChange = event => {
-    // console.log(event.target.attributes.getNamedItem('data-value').value)
-    // const target = event.target.value;
-
-    this.setState({
-      selectedTab: "login", 
-      selectedClass: selected , 
-      notSelectedClass: notSelected
-    })
-    this.setState({ 
-      selectedTab: "signup", 
-      selectedClass: notSelected , 
-      notSelectedClass: selected})
-
-
+    const target = event.target.attributes.getNamedItem('data-value').value;
+    // const target= event.target.value;
+    console.log(target)
+    // if(isSelected){
+    //   this.setState({
+    //     selectedTab: target, 
+    //     selectedClass: selected , 
+    //     notSelectedClass: notSelected
+    //   })
+    // }
+      // else {
+      // this.setState({ 
+      //   selectedTab: target, 
+      //   selectedClass: notSelected , 
+      //   notSelectedClass: selected})
+      // })}
+    
+   
   }
 
 
@@ -100,7 +87,7 @@ class LoginSignUp extends Component {
               <Col size="col mx-auto LSForm">
 
                 {/* Ternary: if seletedTab is equal to login, then call this compntnt; else call this compntnt */}
-                {this.state.selectedTab === "login" ? <Login /> : <SignUp />}
+                {this.state.selectedTab === "login" ? <LoginForm /> : <SignUpForm />}
 
               </Col>
             </Row>

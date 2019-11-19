@@ -1,7 +1,7 @@
 // dependencies
-import React from './node_modules/react'
+import React from 'react'
 // import axios from 'axios'
-import "./SignUp.css"
+import "./SignUpForm.css"
 
 function SignUp(props) {
 
