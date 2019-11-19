@@ -4,7 +4,7 @@ import Nav from "../components/Nav/Nav"
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import { Col, Row, Container } from "../components/Grid/Grid"
 import Login from "../components/Login/Login"
-import SignUp from "../components/SignUp/SignUp"
+import SignUp from "../components/Signup/SignUp"
 import "./pageStyles/LoginSignUp.css"
 // import SignUpTab from "../components/SignUpTab/SignUpTab"
 // import LoginTab from "../components/LoginTab/LoginTab"
@@ -25,38 +25,38 @@ class LoginSignUp extends Component {
     }
   }
 
-  showSelected = () => {
-    this.setState({
-      // selectedTab: "",
-      selected: "true",
-      notSelected: "true"
-    })
-  }
+  // showSelected = () => {
+  //   this.setState({
+  //     // selectedTab: "login",
+  //     selected: "true",
+  //     notSelected: "true"
+  //   })
+  // }
 
-  showNotSelected = () => {
-    this.setState({
-      // selectedTab: "signup"
-      selected: "false",
-      notSelected: "false"
-    })
-  }
+  // showNotSelected = () => {
+  //   this.setState({
+  //     // selectedTab: "signup"
+  //     selected: "false",
+  //     notSelected: "false"
+  //   })
+  // }
 
-  handleChange = event => {
-    // console.log(event.target.attributes.getNamedItem('data-value').value)
-    // const target = event.target.value;
+  // handleChange = event => {
+  //   // console.log(event.target.attributes.getNamedItem('data-value').value)
+  //   // const target = event.target.value;
 
-    this.setState({
-      selectedTab: "login", 
-      selectedClass: selected , 
-      notSelectedClass: notSelected
-    })
-    this.setState({ 
-      selectedTab: "signup", 
-      selectedClass: notSelected , 
-      notSelectedClass: selected})
+  //   this.setState({
+  //     selectedTab: "login", 
+  //     selectedClass: selected , 
+  //     notSelectedClass: notSelected
+  //   })
+  //   this.setState({ 
+  //     selectedTab: "signup", 
+  //     selectedClass: notSelected , 
+  //     notSelectedClass: selected})
 
 
-  }
+  // }
 
 
   render() {

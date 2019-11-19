@@ -4,22 +4,32 @@ import { Col, Row, Container } from "../components/Grid/Grid"
 import Image from "../components/Image/Image"
 import logoImg from "../images/leftRightMatch3.png"
 import Nav from "../components/Nav/Nav"
-import Zoom from "react-reveal/Zoom"
 
 class FrontPage extends Component {
 
+    state = {
+        transitioning: false
+    }
+
     handleThisClick = () => {
         console.log('handleClick hit')
-        this.props.history.push("/quiz")
+            // aimate do stuff
+        this.setState({transitioning: true}, () => {
+
+            setTimeout( () => this.props.history.push("/quiz"), 5000);
+        })
     }
 
     render() {
+
+
+        if (this.state.transitioning) {
+
+        }
         return (
             
             <div>
-                <Zoom>
-                    <p>Markup that be revealed on scroll</p>
-                </Zoom>
+                
                 <Nav />
                 <Container fluid>
                     <Row fluid>
@@ -36,6 +46,9 @@ class FrontPage extends Component {
                         </Col>
                     </Row>
                 </Container >
+                <Zoom>
+                    <p>Markup that be revealed on scroll</p>
+                </Zoom>
             </div>
         );
     }
