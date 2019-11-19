@@ -158,6 +158,7 @@ class Quiz extends Component {
 
     console.log('render() state========= ', this.state)
     console.log('render this.state.show = ', this.state.show)
+    const show;
 
     return (
 
