@@ -4,6 +4,7 @@ import { Col, Row, Container } from "../components/Grid/Grid"
 import Image from "../components/Image/Image"
 import logoImg from "../images/leftRightMatch3.png"
 import Nav from "../components/Nav/Nav"
+import Zoom from "react-reveal/Zoom"
 
 class FrontPage extends Component {
 
@@ -14,7 +15,11 @@ class FrontPage extends Component {
 
     render() {
         return (
+            
             <div>
+                <Zoom>
+                    <p>Markup that be revealed on scroll</p>
+                </Zoom>
                 <Nav />
                 <Container fluid>
                     <Row fluid>

@@ -11,6 +11,7 @@ import Candidates from "./pages/Candidates"
 import CandidateProfile from "./pages/CandidateProfile"
 import LoginSignUp from "./pages/LoginSignUp"
 import LogOut from "./pages/LogOut"
+import Zoom from "react-reveal/Zoom"
 
 // Needs sessions for Login/Signup
 
