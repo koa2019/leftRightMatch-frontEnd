@@ -9,59 +9,53 @@ import "./pageStyles/LoginSignUp.css"
 // import SignUpTab from "../components/SignUpTab/SignUpTab"
 // import LoginTab from "../components/LoginTab/LoginTab"
 
-const activeColors = {
-  bgColor: "var(--bootstrap-primary-blue)",
-  textColor: "var(--lighter-gray)"
-}
-const disabledColors = {
-  bgColor: "var(--stylish-slight-grey)",
-  textColor: "var(--dark-gray)",
-}
+const selected='nav-item navTabItems selected';
+const notSelected='nav-item navTabItems not-selected'
 
 class LoginSignUp extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      // active: activeColors,
-      // disabled: disabledColors,
-      bgColor: activeColors.bgColor,
       selectedTab: "login",
-      selected: "true",
-      notSelected: "false"
-
+      selectedClass: selected,
+      notSelectedClass: notSelected
+      // active: "true",
+      // notActive: "false",
     }
   }
 
-  showActive = () => {
+  showSelected = () => {
     this.setState({
       // selectedTab: "",
       selected: "true",
-      notSelected: "true",
-      bgColor: this.state.active
-      // bgColors: this.active.activeColors.bgColor,
-      // textColor: this.active.activeColors.textColor
+      notSelected: "true"
     })
   }
 
-  showDisabled = () => {
+  showNotSelected = () => {
     this.setState({
       // selectedTab: "signup"
       selected: "false",
-      notSelected: "false",
-      bgColor: this.state.disabled
-      // bgColors: this.disabled.disabledColors.bgColor,
-      // textColor: this.disabled.disabledColors.textColor
+      notSelected: "false"
     })
   }
 
   handleChange = event => {
-    console.log(event.target.attributes.getNamedItem('data-value').value)
-    const target = event.target.value;
-    this.setState({ 
-      selectedTab: target,
-      selected: "true"
+    // console.log(event.target.attributes.getNamedItem('data-value').value)
+    // const target = event.target.value;
+
+    this.setState({
+      selectedTab: "login", 
+      selectedClass: selected , 
+      notSelectedClass: notSelected
     })
+    this.setState({ 
+      selectedTab: "signup", 
+      selectedClass: notSelected , 
+      notSelectedClass: selected})
+
+
   }
 
 
@@ -81,23 +75,19 @@ class LoginSignUp extends Component {
 
                 <ul className="nav nav-justified" id="myTab" role="tablist" >
 
-                  <li className="nav-item navTabItems" style={{ backgroundColor: this.state.bgColor }}>
-                    {/* <li className="nav-item navTabItems" style={{ backgroundColor: bgColors.activeBgColor }}> */}
-
-                      {/* <h3 data-value="login" onClick={this.showActive}> */}
+                  <li className={this.state.selectedClass} >
+                   
                     {/* <h3 data-value={"login"} onClick={this.handleChange} > */}
-                      <h3 onClick={() => this.setState({ selectedTab: "login", selected: "true" })}>
+                    <h3 onClick={() => this.setState({ selectedTab: "login", selectedClass: selected , notSelectedClass: notSelected})}>
 
                       <span role="button">Login</span>
                     </h3>
                   </li>
 
-                  <li className="nav-item navTabItems" style={{ backgroundColor: this.state.bgColor }}>
+                  <li className={this.state.notSelectedClass} >
 
-                      {/* <h3 data-value={"singup"} onClick={this.showDisabled}> */}
                     {/* <h3 data-value={"signup"} onClick={this.handleChange} > */}
-                      <h3 onClick={() => this.setState({ selectedTab: "signup", selected: "true" })}>
-
+                    <h3 onClick={() => this.setState({ selectedTab: "signup", selectedClass: notSelected , notSelectedClass: selected})}>
                       <span role="button">SignUp</span>
                     </h3>
                   </li>
@@ -105,16 +95,13 @@ class LoginSignUp extends Component {
               </Col>
             </Row>
 
-            {/* Login & SignUp Forms */}
+            {/* render Login & SignUp Forms here */}
             <Row>
               <Col size="col mx-auto LSForm">
 
-                {/* Ternary: if selected is equal to true, then call this function; else call this function */}
-                {this.state.selected === "true" ? this.showActive : this.showDisabled}
-
                 {/* Ternary: if seletedTab is equal to login, then call this compntnt; else call this compntnt */}
                 {this.state.selectedTab === "login" ? <Login /> : <SignUp />}
-                {/* {this.state.selected === "true" ? <Login /> : <SignUp />} */}
+
               </Col>
             </Row>
           </Col>
