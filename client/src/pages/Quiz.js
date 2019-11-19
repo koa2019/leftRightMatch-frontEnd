@@ -175,7 +175,7 @@ class Quiz extends Component {
 
                 {!this.state.completed ? this.renderQuestions(): ''}
                 < FormBtn
-                >Submit
+                >Submit button
                 </FormBtn>
               </form>
 
