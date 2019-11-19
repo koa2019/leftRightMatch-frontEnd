@@ -45,7 +45,7 @@ class Candidates extends Component {
         candidateData.map((candidate, i) => {
             return (
                 this.setState({
-                    id: candidate[i]._id,
+                    id: candidate[i].id,
                     name: candidate[i].name,
                     img: candidate[i].img
                 })
@@ -60,13 +60,14 @@ class Candidates extends Component {
 
         // Get the data-value of the clicked candidate
         // expected id: value equal to candidates id in database
-        const target = event.target.parentNode.attributes.getNamedItem('data-value').value;
-        console.log('data-value', target)
+        const target = event.target.attributes.getNamedItem('data-id').value;
+        console.log('data-id=', target)
 
+        this.setState({ selectedId: target})
 
-        // grab candidate _id & request their profile data from db
+        // grab candidate id & request their profile data from db
         // .get returs candidate profile data & renders CandidateProfile.js
-        API.getCandidate(this.props.match.params.id)
+        API.getCandidate(this.state.selectedId)
             .then(res => this.setState({ profileData: res.data }))
             .catch(err => console.log(err));
     }
@@ -98,7 +99,7 @@ class Candidates extends Component {
                                         return (
                                             <ListItem
                                                 key={candidate.name}
-                                                id={candidate._id}
+                                                id={candidate.id}
                                             >
                                                 <ul className="list-unstyled">
 

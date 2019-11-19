@@ -15,7 +15,7 @@ export default {
     // gets 1 candidate by given id
     getCandidate: function (id) {
         console.log('getCandidate by id hit id=', id)
-        return axios.get("/api/candidates/" + id);
+        // return axios.get("/api/candidates/" + id);
     },
     // gets user profile with given id
     getUserProfile: function(id) {
