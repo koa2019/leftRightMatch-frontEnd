@@ -63,15 +63,22 @@ class Candidates extends Component {
         const target = event.target.attributes.getNamedItem('data-id').value;
         console.log('data-id=', target)
 
-        this.setState({ selectedId: target})
+        this.setState({ selectedId: target })
 
+        this.getCandidateById();
+        // API.getCandidate(this.state.selectedId)
+        // // .then(res => this.setState({ profileData: res.data }))
+        // // .catch(err => console.log(err));
+    }
+    getCandidateById = () => {
+
+        console.log("getCandById selectedId= ", this.state.selectedId)
         // grab candidate id & request their profile data from db
         // .get returs candidate profile data & renders CandidateProfile.js
         API.getCandidate(this.state.selectedId)
-            .then(res => this.setState({ profileData: res.data }))
-            .catch(err => console.log(err));
+        // .then(res => this.setState({ profileData: res.data }))
+        // .catch(err => console.log(err));
     }
-
 
 
     render() {
@@ -101,25 +108,25 @@ class Candidates extends Component {
                                                 key={candidate.name}
                                                 id={candidate.id}
                                             >
-                                                <ul className="list-unstyled">
+                                                <ul className="list-unstyled" data-id={candidate.id}>
 
-                                                    <img src={thumbnail} className="img-thumbnail float-left mr-4" width="100px" alt={candidate.name} />
+                                                    <img src={thumbnail} className="img-thumbnail float-left mr-4" width="100px" alt={candidate.name} data-id={candidate.id} />
                                                     {/* <img src={candidate.img} className="img-thumbnail float-left mr-4"  width="100px" alt={candidate.name} /> */}
 
-                                                    <h2 className="font-weight-bold">
-                                                        <li>{candidate.name}</li>
+                                                    <h2 data-id={candidate.id} className="font-weight-bold">
+                                                        <li data-id={candidate.id}>{candidate.name}</li>
                                                     </h2>
 
-                                                    <li>
-                                                        <span className="font-weight-bold">Political parties: </span>
+                                                    <li data-id={candidate.id}>
+                                                        <span data-id={candidate.id} className="font-weight-bold">Political parties: </span>
                                                         {/* {candidate.parties} */}
                                                         {candidate.parties.map(party => {
                                                             return party + ", "
                                                         })}
                                                     </li>
 
-                                                    <li>
-                                                        <span className="font-weight-bold">Top Qualities: </span>
+                                                    <li data-id={candidate.id}>
+                                                        <span data-id={candidate.id} className="font-weight-bold">Top Qualities: </span>
                                                         {/* {candidate.qualities} */}
                                                         {candidate.qualities.map(quality => {
                                                             return quality + ", "

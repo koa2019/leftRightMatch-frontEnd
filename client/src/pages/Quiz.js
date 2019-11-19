@@ -33,7 +33,8 @@ class Quiz extends Component {
       userId: "",
       questionsData: [],
       key: "",
-      name: ""
+      name: "", 
+      completed:false
     };
   }
 
@@ -136,7 +137,8 @@ class Quiz extends Component {
     event.preventDefault();
 
     console.log('handleSubmit hit')
-    this.showResults()
+    // this.showResults()
+    this.setState({completed:true})
 
     // send this.state.answers to axios.post() to database
     API.saveUserAnswers(this.state.answers)
@@ -170,7 +172,7 @@ class Quiz extends Component {
             <Col size="col-md-12">
               <form className="quizForm" onSubmit={this.handleQuizSubmit}>
 
-                {this.renderQuestions()}
+                {!this.state.completed ? this.renderQuestions(): ''}
                 < FormBtn
                 >Submit
                 </FormBtn>
@@ -189,8 +191,8 @@ class Quiz extends Component {
               {this.state.show === "true" ? <Results /> : <QuizForm />}
 
               <div className="resultsStyles mx-auto">
-                <Results />
-                {this.showResults()}
+                {/* <Results /> */}
+                { this.state.completed ? this.showResults(): ""}
               </div>
             </Col>
           </Row>
