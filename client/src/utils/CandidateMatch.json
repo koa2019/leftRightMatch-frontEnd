@@ -1,5 +1,27 @@
-{
+[
+    {
     "name": "string",
-    "img": "string",
+    "headImg": "string",
     "percentageMatch": "number"
+},
+{
+    "name": "Elizabeth Warren",
+    "headImg": "string",
+    "percentageMatch": 47
+},
+{
+    "name": "Bernie Sanders",
+    "headImg": "string",
+    "percentageMatch": 45
+},
+{
+    "name": "Joe Biden",
+    "headImg": "string",
+    "percentageMatch": 35
+},
+{
+    "name": "Donald Trump",
+    "headImg": "string",
+    "percentageMatch": 15
 }
+]

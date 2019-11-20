@@ -11,6 +11,7 @@ import Candidates from "./pages/Candidates"
 import CandidateProfile from "./pages/CandidateProfile"
 import LoginSignUp from "./pages/LoginSignup"
 import LogOut from "./pages/LogOut"
+import CandidateMatches from "./pages/CandidateMatches"
 
 // Needs sessions for Login/Signup
 
@@ -22,6 +23,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={FrontPage} />
             <Route exact path="/quiz" component={Quiz} />
+            <Route exact path="/candidatematches" component={CandidateMatches} />
             <Route exact path="/candidates" component={Candidates} />
             <Route exact path="/candidates/:id" component={CandidateProfile} />
             <Route exact path="/candidatesprofile" component={CandidateProfile} />

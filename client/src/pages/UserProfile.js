@@ -3,8 +3,10 @@ import React, { Component } from "react"
 import { Col, Row, Container } from "../components/Grid/Grid"
 import UProfileCard from "../components/UProfileCard/UProfileCard"
 import Nav from "../components/Nav/Nav"
+import { Results, ResultsItems } from "../components/Results/Results"
 import images from "../utils/images.json"
-import img1  from "../images/UnknownProfile.png"
+import img1 from "../images/UnknownProfile.png"
+// import API from "../utils/API";
 
 class UserProfile extends Component {
 
@@ -13,7 +15,7 @@ class UserProfile extends Component {
         this.state = {
             userId: "",
             name1: "[ Insert User's Name Here ]",
-            images
+            images,
         }
     }
     componentDidMount = () => {
@@ -22,6 +24,8 @@ class UserProfile extends Component {
             src: images[0].src
         })
     }
+ 
+
     render() {
         console.log('state', this.state)
         return (
@@ -37,8 +41,10 @@ class UserProfile extends Component {
                             />
                         </Col>
                     </Row>
-                </Container>
-            </div>
+
+                   
+                </Container >
+            </div >
         );
     }
 }

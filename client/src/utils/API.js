@@ -25,10 +25,11 @@ export default {
     // Not sure what's the correct path?
     // saves a user's quiz results to their profile id database
     saveUserAnswers: function (answersData) {
-        console.log(answersData)
+        console.log('ansData', answersData)
         return axios.post("/api/answers", answersData);
     },
-    getCandidateMatch: function () {
-        return axios.get("/api/answers/candidatematch");
+    getCandidateMatch: function (id) {
+        console.log('getMatch id= ', id)
+        // return axios.get("/api/answers/candidatematch");
     }
 };

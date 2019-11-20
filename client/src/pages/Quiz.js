@@ -1,16 +1,15 @@
 // dependencies
 import React, { Component } from "react"
-import "./pageStyles/Quiz.css"
 import Nav from "../components/Nav/Nav"
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import { Col, Row, Container } from "../components/Grid/Grid"
 import questions from "../utils/questions.json"
 import { QuizForm, QuizFormItem, RadioInput, FormBtn } from "../components/QuizForm/QuizForm"
 import API from "../utils/API";
-import { Results, ResultsItems } from "../components/Results/Results"
-import allCandidates from "../utils/candidates.json"
-import headImg from "../images/joe-biden-cutout.png"
-// import Modal from "../components/Modal/Modal"
+import "./pageStyles/Quiz.css"
+// import { Results, ResultsItems } from "../components/Results/Results"
+// import allCandidates from "../utils/candidates.json"
+// import headImg from "../images/joe-biden-cutout.png"
 
 class Quiz extends Component {
 
@@ -19,22 +18,24 @@ class Quiz extends Component {
     this.state = {
       loading: false,
       isProblem: false,
-      completed: false,
       questions,
       userResults: [],
       answers: {},
-      count: 30,
       value: "",
-      allCandidates,
-      show: "false",
-      headImg,
       ////////////////////
       // keys for res.data
       isLoggedIn: "",
       userId: "",
       questionsData: [],
       key: "",
-      name: "",
+      name: ""
+      /////////////////
+      // candidateMatches states dont delete until sure nothing else needs it after i moved it to its own page
+      // allCandidates,
+      // completed: false,
+      // show: "false",
+      // headImg,
+      
     };
   }
 
@@ -76,30 +77,31 @@ class Quiz extends Component {
     )
   }
 
-  // fuction maps through results & renders each candidate & percentage of same answers question asked
-  showResults = () => {
-    // console.log('showResults hit')
-    return (
-      this.state.allCandidates.map(candidate => {
-        // this.state.userResults.map(result => {
-        return (
-          // CODE for res.data from db
-          // <ResultsItems
-          //   key={result._id}
-          //   name={result.name}
-          //   image={result.headImg}
-          //   percentage={result.percentage}
-          // />       
-          <ResultsItems
-            key={candidate.name}
-            name={candidate.name}
-            image={headImg}
-            percentage={"45%"}
-          />
-        );
-      })
-    )
-  }
+  // // fuction maps through results & renders each candidate & percentage of same answers question asked
+  // showResults = () => {
+  //   // console.log('showResults hit')
+  //   return (
+  //     this.state.allCandidates.map(candidate => {
+  //       // this.state.userResults.map(result => {
+  //       return (
+  //         // CODE for res.data from db
+  //         // <ResultsItems
+  //         //   key={result._id}
+  //         //   name={result.name}
+  //         //   image={result.headImg}
+  //         //   percentage={result.percentage}
+  //         // />       
+  //         <ResultsItems
+  //           key={candidate.name}
+  //           name={candidate.name}
+  //           image={headImg}
+  //           percentage={"45%"}
+  //         />
+  //       );
+  //     })
+  //   )
+  // }
+
 
   // function when a radio input is clicked
   handleInputChange = event => {
@@ -125,14 +127,15 @@ class Quiz extends Component {
     API.saveUserAnswers(this.state.answers)
 
       .then(res => {
+
         //save response from database to state.userAnswers
-        console.log('saveUserAnswers>promise', res.data)
+        console.log('userAnswers Saved!', res.data)
         this.setState({ userResults: res.data })
-        // call function to map through results from db 
-        // this.showResults()
+        
+        //redirect to results
       })
       .catch(err => {
-        console.log(err)
+        console.log("UserAnswers Not Saved!", err)
         //redirect to NoMatch page
         // this.props.history.push("/NoMatch")
       })
@@ -159,10 +162,9 @@ class Quiz extends Component {
 
                 <QuizForm specs={"quizForm"} onSubmit={this.handleQuizSubmit}>
 
-                  {!this.state.completed ? this.renderQuestions() : ""}
+                  {!this.state.completed ? this.renderQuestions() : "Calculating Your Scores Now..."}
 
                   <FormBtn
-                    // disabled={!this.state.completed}
                   >Submit</FormBtn>
 
                 </QuizForm>
@@ -171,13 +173,13 @@ class Quiz extends Component {
             </Col>
           </Row>
 
-          <Row>
+          {/* <Row>
             <Col size="col-12">
               <div className="resultsStyles mx-auto">
                 {this.state.completed ? this.showResults() : ""}
               </div>
             </Col>
-          </Row>
+          </Row>*/}
         </Container>
       </div >
     );
