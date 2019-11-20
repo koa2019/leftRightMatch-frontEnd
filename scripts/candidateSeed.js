@@ -198,7 +198,6 @@ const candidateSeed = [
   {
     name: "Donald Trump",
     img: "../images/trump-profile.png",
-    img1: "../images/trump-red-profile.png",
     headImg: "../images/trump-cutout.png",
     bannerImg: "../images/trump-bannerImg1.png",
     iSideLink: "https://www.isidewith.com/candidates/donald-trump",
