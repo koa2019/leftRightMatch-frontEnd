@@ -212,9 +212,9 @@ const candidateSeed = [
       "Big Government"
     ],
     qualities: [
-      "Jackass",
-      "Liar",
-      "Circus Master"
+      "Leadership",
+      "Charisma",
+      "Patriotism"
     ],
     contactInfo: {
       websites: [

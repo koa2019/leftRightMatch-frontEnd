@@ -4,6 +4,7 @@ const db = require("../models");
 // Defining methods for the candidateController
 module.exports = {
   findAll: function(req, res) {
+    console.log('findAll req.query')
     db.Candidate
       .find(req.query)
       .sort({ date: -1 })

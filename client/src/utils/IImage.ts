@@ -12,7 +12,7 @@ import { IImage } from "./IImage";
     {
         id: 1,
         alt: "Bernie Sanders",
-        src: require("../images/Bernie-Sanders-circle-16.png"),
+        src: require("../images/bernie_blue_profile1.jpg"),
         headImg: require("../images/berie-sanders-cutout.png"),
         banner: require("../images/bernie-banner1.png")
     },

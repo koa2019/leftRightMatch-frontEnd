@@ -10,6 +10,7 @@ export default {
     },
     // gets all candidates from database
     getAllCandidates: function () {
+        console.log("API getAllCandidates hit")
         return axios.get("/api/candidates");
     },
     // gets 1 candidate by given id
@@ -26,5 +27,8 @@ export default {
     saveUserAnswers: function (answersData) {
         console.log(answersData)
         return axios.post("/api/answers", answersData);
+    },
+    getCandidateMatch: function () {
+        return axios.get("/api/answers/candidatematch");
     }
 };

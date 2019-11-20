@@ -15,7 +15,7 @@ export function List(props) {
 export function ListItem(props) {
   return <li className="list-group-item candidates"
     data-id={props.id}
-    name={props.id}
+    // name={props.id}
     onClick={props.handleThisClick}
   >
     {props.children}

@@ -161,7 +161,9 @@ class Quiz extends Component {
 
                   {!this.state.completed ? this.renderQuestions() : ""}
 
-                  <FormBtn>Submit</FormBtn>
+                  <FormBtn
+                    // disabled={!this.state.completed}
+                  >Submit</FormBtn>
 
                 </QuizForm>
               </div>

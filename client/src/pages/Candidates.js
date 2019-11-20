@@ -4,7 +4,7 @@ import { Col, Row, Container } from "../components/Grid/Grid"
 import Nav from '../components/Nav/Nav'
 import { List, ListItem } from "../components/List/List"
 import API from "../utils/API"
-import candidateData from "../utils/candidates.json"
+// import candidateData from "../utils/candidates.json"
 import thumbnail from "../images/UnknownProfile.png"
 import banner from "../images/primaries_DEM_JULY.14.jpg"
 import "./pageStyles/Candidates.css"
@@ -15,79 +15,76 @@ class Candidates extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            loading: false,
+            isProblem: false,
             name: "",
             image: "",
             id: "",
-            candidateData,
             allCandidates: [],
             profileData: {}
         }
     }
 
-    // test API call when database is connected
-    getAllCandidates = () => {
-        API.getAllCandidates()
-            .then(res => this.setState({
-
-                // ask about setState id:""...
-                allCandidates: res.data, id: "", name: "", img: ""
-            })
-                .catch(err => {
-                    console.log("Error at getAllCandidates ", err)
-                    res.sendStatus(500)
-                })
-            )
+    componentDidMount(){
+        this.loadCandidates();
     }
 
+    loadCandidates()  {
 
-    // function thats working off static json
-    loadCandidateData() {
-        candidateData.map((candidate, i) => {
-            return (
-                this.setState({
-                    id: candidate[i]._id,
-                    name: candidate[i].name,
-                    img: candidate[i].img,
-                    parties: candidate.parties,
-                    qualities: candidate.qualities
-                })
-            )
+        // initializes compntnt by setting its state & calling a func that makes a call to the database
+        this.setState({ loading: true, isProblem: false }, () => {
+
+        // axios get passes this state which is an empty []
+        API.getAllCandidates(this.state.allCandidates)
+
+            // it returns an array of json objects props & values from database
+            // sets state.loading to false because promise was success & data receieved 
+            .then(res => {
+                this.setState({ allCandidates: res.data,  loading: false});                              
+            })
+
+            // error handling
+            .catch(err => {
+                console.log("Error at getAllCandidates ", err)
+                this.setState({ loading: false, isProblem: true });
+                // res.sendStatus(500);
+            })
         })
     }
 
     // function captures onClick prop name & value dynamically & setStates
     // if prop doesn't exist in state then it will create it in state 
     handleThisClick = event => {
-        console.log('handleClick hit')
+        // console.log('handleClick hit')
 
         // Get the data-value of the clicked candidate
         // expected id: value equal to candidates id in database
         const target = event.target.attributes.getNamedItem('data-id').value;
         console.log('data-id=', target)
 
-        this.setState({ selectedId: target })
-
-        this.getCandidateById();
-        // API.getCandidate(this.state.selectedId)
-        // // .then(res => this.setState({ profileData: res.data }))
-        // // .catch(err => console.log(err));
+        this.setState({ selectedId: target }, this.getCandidateById)
     }
 
-    // uncomment then & catch after db connected
+    // axios call to get candidate by _id in database
     getCandidateById = () => {
 
-        console.log("getCandById selectedId= ", this.state.selectedId)
+        console.log("getCanById() selectedId===== ", this.state.selectedId)
+        
         // grab candidate id & request their profile data from db
-        // .get returns candidate profile data & renders CandidateProfile.js
+        // get() returns candidate profile data & renders specific CandidateProfile.js
         API.getCandidate(this.state.selectedId)
-            .then(res => this.setState({ profileData: res.data })
-                // this.props.history.push("/candidates/ + res.data._id")
-            )
-            .catch(err => {
-                console.log(err)
-                // redirect to NoMatch page
-                this.props.history.push("/NoMatch")
-            })
+
+        //   CRASHING HERE
+            // // needs to save promise json from database to this empty obj 
+            // // & redirect to candidate profile taht matches selectedId
+            // .then(res => this.setState({ profileData: res.data })
+            //     // this.props.history.push("/candidates/ + res.data._id")
+            // )
+            // .catch(err => {
+            //     console.log(err)
+            //     // redirect to NoMatch page
+            //     this.props.history.push("/NoMatch")
+            // })
     }
 
 
@@ -109,35 +106,44 @@ class Candidates extends Component {
 
                     <Row>
                         <Col size="col-md-12 hello">
-                            <div onClick={this.handleThisClick}>
+
+                            {!this.state.allCandidates.length ? (
+                                <h2> Uh-Oh Seems There's No Candidates to Display</h2>
+                            ) : (
+
+                            <div onClick={this.handleThisClick} >
+
                                 <List>
-                                    {this.state.candidateData.map(candidate => {
-                                        // console.log(candidate)
+                                    {this.state.allCandidates.map(candidate => {
+                                        
                                         return (
 
                                             // 1 ListItem per candidate
                                             <ListItem
                                                 key={candidate.name}
-                                                id={candidate.id}
+                                                id={candidate._id}
+                                                // onChange={() => this.setState({ selectedId: candidate._id })
                                             >
-                                                <ul className="list-unstyled" data-id={candidate.id}>
+                                                <ul className="list-unstyled" data-id={candidate._id}>
 
-                                                    <img src={thumbnail} className="img-thumbnail float-left mr-4" width="100px" alt={candidate.name} data-id={candidate.id} />
+                                                    <img src={thumbnail} className="img-thumbnail float-left mr-4" width="100px" alt={candidate.name} data-id={candidate._id} />
                                                     {/* <img src={candidate.img} className="img-thumbnail float-left mr-4"  width="100px" alt={candidate.name} /> */}
 
-                                                    <h2 data-id={candidate.id} className="font-weight-bold">
-                                                        <li data-id={candidate.id}>{candidate.name}</li>
+                                                    <h2 data-id={candidate._id} className="font-weight-bold">
+                                                        <li data-id={candidate._id}>{candidate.name}</li>
                                                     </h2>
 
-                                                    <li data-id={candidate.id}>
-                                                        <span data-id={candidate.id} className="font-weight-bold">Political parties: </span>
+                                                    <li data-id={candidate._id}>
+                                                        <span data-id={candidate._id} className="font-weight-bold">Political parties: </span>
+                                                        
+                                                        {/* mapped because no whitespace between each index values */}
                                                         {candidate.parties.map(party => {
                                                             return party + ", "
                                                         })}
                                                     </li>
 
-                                                    <li data-id={candidate.id}>
-                                                        <span data-id={candidate.id} className="font-weight-bold">Top Qualities: </span>
+                                                    <li data-id={candidate._id}>
+                                                        <span data-id={candidate._id} className="font-weight-bold">Top Qualities: </span>
                                                         {candidate.qualities.map(quality => {
                                                             return quality + ", "
                                                         })}
@@ -148,6 +154,8 @@ class Candidates extends Component {
                                     })}
                                 </List>
                             </div>
+                               
+                               )}
                         </Col>
                     </Row>
                 </Container>
