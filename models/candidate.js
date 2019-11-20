@@ -3,23 +3,27 @@ const Schema = mongoose.Schema;
 
 const CandidateSchema = new Schema({
 
-    id: { type: String, required: true },
     name: { type: String, required: true },
-    image: { type: String, required: true },
+    img: { type: String, required: true },
+    headImg: { type: String, required: true },
     bannerImg: { type: String, required: true },
-    politicalParty: [{ type: String, required: true }],
-    politicalExperience: { type: String, required: true },
-    isideLink: { type: String, required: true },
+    iSideLink: { type: String, required: true },
     policyLink: { type: String, required: true },
-    topThemes: [{ type: String, required: true }],
-    topQualities: [{ type: String, required: true }],
+    parties: [{ type: String, required: true }],
+    experiences: { type: String, required: true },
+    themes: [{ type: String, required: true }],
+    qualities: [{ type: String, required: true }],
     contactInfo: [{
-        website: [{ type: String, required: true }],
-        twitter: [{ type: String, required: true }],
-        facebook: [{ type: String, required: true }],
-        instagram: [{ type: String, required: true }],
+        websites: [{ type: String, required: true }],
+        twitterAccounts: [{ type: String, required: true }],
+        facebookAccounts: [{ type: String, required: true }],
+        instagramAccounts: [{ type: String, required: true }],
     }],
-    date: { type: Date, default: Date.now }
+    stances:  [{ 
+        key: [{type: String, required: true }],
+        question: [{ type: String, required: true }],
+        stance: [{ type: String, required: true }]
+    }]
 });
 
 const Candidate = mongoose.model("Candidate", CandidateSchema);

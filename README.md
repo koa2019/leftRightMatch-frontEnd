@@ -1,7 +1,7 @@
 # Create React Express App
 
 npm install
-run mongod in separate terminal window
+run "mongod" in separate terminal window
 node scripts/seedDb.js
 Will need your own Google Books APIKEY
 npm run start

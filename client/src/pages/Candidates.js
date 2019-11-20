@@ -2,12 +2,12 @@
 import React, { Component } from "react"
 import { Col, Row, Container } from "../components/Grid/Grid"
 import Nav from '../components/Nav/Nav'
+import { List, ListItem } from "../components/List/List"
+import API from "../utils/API"
 import candidateData from "../utils/candidates.json"
 import thumbnail from "../images/UnknownProfile.png"
-import { List, ListItem } from "../components/List/List"
-import "./pageStyles/Candidates.css"
 import banner from "../images/primaries_DEM_JULY.14.jpg"
-import API from "../utils/API"
+import "./pageStyles/Candidates.css"
 
 // can this be function instead of a class?
 class Candidates extends Component {
@@ -45,9 +45,11 @@ class Candidates extends Component {
         candidateData.map((candidate, i) => {
             return (
                 this.setState({
-                    id: candidate[i].id,
+                    id: candidate[i]._id,
                     name: candidate[i].name,
-                    img: candidate[i].img
+                    img: candidate[i].img,
+                    parties: candidate.parties,
+                    qualities: candidate.qualities
                 })
             )
         })
@@ -112,6 +114,8 @@ class Candidates extends Component {
                                     {this.state.candidateData.map(candidate => {
                                         // console.log(candidate)
                                         return (
+
+                                            // 1 ListItem per candidate
                                             <ListItem
                                                 key={candidate.name}
                                                 id={candidate.id}
@@ -127,7 +131,6 @@ class Candidates extends Component {
 
                                                     <li data-id={candidate.id}>
                                                         <span data-id={candidate.id} className="font-weight-bold">Political parties: </span>
-                                                        {/* {candidate.parties} */}
                                                         {candidate.parties.map(party => {
                                                             return party + ", "
                                                         })}
@@ -135,7 +138,6 @@ class Candidates extends Component {
 
                                                     <li data-id={candidate.id}>
                                                         <span data-id={candidate.id} className="font-weight-bold">Top Qualities: </span>
-                                                        {/* {candidate.qualities} */}
                                                         {candidate.qualities.map(quality => {
                                                             return quality + ", "
                                                         })}

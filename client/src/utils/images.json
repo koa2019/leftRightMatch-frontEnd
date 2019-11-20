@@ -2,40 +2,35 @@
     {
         "id": "0",
         "alt": "Elizabeth Warren",
-        "src": "/images/elizabeth-warren_red_profile.png",
-        "src1": "/images/elizabeth-warren_blue.png",
-        "src2": "/images/ElizabethWarren-Headshot-870x580.png",
-        "headImg": "/images/elizabethWarren-cutout_1024x1024.png",
-        "banner": "../images/elizabeth-warren-banner4.png"
+        "src": "../images/elizabeth-warren_red_profile.png",
+        "headImg": "../images/elizabethWarren-cutout_1024x1024.png",
+        "bannerImg": "../images/elizabeth-warren-bannerImg4.png"
     },
     {
         "id": "1",
         "alt": "Bernie Sanders",
         "src": "../images/Bernie-Sanders-circle-16.png",
-        "src1": "../images/berbie_blue_profile1.jpg",
-        "src2": "../images/ElizabethWarren-Headshot-870x580.png",
         "headImg": "../images/berie-sanders-cutout.png",
-        "banner": "../images/bernie-banner1.png"
+        "bannerImg": "../images/bernie-bannerImg1.png"
     },
     {
         "id": "2",
         "alt": "Joe Biden",
         "src": "../images/joe-biden_blue_profile.png",
         "headImg": "../images/joe-biden-cutout.png",
-        "banner": "../images/joe-biden-banner.png"
+        "bannerImg": "../images/joe-biden-bannerImg.png"
     },
     {
         "id": "3",
         "alt": "Donald Trump",
         "src": "../images/trump-profile.png",
-        "src1": "../images/trump-red-profile.png",
         "headImg": "../images/trump-cutout.png",
-        "banner": "../images/trump-banner1.png"
+        "bannerImg": "../images/trump-bannerImg1.png"
     },
     {
         "id": "4",
         "alt": "Unknown Candidate",
         "src": "../images/UnknownProfile.png",
-        "banner": "../images/2020-democrats-illustration.jpg"
+        "bannerImg": "../images/2020-democrats-illustration.jpg"
     }
 ]
