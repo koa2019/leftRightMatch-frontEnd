@@ -13,7 +13,7 @@ const candidateSeed = [
   {
     name: "Elizabeth Warren",
     img: "/images/elizabeth-warren_red_profile.png",
-    headImg: "/images/eelizabethWarren-cutout_1024x1024.png",
+    headImg: "/images/elizabethWarren-cutout_1024x1024.png",
     bannerImg: "/images/elizabeth-warren-banner4.png",
     iSideLink: "https://www.isidewith.com/candidates/elizabeth-warren",
     policyLink: "https://www.isidewith.com/candidates/elizabeth-warren/policies",

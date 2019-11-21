@@ -2,9 +2,8 @@ import React, { Component } from "react"
 import { Col, Row, Container } from "../components/Grid/Grid"
 import Nav from "../components/Nav/Nav"
 import { Results, ResultsItems } from "../components/Results/Results"
-import headImg from "../images/joe-biden-cutout.png"
 // import images from "../utils/images.json"
-import candidatesJSON from "../utils/candidates.json"
+import CandidateMatchesJSON from "../utils/CandidateMatches.json"
 import API from "../utils/API";
 import "./pageStyles/CandidateMatches.css"
 
@@ -15,7 +14,7 @@ class CandidateMatches extends Component {
         this.state = {
             loading: false,
             isProblem: false,
-            candidatesJSON,
+            CandidateMatchesJSON,
             matchData: {},
             key: "",
             name: "",
@@ -40,13 +39,13 @@ class CandidateMatches extends Component {
             () => {
                 API.getCandidateMatches(this.state.userId)
 
-                .then(res => {
-                    console.log('getCandMatch res.data', res.data)
-                    this.setState({ loading: false, completed: true, matchData: res.data })
-                }).catch(err => {
-                    console.log("Err loading CandidateMatches ", err)
-                    this.setState({ loading: false, completed: false, isProblem: true });
-                })
+                    .then(res => {
+                        console.log('getCandMatch res.data', res.data)
+                        this.setState({ loading: false, completed: true, matchData: res.data })
+                    }).catch(err => {
+                        console.log("Err loading CandidateMatches ", err)
+                        this.setState({ loading: false, completed: false, isProblem: true });
+                    })
 
             })
     }
@@ -57,24 +56,24 @@ class CandidateMatches extends Component {
         // console.log('showResults hit')
 
         return (
-            this.state.candidatesJSON.map(candidate => {
-                // this.state.matchData.map(result => {
+            this.state.CandidateMatchesJSON.map(candidate => {
+                // this.state.matchData.map(candidate => {
                 return (
-                    //Code for static json 
+                    // CODE for res.data from db                     
                     <ResultsItems
-                        key={candidate.name}
+                        key={candidate._id}
                         name={candidate.name}
-                        image={headImg}
-                        percentage={"45%"}
+                        image={candidate.headImg}
+                        percentage={candidate.percentageMatch}
                     />
-                    // CODE for res.data from db
-                    // <ResultsItems
-                    //   key={result._id}
-                    //   name={result.name}
-                    //   image={result.headImg}
-                    //   percentage={result.percentageMatch}
-                    // />       
 
+                    //Code for static json 
+                    // <ResultsItems
+                    //     key={candidate.name}
+                    //     name={candidate.name}
+                    //     image={headImg}
+                    //     percentage={"45%"}
+                    // />
                 );
             })
         )
@@ -91,14 +90,10 @@ class CandidateMatches extends Component {
                 <Container specs="uProfile">
                     <Row>
                         <Col size="col-12">
-
                             <div className="resultsStyles mx-auto">
-                                {/* <img src={""} alt="examplepic" /> */}
                                 <Results />
-
                                 {this.state.completed ? this.showResults() : "Error Loading Your Matches Now..."}
                             </div>
-
                         </Col>
                     </Row>
                 </Container >
