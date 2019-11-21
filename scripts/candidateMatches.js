@@ -8,7 +8,7 @@ mongoose.connect(
     "mongodb://localhost/leftRightDB"
 );
 
-const candidateMatchSeed = [
+const candidateMatchesSeed = [
     {
         name: "Elizabeth Warren",
         headImg: "string",
@@ -31,9 +31,9 @@ const candidateMatchSeed = [
     }
 ];
 
-db.CandidateMatch
+db.CandidateMatches
     .remove({})
-    .then(() => db.CandidateMatch.collection.insertMany(candidateMatchSeed))
+    .then(() => db.CandidateMatches.collection.insertMany(candidateMatchesSeed))
     .then(data => {
         console.log(data.result.n + " records inserted!");
         process.exit(0);

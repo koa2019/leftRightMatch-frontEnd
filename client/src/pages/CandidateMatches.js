@@ -3,8 +3,8 @@ import { Col, Row, Container } from "../components/Grid/Grid"
 import Nav from "../components/Nav/Nav"
 import { Results, ResultsItems } from "../components/Results/Results"
 import headImg from "../images/joe-biden-cutout.png"
-import images from "../utils/images.json"
-import allCandidates from "../utils/candidates.json"
+// import images from "../utils/images.json"
+import candidatesJSON from "../utils/candidates.json"
 import API from "../utils/API";
 import "./pageStyles/CandidateMatches.css"
 
@@ -15,35 +15,50 @@ class CandidateMatches extends Component {
         this.state = {
             loading: false,
             isProblem: false,
-            allCandidates,
-            show: "false",
+            candidatesJSON,
+            matchData: {},
             key: "",
             name: "",
             completed: "false"
+            // show: "false",
 
         }
     }
     componentDidMount() {
-        this.showResults();
         this.getCandidateMatch()
     }
+
     getCandidateMatch = () => {
-        this.setState({ completed: true })
 
-        // API.getCandidateMatch(this.setState({ userId: "5dd5b80d8d2d1e5f60ac8852" }))
-        console.log('state.userId= ', this.state.userId)
-        // this.setState({ completed: true })
+        console.log('getCanMatch() hit ')
+        this.setState({
+            loading: true,
+            isProblem: false,
+            // userId: this.props.match.params.id
+            userId: "5dd5da1966c3253ad445824d"
+        },
+            () => {
+                API.getCandidateMatches(this.state.userId)
 
-        // .then(res => {this.setState({matchData: res.data})})
-        // .catch(err => {console.log(err)})
+                .then(res => {
+                    console.log('getCandMatch res.data', res.data)
+                    this.setState({ loading: false, completed: true, matchData: res.data })
+                }).catch(err => {
+                    console.log("Err loading CandidateMatches ", err)
+                    this.setState({ loading: false, completed: false, isProblem: true });
+                })
+
+            })
     }
 
     // fuction maps through results & renders each candidate & percentage of same answers question asked
     showResults = () => {
+
         // console.log('showResults hit')
+
         return (
-            this.state.allCandidates.map(candidate => {
-                // this.state.userResults.map(result => {
+            this.state.candidatesJSON.map(candidate => {
+                // this.state.matchData.map(result => {
                 return (
                     //Code for static json 
                     <ResultsItems
@@ -52,13 +67,12 @@ class CandidateMatches extends Component {
                         image={headImg}
                         percentage={"45%"}
                     />
-
                     // CODE for res.data from db
                     // <ResultsItems
                     //   key={result._id}
                     //   name={result.name}
                     //   image={result.headImg}
-                    //   percentage={result.percentage}
+                    //   percentage={result.percentageMatch}
                     // />       
 
                 );
@@ -77,10 +91,14 @@ class CandidateMatches extends Component {
                 <Container specs="uProfile">
                     <Row>
                         <Col size="col-12">
+
                             <div className="resultsStyles mx-auto">
-                                {/* {this.showResults} */}
-                                {this.state.completed ? this.showResults() : "Loading Your Matches Now..."}
+
+                                <Results />
+
+                                {this.state.completed ? this.showResults() : "Error Loading Your Matches Now..."}
                             </div>
+
                         </Col>
                     </Row>
                 </Container >

@@ -16,7 +16,7 @@ export default {
     // gets 1 candidate by given id
     getCandidate: function (id) {
         console.log('API.js getCandidate(id)= ', id)
-        // return axios.get("/api/candidates/" + id);
+        return axios.get("/api/candidates/" + id);
     },
     // gets user profile with given id
     getUserProfile: function(id) {
@@ -28,8 +28,10 @@ export default {
         console.log('ansData', answersData)
         return axios.post("/api/answers", answersData);
     },
-    getCandidateMatch: function (id) {
-        console.log('getMatch id= ', id)
-        // return axios.get("/api/answers/candidatematch");
+    getCandidateMatches: function (id) {
+        console.log('API getMatch id= ', id)
+        return axios.get("/api/candidatematches/" + id);
+        // return axios.get("/api/answers/candidatematches/:id");
+
     }
 };

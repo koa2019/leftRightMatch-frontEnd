@@ -1,7 +1,7 @@
 module.exports = {
   QuizResult: require("./quizResult"),
   Candidate: require("./candidate"),
-  CandidateMatch: require("./candidateMatch"),
+  CandidateMatches: require("./candidateMatches"),
   Answers: require("./answers")
   };
   

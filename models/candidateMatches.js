@@ -7,6 +7,6 @@ const CandidateMatchSchema = new Schema({
     percentageMatch: { type: Number, required: true }
 });
 
-const CandidateMatch = mongoose.model("CandidateMatch", CandidateMatchSchema);
+const CandidateMatches = mongoose.model("CandidateMatch", CandidateMatchSchema);
 
-module.exports = CandidateMatch;
+module.exports = CandidateMatches;

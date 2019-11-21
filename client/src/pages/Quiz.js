@@ -77,32 +77,6 @@ class Quiz extends Component {
     )
   }
 
-  // // fuction maps through results & renders each candidate & percentage of same answers question asked
-  // showResults = () => {
-  //   // console.log('showResults hit')
-  //   return (
-  //     this.state.allCandidates.map(candidate => {
-  //       // this.state.userResults.map(result => {
-  //       return (
-  //         // CODE for res.data from db
-  //         // <ResultsItems
-  //         //   key={result._id}
-  //         //   name={result.name}
-  //         //   image={result.headImg}
-  //         //   percentage={result.percentage}
-  //         // />       
-  //         <ResultsItems
-  //           key={candidate.name}
-  //           name={candidate.name}
-  //           image={headImg}
-  //           percentage={"45%"}
-  //         />
-  //       );
-  //     })
-  //   )
-  // }
-
-
   // function when a radio input is clicked
   handleInputChange = event => {
 
@@ -172,14 +146,6 @@ class Quiz extends Component {
 
             </Col>
           </Row>
-
-          {/* <Row>
-            <Col size="col-12">
-              <div className="resultsStyles mx-auto">
-                {this.state.completed ? this.showResults() : ""}
-              </div>
-            </Col>
-          </Row>*/}
         </Container>
       </div >
     );

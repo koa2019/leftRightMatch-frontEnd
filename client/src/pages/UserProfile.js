@@ -39,6 +39,10 @@ class UserProfile extends Component {
                                 name={this.state.name}
                                 img={img1}
                             />
+                            <Results />
+                            <ResultsItems>
+                                
+                            </ResultsItems>
                         </Col>
                     </Row>
 
