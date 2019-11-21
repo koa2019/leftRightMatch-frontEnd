@@ -107,6 +107,8 @@ class Quiz extends Component {
         this.setState({ userResults: res.data })
         
         //redirect to results
+        this.props.history.push("/candidatematches")
+
       })
       .catch(err => {
         console.log("UserAnswers Not Saved!", err)

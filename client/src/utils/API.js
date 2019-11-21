@@ -7,6 +7,8 @@ export default {
     // retrieves all questions from database
     getQuestions: function () {
         return axios.get("/api/questions/");
+        // return axios.get("/api/quiz/");
+
     },
     // gets all candidates from database
     getAllCandidates: function () {
@@ -27,11 +29,12 @@ export default {
     saveUserAnswers: function (answersData) {
         console.log('ansData', answersData)
         return axios.post("/api/answers", answersData);
+        return axios.get("/api/quiz/");
     },
     getCandidateMatches: function (id) {
         console.log('API getMatch id= ', id)
         return axios.get("/api/candidatematches/" + id);
-        // return axios.get("/api/answers/candidatematches/:id");
+        // return axios.get("/api/quiz/");
 
     }
 };

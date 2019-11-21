@@ -4,7 +4,7 @@ import { Col, Row, Container } from "../components/Grid/Grid"
 import Nav from '../components/Nav/Nav'
 import { List, ListItem } from "../components/List/List"
 import API from "../utils/API"
-// import candidateData from "../utils/candidates.json"
+import candidateData from "../utils/candidates.json"
 import thumbnail from "../images/UnknownProfile.png"
 import banner from "../images/primaries_DEM_JULY.14.jpg"
 import "./pageStyles/Candidates.css"
@@ -20,7 +20,8 @@ class Candidates extends Component {
             name: "",
             image: "",
             id: "",
-            allCandidates: [],
+            // allCandidates: candidateData,
+            allCandidates: {},
             profileData: {}
         }
     }
@@ -34,8 +35,8 @@ class Candidates extends Component {
         // initializes compntnt by setting its state & calling a func that makes a call to the database
         this.setState({ loading: true, isProblem: false }, () => {
 
-        // axios get passes this state which is an empty []
-        API.getAllCandidates(this.state.allCandidates)
+        // axios get passes this state which is an empty {}
+        API.getAllCandidates()
 
             // it returns an array of json objects props & values from database
             // sets state.loading to false because promise was success & data receieved 
@@ -47,7 +48,6 @@ class Candidates extends Component {
             .catch(err => {
                 console.log("Error at getAllCandidates ", err)
                 this.setState({ loading: false, isProblem: true });
-                // res.sendStatus(500);
             })
         })
     }
@@ -74,17 +74,17 @@ class Candidates extends Component {
         // get() returns candidate profile data & renders specific CandidateProfile.js
         API.getCandidate(this.state.selectedId)
 
-        //   CRASHING HERE
-            // // needs to save promise json from database to this empty obj 
-            // // & redirect to candidate profile taht matches selectedId
-            // .then(res => this.setState({ profileData: res.data })
-            //     // this.props.history.push("/candidates/ + res.data._id")
-            // )
-            // .catch(err => {
-            //     console.log(err)
-            //     // redirect to NoMatch page
-            //     this.props.history.push("/NoMatch")
-            // })
+         // CRASHING HERE
+            // needs to save promise json from database to this empty obj 
+            // & redirect to candidate profile taht matches selectedId
+            .then(res => this.setState({ profileData: res.data })
+                // this.props.history.push("/candidates/ + res.data._id")
+            )
+            .catch(err => {
+                console.log(err)
+                // redirect to NoMatch page
+                this.props.history.push("/NoMatch")
+            })
     }
 
 

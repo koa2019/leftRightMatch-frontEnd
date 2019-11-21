@@ -2,7 +2,7 @@ import React from "react"
 import "./ProfileCard.css"
 
 function ProfileCard(props) {
-    // console.log(props)
+    console.log(Array.isArray(props.parties))
     return (
         <div className="card candidate-card p-0">
             <div>
@@ -13,7 +13,12 @@ function ProfileCard(props) {
 
             </div>
             <ul className="list-group list-group-flush ul-size">
-                <li className="list-group-item">Political Party:
+                <li className="list-group-item">Political Parties:
+                
+                {/* <p className="p-size">{props.parties.map(party => {
+                                                            return party + ", "
+                                                        })}}</p> */}
+
                 <p className="p-size">{props.parties}</p>
                 </li>
                 <li className="list-group-item">Themes:

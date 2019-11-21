@@ -7,7 +7,7 @@ router.route("/")
 
 // Matches with "/api/answers/candidatematches/:id"
 router.route("/:id")
-  .get(candidateMatchesController.findById)
+  // .get(candidateMatchesController.findById)
 
 
 // Matches with "/api/candidates/:id"

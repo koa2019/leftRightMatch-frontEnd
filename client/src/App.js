@@ -19,7 +19,6 @@ function App() {
     return (
       <Router>
         <div>
-          {/* <Nav /> */}
           <Switch>
             <Route exact path="/" component={FrontPage} />
             <Route exact path="/quiz" component={Quiz} />

@@ -25,7 +25,7 @@ class CandidateMatches extends Component {
         }
     }
     componentDidMount() {
-        this.getCandidateMatch()
+        // this.getCandidateMatch()
     }
 
     getCandidateMatch = () => {
@@ -93,7 +93,7 @@ class CandidateMatches extends Component {
                         <Col size="col-12">
 
                             <div className="resultsStyles mx-auto">
-
+                                {/* <img src={""} alt="examplepic" /> */}
                                 <Results />
 
                                 {this.state.completed ? this.showResults() : "Error Loading Your Matches Now..."}

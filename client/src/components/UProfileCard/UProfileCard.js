@@ -13,11 +13,11 @@ function ProfileCard(props) {
                     <h1 className="card-title">{props.name}</h1>
                 </div>
                 <div className="card-body">
-                    <h1 className="card-title">Results</h1>
-                    <p>Elizabeth Warren: 45%</p>
+                    {/* <h1 className="card-title">Results</h1> */}
+                    {/* <p>Elizabeth Warren: 45%</p>
                     <p>Bernie Sanders: 43%</p>
                     <p>Donald Trump 25%</p>
-                    <p>Joe Biden 24%</p>
+                    <p>Joe Biden 24%</p> */}
                 </div>
             </div>
         </div>
