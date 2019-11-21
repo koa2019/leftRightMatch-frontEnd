@@ -6,7 +6,6 @@ import ProfileCard from "../components/ProfileCard/ProfileCard"
 import candidateJSON from "../utils/candidates.json"
 import "./pageStyles/CandidateProfile.css"
 import API from "../utils/API"
-// import SocialMedia from "../components/SocialMedia/SocialMedia"
 
 
 class CandidateProfile extends Component {
@@ -14,43 +13,33 @@ class CandidateProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            // allCandidates: [],
-            candidate: {},
+            // profileData: {},
+            profileData: candidateJSON[2]
         }
     }
 
-    // function gets all candidates from database & renders them to html page
-    getCandidate = () => {
-        // grab candidate _id from params & request their profile data from db
-        // .get returs candidate profile data & renders CandidateProfile.js
-        API.getCandidate(this.props.match.params.id)
-            .then(res => this.setState({ profileData: res.data }))
-            .catch(err => console.log(err));
-    }
-
-    // looks horribly ugly. Must be more effiecient way of setting their states
+    // function gets one candidate passed on their _id indatabase & renders their props+values to html page
     componentDidMount() {
-        this.setState({
-            candidate: candidateJSON[1]
-        })
-    }
+        API.getCandidate(this.props.match.params.id)
+            // .then(res => this.setState({ profileData: res.data }))
+            // .catch(err => console.log(err));
+    }   
 
     render() {
 
-        console.log('candidataData ', candidateJSON)
-        console.log('render() state ', this.state.candidate)
+        console.log('render() state ', this.state.profileData)
         return (
             <div>
                 <Nav />
                 <div className="banner">
-                    <img  className="banner-img" src={this.state.candidate.bannerImg} alt={this.state.candidate.name} />
+                    <img  className="banner-img" src={this.state.profileData.bannerImg} alt={this.state.profileData.name} />
                 </div>
 
                 <Container specs="hello">
                     <Row>
                         <Col size="col-md-auto mx-auto">
                             <ProfileCard
-                                {...this.state.candidate}
+                                {...this.state.profileData}
                                 
                             />
                         </Col>

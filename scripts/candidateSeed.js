@@ -146,7 +146,7 @@ const candidateSeed = [
       "Democratic Party"
     ],
     experiences: [
-      " United States Vice President",
+      "United States Vice President",
       "United States Senator"
     ],
     themes: [

@@ -12,6 +12,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
+    console.log('findById req', req.params)
     db.Candidate
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
