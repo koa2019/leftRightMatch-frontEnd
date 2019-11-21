@@ -18,7 +18,7 @@ export function QuizFormItem(props) {
         <div className="form-group">
             <div className="label" >
                 {props.name}
-                <h3>{props.question}</h3>
+                <h3 className="h3Item">{props.question}</h3>
             </div>
             {props.children}
         </div>

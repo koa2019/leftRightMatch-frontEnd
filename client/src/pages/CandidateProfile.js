@@ -4,12 +4,9 @@ import { Col, Row, Container } from "../components/Grid/Grid"
 import Nav from "../components/Nav/Nav"
 import ProfileCard from "../components/ProfileCard/ProfileCard"
 import candidateJSON from "../utils/candidates.json"
-import Img from "../images/bernie_blue_profile1.jpg"
-import EWBanner from "../images/bernie-banner1.png"
 import "./pageStyles/CandidateProfile.css"
 import API from "../utils/API"
 // import SocialMedia from "../components/SocialMedia/SocialMedia"
-// import API from "../utils/API"
 
 
 class CandidateProfile extends Component {

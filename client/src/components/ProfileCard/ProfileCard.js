@@ -14,11 +14,6 @@ function ProfileCard(props) {
             </div>
             <ul className="list-group list-group-flush ul-size">
                 <li className="list-group-item">Political Parties:
-                
-                {/* <p className="p-size">{props.parties.map(party => {
-                                                            return party + ", "
-                                                        })}}</p> */}
-
                 <p className="p-size">{props.parties}</p>
                 </li>
                 <li className="list-group-item">Themes:
@@ -28,7 +23,7 @@ function ProfileCard(props) {
                 <p className="p-size">{props.qualities}</p>
                     <a href={props.policies} className="ul-size">Policies</a>
                 </li>
-                <li className="list-group-item">Political Experience:
+                <li className="list-group-item">Political Experiences:
                 <p className="p-size">{props.experiences}</p>
                 </li>
             </ul>

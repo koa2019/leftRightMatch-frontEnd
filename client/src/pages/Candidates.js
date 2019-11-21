@@ -4,8 +4,6 @@ import { Col, Row, Container } from "../components/Grid/Grid"
 import Nav from '../components/Nav/Nav'
 import { List, ListItem } from "../components/List/List"
 import API from "../utils/API"
-import candidateData from "../utils/candidates.json"
-import thumbnail from "../images/UnknownProfile.png"
 import banner from "../images/primaries_DEM_JULY.14.jpg"
 import "./pageStyles/Candidates.css"
 
@@ -20,7 +18,6 @@ class Candidates extends Component {
             name: "",
             image: "",
             id: "",
-            // allCandidates: candidateData,
             allCandidates: {},
             profileData: {}
         }
@@ -77,8 +74,10 @@ class Candidates extends Component {
          // CRASHING HERE
             // needs to save promise json from database to this empty obj 
             // & redirect to candidate profile taht matches selectedId
-            .then(res => this.setState({ profileData: res.data })
-                // this.props.history.push("/candidates/ + res.data._id")
+            .then(res => this.setState({ profileData: res.data }, () => {
+                this.props.history.push("candidates/" + this.state.profileData._id)
+            })
+                // this.props.history.push("/candidates/" + res.data._id)
             )
             .catch(err => {
                 console.log(err)
@@ -108,7 +107,7 @@ class Candidates extends Component {
                         <Col size="col-md-12 hello">
 
                             {!this.state.allCandidates.length ? (
-                                <h2> Uh-Oh Seems There's No Candidates to Display</h2>
+                                <h2> Loading...</h2>
                             ) : (
 
                             <div onClick={this.handleThisClick} >
@@ -122,12 +121,10 @@ class Candidates extends Component {
                                             <ListItem
                                                 key={candidate.name}
                                                 id={candidate._id}
-                                                // onChange={() => this.setState({ selectedId: candidate._id })
                                             >
                                                 <ul className="list-unstyled" data-id={candidate._id}>
 
-                                                    <img src={thumbnail} className="img-thumbnail float-left mr-4" width="100px" alt={candidate.name} data-id={candidate._id} />
-                                                    {/* <img src={candidate.img} className="img-thumbnail float-left mr-4"  width="100px" alt={candidate.name} /> */}
+                                                    <img src={candidate.img} className="img-thumbnail float-left mr-4" width="100px" alt={candidate.name} data-id={candidate._id} />
 
                                                     <h2 data-id={candidate._id} className="font-weight-bold">
                                                         <li data-id={candidate._id}>{candidate.name}</li>

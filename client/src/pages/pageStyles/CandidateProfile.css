@@ -11,8 +11,7 @@
 }
 
 .banner-img {
-    height: 50vh;
-    /* max-height: 300px;  */
+    height: 300px;
     width: 100%;
 
 
@@ -23,5 +22,5 @@
     border: thin solid var(--light-blue);    
     background-image: linear-gradient(to top left, var(--medium-blue),var(--light-blue));
     padding: 10px;
-    background-color: var(--bright-red);
+    /* margin: 100px auto; */
 }

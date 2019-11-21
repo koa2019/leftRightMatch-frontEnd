@@ -29,7 +29,7 @@ export default {
     saveUserAnswers: function (answersData) {
         console.log('ansData', answersData)
         return axios.post("/api/answers", answersData);
-        return axios.get("/api/quiz/");
+        // return axios.get("/api/quiz/");
     },
     getCandidateMatches: function (id) {
         console.log('API getMatch id= ', id)
