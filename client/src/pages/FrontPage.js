@@ -4,6 +4,8 @@ import { Col, Row, Container } from "../components/Grid/Grid"
 import Image from "../components/Image/Image"
 import logoImg from "../images/leftRightMatch3.png"
 import Nav from "../components/Nav/Nav"
+// import Roll from 'react-reveal/Roll';
+import Zoom from 'react-reveal/Zoom'
 
 class FrontPage extends Component {
 
@@ -20,13 +22,17 @@ class FrontPage extends Component {
                     <Row fluid>
                         <Col size="mx-auto">
                             <div onClick={this.handleThisClick}>
-                                <Image
-                                    image={logoImg}
-                                    name={logoImg.name}
-                                >
-                                    {/* Need to position text closer to logo */}
-                                    <h1>Which Political Candidate Are You Most Like?</h1>
-                                </Image>
+                                {/* <Roll bottom opposite when={this.state.show}> */}
+                                <Zoom left>
+                                    <Image
+                                        image={logoImg}
+                                        name={logoImg.name}
+                                    >
+                                        {/* Need to position text closer to logo */}
+                                        <h1>Which Political Candidate Are You Most Like?</h1>
+                                    </Image>
+                                </Zoom>
+                                {/* </Roll> */}
                             </div>
                         </Col>
                     </Row>
