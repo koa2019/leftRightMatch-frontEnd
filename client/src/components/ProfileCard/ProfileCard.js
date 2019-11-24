@@ -29,25 +29,13 @@ function ProfileCard(props) {
             </ul>
             <div className="card-body">
                 <h4>Social Media</h4>
-                {props.contactInfo.twitterAccounts.map(twitter => {
-                    return (
-                        <a className="smaller"> {twitter}</a>)
-                })}
-                {props.contactInfo.facebookAccounts.map(facebook => {
-                    return (
-                        <a className="smaller"> {facebook}</a>)
-                })}
-                {props.contactInfo.instagramAccounts.map(instagram => {
-                    return (
-                        <a className="smaller"> {instagram}</a>)
-                })}
+                {/* {props.contactInfo.twitterAccounts.join(", ")} */}
+                {/* {props.contactInfo.facebookAccounts.join(", ")} */}
+                {/* {props.contactInfo.instagramAccounts.join(", ")} */}
             </div>
             <div className="card-body">
                 <h4>Official Websites</h4>
-                {props.contactInfo.websites.map(website => {
-                    return (
-                        <a className="smaller card-link"> {website}</a>)
-                })}
+                {/* {props.contactInfo.websites.join(", ")} */}
                 <a href={props.iSideLink} className="card-link">iSideWith Profile</a>
             </div>
         </div>

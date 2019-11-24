@@ -6,7 +6,7 @@ export default {
 
     // retrieves all questions from database
     getQuestions: function () {
-        return axios.get("/api/questions/");
+        return axios.get("/api/questions");
         // return axios.get("/api/quiz/");
 
     },

@@ -3,7 +3,7 @@ import React, { Component } from "react"
 import { Col, Row, Container } from "../components/Grid/Grid"
 import Nav from "../components/Nav/Nav"
 import ProfileCard from "../components/ProfileCard/ProfileCard"
-import candidateJSON from "../utils/candidates.json"
+// import candidateJSON from "../utils/candidates.json"
 import "./pageStyles/CandidateProfile.css"
 import API from "../utils/API"
 
@@ -13,20 +13,20 @@ class CandidateProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            // profileData: {},
-            profileData: candidateJSON[2]
+            isReady: false,
+            profileData: {},
+            // profileData: candidateJSON[2]
         }
     }
 
     // function gets one candidate passed on their _id indatabase & renders their props+values to html page
     componentDidMount() {
         API.getCandidate(this.props.match.params.id)
-            // .then(res => this.setState({ profileData: res.data }))
-            // .catch(err => console.log(err));
+            .then(res => this.setState({ profileData: res.data }))
+            .catch(err => console.log(err));
     }   
 
     render() {
-
         console.log('render() state ', this.state.profileData)
         return (
             <div>

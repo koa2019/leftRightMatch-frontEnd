@@ -4,13 +4,19 @@ import { Col, Row, Container } from "../components/Grid/Grid"
 import Image from "../components/Image/Image"
 import logoImg from "../images/leftRightMatch3.png"
 import Nav from "../components/Nav/Nav"
-// import Roll from 'react-reveal/Roll';
-import Zoom from 'react-reveal/Zoom'
+import Roll from 'react-reveal/Roll';
 
 class FrontPage extends Component {
 
+    constructor(props){
+        super(props)
+        this.state = {
+            show: true
+        }
+    }
     handleThisClick = () => {
         console.log('handleClick hit')
+        
         this.props.history.push("/quiz")
     }
 
@@ -22,8 +28,8 @@ class FrontPage extends Component {
                     <Row fluid>
                         <Col size="mx-auto">
                             <div onClick={this.handleThisClick}>
+                                <Roll bottom opposite>
                                 {/* <Roll bottom opposite when={this.state.show}> */}
-                                <Zoom left>
                                     <Image
                                         image={logoImg}
                                         name={logoImg.name}
@@ -31,8 +37,7 @@ class FrontPage extends Component {
                                         {/* Need to position text closer to logo */}
                                         <h1>Which Political Candidate Are You Most Like?</h1>
                                     </Image>
-                                </Zoom>
-                                {/* </Roll> */}
+                                </Roll>
                             </div>
                         </Col>
                     </Row>

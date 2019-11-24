@@ -59,32 +59,35 @@ class Candidates extends Component {
         const target = event.target.attributes.getNamedItem('data-id').value;
         console.log('data-id=', target)
 
-        this.setState({ selectedId: target }, this.getCandidateById)
+        // this.setState({ selectedId: target }, this.getCandidateById)
+        this.setState({ selectedId: target }, () =>{ 
+            this.props.history.push("candidates/" + this.state.selectedId)
+        })
     }
 
     // axios call to get candidate by _id in database
-    getCandidateById = () => {
+    // getCandidateById = () => {
 
-        console.log("getCanById() selectedId===== ", this.state.selectedId)
+    //     console.log("getCanById() selectedId===== ", this.state.selectedId)
         
-        // grab candidate id & request their profile data from db
-        // get() returns candidate profile data & renders specific CandidateProfile.js
-        API.getCandidate(this.state.selectedId)
+    //     // grab candidate id & request their profile data from db
+    //     // get() returns candidate profile data & renders specific CandidateProfile.js
+    //     API.getCandidate(this.state.selectedId)
 
-         // CRASHING HERE
-            // needs to save promise json from database to this empty obj 
-            // & redirect to candidate profile taht matches selectedId
-            .then(res => this.setState({ profileData: res.data }, () => {
-                this.props.history.push("candidates/" + this.state.profileData._id)
-            })
-                // this.props.history.push("/candidates/" + res.data._id)
-            )
-            .catch(err => {
-                console.log(err)
-                // redirect to NoMatch page
-                this.props.history.push("/NoMatch")
-            })
-    }
+    //      // CRASHING HERE
+    //         // needs to save promise json from database to this empty obj 
+    //         // & redirect to candidate profile taht matches selectedId
+    //         .then(res => this.setState({ profileData: res.data }, () => {
+    //             this.props.history.push("candidates/" + this.state.selectedId)
+    //         })
+    //             // this.props.history.push("/candidates/" + res.data._id)
+    //         )
+    //         .catch(err => {
+    //             console.log(err)
+    //             // redirect to NoMatch page
+    //             this.props.history.push("/NoMatch")
+    //         })
+    // }
 
 
     render() {
