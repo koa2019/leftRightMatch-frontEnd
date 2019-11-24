@@ -23,29 +23,29 @@ class Candidates extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.loadCandidates();
     }
 
-    loadCandidates()  {
+    loadCandidates() {
 
         // initializes compntnt by setting its state & calling a func that makes a call to the database
         this.setState({ loading: true, isProblem: false }, () => {
 
-        // axios get passes this state which is an empty {}
-        API.getAllCandidates()
+            // axios get passes this state which is an empty {}
+            API.getAllCandidates()
 
-            // it returns an array of json objects props & values from database
-            // sets state.loading to false because promise was success & data receieved 
-            .then(res => {
-                this.setState({ allCandidates: res.data,  loading: false});                              
-            })
+                // it returns an array of json objects props & values from database
+                // sets state.loading to false because promise was success & data receieved 
+                .then(res => {
+                    this.setState({ allCandidates: res.data, loading: false });
+                })
 
-            // error handling
-            .catch(err => {
-                console.log("Error at getAllCandidates ", err)
-                this.setState({ loading: false, isProblem: true });
-            })
+                // error handling
+                .catch(err => {
+                    console.log("Error at getAllCandidates ", err)
+                    this.setState({ loading: false, isProblem: true });
+                })
         })
     }
 
@@ -59,36 +59,11 @@ class Candidates extends Component {
         const target = event.target.attributes.getNamedItem('data-id').value;
         console.log('data-id=', target)
 
-        // this.setState({ selectedId: target }, this.getCandidateById)
-        this.setState({ selectedId: target }, () =>{ 
+        // set state with clicked candidates id & then redirect to their profile
+        this.setState({ selectedId: target }, () => {
             this.props.history.push("candidates/" + this.state.selectedId)
         })
     }
-
-    // axios call to get candidate by _id in database
-    // getCandidateById = () => {
-
-    //     console.log("getCanById() selectedId===== ", this.state.selectedId)
-        
-    //     // grab candidate id & request their profile data from db
-    //     // get() returns candidate profile data & renders specific CandidateProfile.js
-    //     API.getCandidate(this.state.selectedId)
-
-    //      // CRASHING HERE
-    //         // needs to save promise json from database to this empty obj 
-    //         // & redirect to candidate profile taht matches selectedId
-    //         .then(res => this.setState({ profileData: res.data }, () => {
-    //             this.props.history.push("candidates/" + this.state.selectedId)
-    //         })
-    //             // this.props.history.push("/candidates/" + res.data._id)
-    //         )
-    //         .catch(err => {
-    //             console.log(err)
-    //             // redirect to NoMatch page
-    //             this.props.history.push("/NoMatch")
-    //         })
-    // }
-
 
     render() {
         console.log('render() ', this.state)
@@ -113,49 +88,49 @@ class Candidates extends Component {
                                 <h2> Loading...</h2>
                             ) : (
 
-                            <div onClick={this.handleThisClick} >
+                                    <div onClick={this.handleThisClick} >
 
-                                <List>
-                                    {this.state.allCandidates.map(candidate => {
-                                        
-                                        return (
+                                        <List>
+                                            {this.state.allCandidates.map(candidate => {
 
-                                            // 1 ListItem per candidate
-                                            <ListItem
-                                                key={candidate.name}
-                                                id={candidate._id}
-                                            >
-                                                <ul className="list-unstyled" data-id={candidate._id}>
+                                                return (
 
-                                                    <img src={candidate.img} className="img-thumbnail float-left mr-4" width="100px" alt={candidate.name} data-id={candidate._id} />
+                                                    // 1 ListItem per candidate
+                                                    <ListItem
+                                                        key={candidate.name}
+                                                        id={candidate._id}
+                                                    >
+                                                        <ul className="list-unstyled" data-id={candidate._id}>
 
-                                                    <h2 data-id={candidate._id} className="font-weight-bold">
-                                                        <li data-id={candidate._id}>{candidate.name}</li>
-                                                    </h2>
+                                                            <img src={candidate.img} className="img-thumbnail float-left mr-4" width="100px" alt={candidate.name} data-id={candidate._id} />
 
-                                                    <li data-id={candidate._id}>
-                                                        <span data-id={candidate._id} className="font-weight-bold">Political parties: </span>
-                                                        
-                                                        {/* mapped because no whitespace between each index values */}
-                                                        {candidate.parties.map(party => {
-                                                            return party + ", "
-                                                        })}
-                                                    </li>
+                                                            <h2 data-id={candidate._id} className="font-weight-bold">
+                                                                <li data-id={candidate._id}>{candidate.name}</li>
+                                                            </h2>
 
-                                                    <li data-id={candidate._id}>
-                                                        <span data-id={candidate._id} className="font-weight-bold">Top Qualities: </span>
-                                                        {candidate.qualities.map(quality => {
-                                                            return quality + ", "
-                                                        })}
-                                                    </li>
-                                                </ul>
-                                            </ListItem>
-                                        )
-                                    })}
-                                </List>
-                            </div>
-                               
-                               )}
+                                                            <li data-id={candidate._id}>
+                                                                <span data-id={candidate._id} className="font-weight-bold">Political parties: </span>
+
+                                                                {/* mapped because no whitespace between each index values */}
+                                                                {candidate.parties.map(party => {
+                                                                    return party + ", "
+                                                                })}
+                                                            </li>
+
+                                                            <li data-id={candidate._id}>
+                                                                <span data-id={candidate._id} className="font-weight-bold">Top Qualities: </span>
+                                                                {candidate.qualities.map(quality => {
+                                                                    return quality + ", "
+                                                                })}
+                                                            </li>
+                                                        </ul>
+                                                    </ListItem>
+                                                )
+                                            })}
+                                        </List>
+                                    </div>
+
+                                )}
                         </Col>
                     </Row>
                 </Container>

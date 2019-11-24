@@ -26,6 +26,8 @@ class CandidateProfile extends Component {
             .catch(err => console.log(err));
     }   
 
+    // need to make render wait for compontentDidMount to load 1st because
+    // arrays passed to ProfileCard are undefined when trying to loop through them
     render() {
         console.log('render() state ', this.state.profileData)
         return (
@@ -39,8 +41,7 @@ class CandidateProfile extends Component {
                     <Row>
                         <Col size="col-md-auto mx-auto">
                             <ProfileCard
-                                {...this.state.profileData}
-                                
+                                {...this.state.profileData}                                
                             />
                         </Col>
                     </Row>

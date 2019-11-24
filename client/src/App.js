@@ -25,7 +25,6 @@ function App() {
             <Route exact path="/candidatematches" component={CandidateMatches} />
             <Route exact path="/candidates" component={Candidates} />
             <Route exact path="/candidates/:id" component={CandidateProfile} />
-            {/* <Route exact path="/candidatesprofile" component={CandidateProfile} /> */}
             <Route exact path="/login" component={LoginSignUp} />
             <Route path="/logout" component={LogOut} />
             <Route exact path="/userprofile" component={UserProfile} />

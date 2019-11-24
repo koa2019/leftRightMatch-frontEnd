@@ -18,41 +18,29 @@ class Quiz extends Component {
     this.state = {
       loading: false,
       isProblem: false,
-      questions,
-      userResults: [],
       answers: {},
       value: "",
-      ////////////////////
-      // keys for res.data
-      isLoggedIn: "",
       userId: "",
-      questionsData: [],
       key: "",
       name: ""
-      /////////////////
-      // candidateMatches states dont delete until sure nothing else needs it after i moved it to its own page
-      // allCandidates,
-      // completed: false,
-      // show: "false",
-      // headImg,
-      
+
     };
   }
 
   // uncomment this function when backend is ready to use
 
   loadQuestions() {
-    //   this.setState({ loading: true, isProblem: false }, () => {
-    API.getQuestions()
-    //       .then(res => {
-    //         this.setState({ questionsData: res.data, loading: false });
-    //         console.log(this.state.questionsData)
-    //       })
-    //       .catch(err => {
-    //         console.log(err)
-    //         this.setState({ loading: false, isProblem: true });
-    //       });
-    //   });
+    this.setState({ loading: true, isProblem: false }, () => {
+      API.getQuestions()
+        .then(res => {
+          this.setState({ questionsData: res.data, loading: false });
+          console.log(this.state.questionsData)
+        })
+        .catch(err => {
+          console.log(err)
+          this.setState({ loading: false, isProblem: true });
+        });
+    });
   }
 
   // renders questions & stances
@@ -105,7 +93,7 @@ class Quiz extends Component {
         //save response from database to state.userAnswers
         console.log('userAnswers Saved!', res.data)
         this.setState({ userResults: res.data })
-        
+
         //redirect to results
         this.props.history.push("/candidatematches")
 
@@ -138,7 +126,8 @@ class Quiz extends Component {
 
                 <QuizForm specs={"quizForm"} onSubmit={this.handleQuizSubmit}>
 
-                  {!this.state.completed ? this.renderQuestions() : "Calculating Your Scores Now..."}
+                  {!this.state.completed ? this.loadQuestions() : "Loading Questions..."}
+                  {/* {!this.state.completed ? this.renderQuestions() : "Calculating Your Scores Now..."} */}
 
                   <FormBtn
                   >Submit</FormBtn>
